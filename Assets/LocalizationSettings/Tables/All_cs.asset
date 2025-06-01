@@ -1,0 +1,451 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: All_cs
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: cs
+  m_SharedData: {fileID: 11400000, guid: b2662fbefb1ac46448479ad406789287, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 13874118656
+    m_Localized: "P\u0159ihl\xE1\u0161en\xED rodi\u010De"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19775504384
+    m_Localized: E-mail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23743315968
+    m_Localized: Heslo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378258472960
+    m_Localized: "P\u0159ihl\xE1sit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 558005370880
+    m_Localized: "D\u011Btsk\xFD re\u017Eim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 643648864256
+    m_Localized: "Zapomn\u011Bli jste heslo? <b>Obnovit heslo.<b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 839212482560
+    m_Localized: "Nem\xE1te \xFA\u010Det? <b>M\u016F\u017Eete se registrovat.<b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 844023349248
+    m_Localized: "P\u0159ihl\xE1sit p\u0159es Gmail"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1143194664960
+    m_Localized: Beta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1175432085504
+    m_Localized: Checki App v.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443573940224
+    m_Localized: "Jm\xE9no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1524624670720
+    m_Localized: "Tel. \u010D\xEDslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1581033865216
+    m_Localized: Registrovat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1630337908736
+    m_Localized: "Ji\u017E m\xE1te \xFA\u010Det?<b> M\u016F\u017Eete se p\u0159ihl\xE1sit.<b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2800783605760
+    m_Localized: "Po\u010Det \u010Dlen\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2814075355136
+    m_Localized: "O na\u0161\xED rodin\u011B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2815505612800
+    m_Localized: "Dom\xE1c\xED mazl\xED\u010Dci"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360190513152
+    m_Localized: "Z\xE1jmy a kon\xED\u010Dky :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3361817903104
+    m_Localized: 'Jmenuji se :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3362644180992
+    m_Localized: "\u0158\xEDkaj\xED mi :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3363738894336
+    m_Localized: "Po\u010Det \u010Dlen\u016F rodiny :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3704257658880
+    m_Localized: "Po\u010Det d\u011Bt\xED v rodin\u011B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3795999670272
+    m_Localized: Pes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3796708507648
+    m_Localized: "Ko\u010Dka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3797467676672
+    m_Localized: "Rybi\u010Dky"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3802085605376
+    m_Localized: "Ostatn\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3947321769984
+    m_Localized: "Va\u0159en\xED a pe\u010Den\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3943806943232
+    m_Localized: "Cestov\xE1n\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3948588449792
+    m_Localized: Hudba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3950576549888
+    m_Localized: Sport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3952312991744
+    m_Localized: "Spole\u010Densk\xE9 hry"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3953894244352
+    m_Localized: Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3955450331136
+    m_Localized: "Kreativn\xED \u010Dinnosti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3957136441344
+    m_Localized: Kultura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5063455424512
+    m_Localized: "Admin - rodi\u010D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5066391437312
+    m_Localized: "D\u011Bti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5067138023424
+    m_Localized: "\xDAkoly"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5069822377984
+    m_Localized: "Odm\u011Bny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5185815855104
+    m_Localized: "Kalend\xE1\u0159"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5187283861504
+    m_Localized: "Nastaven\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5188584095744
+    m_Localized: "Odhl\xE1sit se"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5192560295936
+    m_Localized: "P\u0159idat odm\u011Bnu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10103930896384
+    m_Localized: "Stav \xFA\u010Dtu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10105059164160
+    m_Localized: "kredit\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10107907096576
+    m_Localized: "Schv\xE1lit v\xFDm\u011Bnu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10913414791168
+    m_Localized: "Spr\xE1va d\u011Bt\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10914735996928
+    m_Localized: "Ulo\u017Eit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10915943956480
+    m_Localized: "Vlastn\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10920830320640
+    m_Localized: Platnost do
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11382153428992
+    m_Localized: "P\u0159idat d\xEDt\u011B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11547027324928
+    m_Localized: "Pozvat d\xEDt\u011B / partnera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11552286982144
+    m_Localized: "P\u0159ezd\xEDvka :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11555097165824
+    m_Localized: "V\u011Bk :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11558192562176
+    m_Localized: "Stav \xFAkol\u016F :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11905514487808
+    m_Localized: "Nespln\u011Bno"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11902955962368
+    m_Localized: "Spln\u011Bno"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11907125100544
+    m_Localized: "Vybran\xE9 odm\u011Bny :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11908710547456
+    m_Localized: "Vybr\xE1no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12166979010560
+    m_Localized: "Nevybr\xE1no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169214574592
+    m_Localized: "Zobrazit \xFAkoly"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169906634752
+    m_Localized: "Zobrazit odm\u011Bny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12171332698112
+    m_Localized: "Ke schv\xE1len\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12431631204352
+    m_Localized: "Nov\xFD \xFAkol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12433006936064
+    m_Localized: "P\u0159idat \xFAkol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12434047123456
+    m_Localized: "kr\xE1t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16741840601088
+    m_Localized: "Pen\u011B\u017Eenka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16740888494080
+    m_Localized: "Vym\u011Bnit kredit za pen\xEDze"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16006927237120
+    m_Localized: Vybrat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16005601837056
+    m_Localized: "Sb\xEDrka p\u0159\xED\u0161erek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16004591009792
+    m_Localized: "Obl\xE9kni p\u0159\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15625090383872
+    m_Localized: "Odm\u011Bny a kredit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15623358136320
+    m_Localized: "\xDAkoly od Checkiho"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15622015959040
+    m_Localized: "\xDAkoly od rodi\u010D\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15621185486848
+    m_Localized: "P\u0159ihl\xE1sit jako rodi\u010D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15620489232384
+    m_Localized: "Zadej k\xF3d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13481306112000
+    m_Localized: "Zm\u011Bnit jm\xE9no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13482853810176
+    m_Localized: "Zm\u011Bnit po\u010Det \u010Dlen\u016F "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13484040798208
+    m_Localized: "Zm\u011Bnit po\u010Det d\u011Bt\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13485580107776
+    m_Localized: "Upravit z\xE1jmy rodiny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13674768384000
+    m_Localized: "Zm\u011Bnit heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13676215418880
+    m_Localized: "Finan\u010Dn\xED m\xF3d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13677347880960
+    m_Localized: "Re\u017Eim spo\u0159en\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13684369145856
+    m_Localized: "Nahr\xE1t fotku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14051345580032
+    m_Localized: "Domovsk\xE1 obrazovka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946015125504
+    m_Localized: "Zm\u011Bnit pozad\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16945495031808
+    m_Localized: "Zp\u011Bt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16744214577152
+    m_Localized: "Dostupn\xE9 odm\u011Bny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16742964674560
+    m_Localized: "M\u016Fj dostupn\xFD kredit : "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946531024896
+    m_Localized: "Hlad p\u0159\xED\u0161erky 50% | pokles kreditu - 50%"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946921095168
+    m_Localized: "Kolo \u0161t\u011Bst\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17198742913024
+    m_Localized: "Vyto\u010Dit novou p\u0159\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17199455944704
+    m_Localized: "Vyber p\u0159\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17200168976384
+    m_Localized: "Moje p\u0159\xED\u0161erky"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17202735890432
+    m_Localized: "Nasb\xEDr\xE1no 5 / 20 p\u0159\xED\u0161erek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17559453057024
+    m_Localized: "Z\xEDskali jste p\u0159\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17561000755200
+    m_Localized: Od Checkiho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17561625706496
+    m_Localized: "Od rodi\u010D\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17562959495168
+    m_Localized: Splnit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17817847349248
+    m_Localized: "V\xFDm\u011Bna kreditu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18497827913728
+    m_Localized: "Kurz : 100 kredit\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18620280619008
+    m_Localized: "Vym\u011Bnit za "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18623493455872
+    m_Localized: "Aktivovan\xE9 \xFAro\u010Den\xED 1% ro\u010Dn\u011B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18625963900928
+    m_Localized: "Vym\u011Bnit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18628463706112
+    m_Localized: "M\u016Fj stav \xFA\u010Dtu :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42346174889984
+    m_Localized: "Vyto\u010Dit p\u0159\xED\u0161erku za 100 kredit\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 515237907677184
+    m_Localized: "Registrace rodi\u010De"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6303397933629440
+    m_Localized: "O mn\u011B"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

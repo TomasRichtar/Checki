@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: PopUpWindow_cs
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: cs
+  m_SharedData: {fileID: 11400000, guid: fcfeee5c022f6fe4e8083266430556fc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 31385337856
+    m_Localized: "Odm\u011Bna nen\xED zvolena"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 137144713216
+    m_Localized: "Aby jsi mohl vybrat odm\u011Bnu, mus\xED\u0161 ji nejprve zvolit."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 149127839744
+    m_Localized: "Pokra\u010Dovat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 239317958656
+    m_Localized: "Odm\u011Bna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255046598656
+    m_Localized: "Opravdu si chce\u0161 tuto odm\u011Bnu vybrat?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346100744192
+    m_Localized: "Zru\u0161it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 267558207488
+    m_Localized: "Nem\xE1\u0161 dostatek kreditu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 290035482624
+    m_Localized: "Nem\xE1\u0161 dostate\u010Dn\xFD po\u010Det kreditu, aby sis mohl
+      vybrat tuto odm\u011Bnu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1556199391232
+    m_Localized: "Profil rodi\u010De zalo\u017Een"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955549019291648
+    m_Localized: "Odm\u011Bny p\u0159idan\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955595903221760
+    m_Localized: "\xDAkoly p\u0159id\u011Bleny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955670054322176
+    m_Localized: "D\xEDt\u011B p\u0159id\xE1no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970074036649984
+    m_Localized: "Ke schv\xE1len\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5428919150198784
+    m_Localized: "Profil je \xFAsp\u011B\u0161n\u011B zalo\u017Een"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

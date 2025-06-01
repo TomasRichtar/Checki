@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PopUpWindow Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PopUpWindow
+  m_TableCollectionNameGuidString: fcfeee5c022f6fe4e8083266430556fc
+  m_Entries:
+  - m_Id: 31385337856
+    m_Key: SelectRewardTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 137144713216
+    m_Key: SelectRewardBody
+    m_Metadata:
+      m_Items: []
+  - m_Id: 149127839744
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 239317958656
+    m_Key: CollectRewardTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255046598656
+    m_Key: CollectRewardBody
+    m_Metadata:
+      m_Items: []
+  - m_Id: 267558207488
+    m_Key: CollectMoreCreditTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 290035482624
+    m_Key: CollectMoreCreditBody
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346100744192
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1556199391232
+    m_Key: ParentProfileCreated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955549019291648
+    m_Key: RewardAdded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955595903221760
+    m_Key: QuestAdded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955670054322176
+    m_Key: ChildrenAdded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970074036649984
+    m_Key: AddedToApproval
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5428919150198784
+    m_Key: ProfileCreated
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6088729877284651010
+  references:
+    version: 2
+    RefIds:
+    - rid: 6088729877284651010
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1745774398053

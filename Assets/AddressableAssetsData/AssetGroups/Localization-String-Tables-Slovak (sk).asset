@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Slovak (sk)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Slovak (sk)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 23fea8cf267387747a359525488e1c50
+  m_SerializeEntries:
+  - m_GUID: b8fa626a1502a7a40b748148c3c97298
+    m_Address: StringTable_sk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sk
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d95e28b4653fba948823680d3e7d1d3d
+    m_Address: PopUpWindow_sk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sk
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd1d039972d93c5469692908bdc18c3c
+    m_Address: All_sk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sk
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 760e0e2bc0fe40b4f890ee62aced6d0a
+    m_Address: Callendar_sk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sk
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 7e44f713f0bd62241ad2b1ff3bf6e7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 76d4e9011ff2b0044906ccfa30957e03, type: 2}
+    - {fileID: 11400000, guid: fe1342cd410c148479c30aa50057836c, type: 2}

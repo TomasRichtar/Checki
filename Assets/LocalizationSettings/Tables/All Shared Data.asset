@@ -1,0 +1,457 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: All Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: All
+  m_TableCollectionNameGuidString: b2662fbefb1ac46448479ad406789287
+  m_Entries:
+  - m_Id: 13874118656
+    m_Key: LogInTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19775504384
+    m_Key: Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23743315968
+    m_Key: Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378258472960
+    m_Key: LogIn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 558005370880
+    m_Key: ChildrenMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 643648864256
+    m_Key: ForgottenPassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 839212482560
+    m_Key: NoAccount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 844023349248
+    m_Key: GmailLogin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1143194664960
+    m_Key: Beta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1175432085504
+    m_Key: AppVersion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443573940224
+    m_Key: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1524624670720
+    m_Key: Mobile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1581033865216
+    m_Key: Register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1630337908736
+    m_Key: AlreadyHaveAccount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2800783605760
+    m_Key: MemberCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2814075355136
+    m_Key: AboutFamily
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2815505612800
+    m_Key: Pets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360190513152
+    m_Key: Hobbies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3361817903104
+    m_Key: MyName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3362644180992
+    m_Key: MyNickname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3363738894336
+    m_Key: FamilyMemberCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3704257658880
+    m_Key: ChildrenInFamilyCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3795999670272
+    m_Key: Dog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3796708507648
+    m_Key: Cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3797467676672
+    m_Key: Fish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3802085605376
+    m_Key: Other
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3943806943232
+    m_Key: Traveling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3947321769984
+    m_Key: Cooking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3948588449792
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3950576549888
+    m_Key: Sport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3952312991744
+    m_Key: CollectiveGames
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3953894244352
+    m_Key: Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3955450331136
+    m_Key: Art
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3957136441344
+    m_Key: Culture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5063455424512
+    m_Key: Admin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5066391437312
+    m_Key: Children
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5067138023424
+    m_Key: Quests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5069822377984
+    m_Key: Rewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5185815855104
+    m_Key: Callendar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5187283861504
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5188584095744
+    m_Key: LogOff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5192560295936
+    m_Key: AddReward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10103930896384
+    m_Key: AccountState
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10105059164160
+    m_Key: Credit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10107907096576
+    m_Key: AcceptReward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10913414791168
+    m_Key: ChildrenEdit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10914735996928
+    m_Key: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10915943956480
+    m_Key: Custom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10920830320640
+    m_Key: Until
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11382153428992
+    m_Key: AddChildren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11547027324928
+    m_Key: Invite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11552286982144
+    m_Key: Nickname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11555097165824
+    m_Key: Age
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11558192562176
+    m_Key: QuestState
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11902955962368
+    m_Key: Completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11905514487808
+    m_Key: Failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11907125100544
+    m_Key: CollecterRewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11908710547456
+    m_Key: Collected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12166979010560
+    m_Key: NotCollected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169214574592
+    m_Key: ShowQuests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169906634752
+    m_Key: ShowRewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12171332698112
+    m_Key: ToApprove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12431631204352
+    m_Key: NewQuest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12433006936064
+    m_Key: AddQuest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12434047123456
+    m_Key: Multiply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13481306112000
+    m_Key: ChangeName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13482853810176
+    m_Key: ChangeFamilyCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13484040798208
+    m_Key: ChangeChildrenCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13485580107776
+    m_Key: ChangeHobbies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13674768384000
+    m_Key: ChangePassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13676215418880
+    m_Key: FinanceMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13677347880960
+    m_Key: SavingMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13684369145856
+    m_Key: UploadPhoto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14051345580032
+    m_Key: HomePage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15620489232384
+    m_Key: Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15621185486848
+    m_Key: LogInAsParrent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15622015959040
+    m_Key: QuestsParrent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15623358136320
+    m_Key: QuestsChecki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15625090383872
+    m_Key: RewardsAndCredit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16004591009792
+    m_Key: Customization
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16005601837056
+    m_Key: CollectionMonster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16006927237120
+    m_Key: Choose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16740888494080
+    m_Key: ExchangeCredit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16741840601088
+    m_Key: Purse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16742964674560
+    m_Key: AvaiableCredit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16744214577152
+    m_Key: AvaiableRewards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16945495031808
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946015125504
+    m_Key: ChangeBackground
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946531024896
+    m_Key: HungerMeter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946921095168
+    m_Key: LuckyWheel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17198742913024
+    m_Key: RollNewMonster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17199455944704
+    m_Key: ChooseMonster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17200168976384
+    m_Key: MyMonsters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17202735890432
+    m_Key: CollectedXMonsters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17559453057024
+    m_Key: CollectedMonster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17561000755200
+    m_Key: FromChecki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17561625706496
+    m_Key: FromParrents
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17562959495168
+    m_Key: Fulfill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17817847349248
+    m_Key: CreditExchange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18497827913728
+    m_Key: CreditRate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18620280619008
+    m_Key: ExchangeFor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18623493455872
+    m_Key: ActiveYearly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18625963900928
+    m_Key: Exchange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18628463706112
+    m_Key: MyAccountState
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42346174889984
+    m_Key: RollMonsterForXCredit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 515237907677184
+    m_Key: RegisterParrent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6303397933629440
+    m_Key: AboutMe
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7470511066050199554
+  references:
+    version: 2
+    RefIds:
+    - rid: 7470511066050199554
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1746954800637
