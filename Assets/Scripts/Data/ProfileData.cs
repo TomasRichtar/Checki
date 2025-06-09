@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
 
-public class UserData
+public class ProfileData
 {
     public int Id;
 

@@ -10,8 +10,8 @@ public class AboutFamilyPartOneWindow : BaseWindow
     [Header("Inputs")]
     [SerializeField] private TMP_InputField _name;
     [SerializeField] private TMP_InputField _nickName;
-    [SerializeField] private TMP_Dropdown _familyMemberNumber;
-    [SerializeField] private TMP_Dropdown _childrenNumber;
+    [SerializeField] private TMP_InputField _familyMemberNumber;
+    [SerializeField] private TMP_InputField _childrenNumber;
 
     [SerializeField] private TextMeshProUGUI _familyText;
     [SerializeField] private Image _familyImage;
@@ -47,8 +47,8 @@ public class AboutFamilyPartOneWindow : BaseWindow
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataBase(
             _name.text,
             _nickName.text,
-            _familyMemberNumber.options[_familyMemberNumber.value].text,
-            _childrenNumber.options[_childrenNumber.value].text));
+            _familyMemberNumber.text,
+            _childrenNumber.text));
     }
     private void OnDisable()
     {
@@ -62,8 +62,8 @@ public class AboutFamilyPartOneWindow : BaseWindow
         Next.onClick.RemoveListener(() => ProfileManager.Instance.Register(
             _name.text,
             _nickName.text,
-            _familyMemberNumber.options[_familyMemberNumber.value].text,
-            _childrenNumber.options[_childrenNumber.value].text));
+            _familyMemberNumber.text,
+            _childrenNumber.text));
     }
 
     

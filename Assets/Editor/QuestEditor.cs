@@ -12,10 +12,10 @@ public class QuestEditor : Editor
 
         Quest quest = (Quest)target;
 
-        if (quest.Name != quest.name)
+        if (quest.Title != quest.name)
         {
             string assetPath = AssetDatabase.GetAssetPath(quest);
-            AssetDatabase.RenameAsset(assetPath, quest.Name);
+            AssetDatabase.RenameAsset(assetPath, quest.Title);
             AssetDatabase.SaveAssets();
         }
     }

@@ -1,39 +1,96 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TastyCore.Utils;
+using TMPro;
 using UnityEngine;
 
 public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 {
+
     public string Name;
     public string Email;
     public string Mobile;
     public string Nickname;
-    public string FamilyCount;
-    public string ChildCount;
+    public int FamilyCount;
+    public int ChildCount;
 
-    public string Age;
-    public string Photo;
+    public int Age;
+    public int Photo;
 
-    public string Dogs;
-    public string Cats;
-    public string Fish;
-    public string Other;
+    public int Dogs;
+    public int Cats;
+    public int Fish;
+    public int Other;
 
-    public bool Traveling;
-    public bool Cooking;
-    public bool Music;
-    public bool Sport;
-    public bool Games;
-    public bool Relax;
-    public bool Art;
-    public bool Culture;
+    public int Traveling;
+    public int Cooking;
+    public int Music;
+    public int Sport;
+    public int Games;
+    public int Relax;
+    public int Art;
+    public int Culture;
 
-    public List<Children> Children = new List<Children>();
+    public string Quests;
+    public string Rewards;
+    public string ChildrenIds;
+    public string GmailId;
+
+    public List<Children> ChildrenDataList = new List<Children>();
+
+    public ProfileDatabase ProfileData;
+    public ChildrenDatabase ChildrenData;
+
+    [SerializeField] private List<TextMeshProUGUI> TextNames = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> TextDogs = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> TextCats = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> TextFish = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> TextOther = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> TextFamilyCount = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> TextChildrenCount = new List<TextMeshProUGUI>();
+
+    public void UpdateProfileUI()
+    {
+        foreach (var text in TextNames)
+        {
+            text.text = ProfileData.Name;
+        }
+        foreach (var text in TextDogs)
+        {
+            text.text = ProfileData.Dogs.ToString();
+        }
+        foreach (var text in TextCats)
+        {
+            text.text = ProfileData.Cats.ToString();
+        }
+        foreach (var text in TextFish)
+        {
+            text.text = ProfileData.Fish.ToString();
+        }
+        foreach (var text in TextOther)
+        {
+            text.text = ProfileData.Other.ToString();
+        }
+        foreach (var text in TextFamilyCount)
+        {
+            text.text = ProfileData.FamilyCount;
+        }
+        foreach (var text in TextChildrenCount)
+        {
+            text.text = ProfileData.ChildrenCount;
+        }
+    }
 
     public void LogIn(string email, string password)
     {
-        WindowController.Instance.PushWindow<AdminWindow>();
+        Debug.Log("1");
+        CreateProfileDatabase.Instance.GetProfileData((profile) =>
+        {
+            ProfileData = profile;
+            WindowController.Instance.PushWindow<AdminWindow>();
+            UpdateProfileUI();
+        });
     }
     public void Register(string name, string email, string mobile, string password)
     {
@@ -47,25 +104,25 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
     {
         Name = name;
         Nickname = nickname;
-        FamilyCount = familyCount;
-        ChildCount = childCount;
+        FamilyCount = string.IsNullOrEmpty(familyCount) ? 0 : int.Parse(familyCount);
+        ChildCount = string.IsNullOrEmpty(childCount) ? 0 : int.Parse(childCount);
     }
     public void AccountDataPets(string dogs, string cats, string fish, string other)
     {
-        Dogs = dogs;
-        Cats = cats;
-        Fish = fish;
-        Other = other;
+        Dogs = string.IsNullOrEmpty(dogs) ? 0 : int.Parse(dogs);
+        Cats = string.IsNullOrEmpty(cats) ? 0 : int.Parse(cats);
+        Fish = string.IsNullOrEmpty(fish) ? 0 : int.Parse(fish);
+        Other = string.IsNullOrEmpty(other) ? 0 : int.Parse(other);
     }
     public void AccountDataHobies(
-        bool traveling,
-        bool cooking,
-        bool music,
-        bool sport,
-        bool games,
-        bool relax,
-        bool art,
-        bool culture)
+        int traveling,
+        int cooking,
+        int music,
+        int sport,
+        int games,
+        int relax,
+        int art,
+        int culture)
     {
         Traveling = traveling;
         Cooking = cooking;
@@ -80,13 +137,39 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
     {
         Name = name;
         Nickname = nickname;
-        Age = age;
-        Photo = photo;
+        Age = int.Parse(age);
+        Photo = int.Parse(photo);
     }
 
     public void CreateProfile()
     {
         Debug.Log("ProfileCreated");
+
+        ProfileData.Name = Name;
+        ProfileData.Nickname = Nickname;
+        ProfileData.Email = Email;
+        ProfileData.TelNumber = Mobile;
+
+        ProfileData.Traveling = Traveling;
+        ProfileData.Cooking = Cooking;
+        ProfileData.Music = Music;
+        ProfileData.Sport = Sport;
+        ProfileData.Games = Games;
+        ProfileData.Relax = Relax;
+        ProfileData.Art = Art;
+        ProfileData.Culture = Culture;
+
+        ProfileData.Dogs = Dogs;
+        ProfileData.Cats = Cats;
+        ProfileData.Fish = Fish;
+        ProfileData.Other = Other;
+
+        ProfileData.Quests = Quests;
+        ProfileData.Rewards = Rewards;
+        ProfileData.ChildrenIds = ChildrenIds;
+        ProfileData.GmailId = GmailId;
+
+        CreateProfileDatabase.Instance.CreateProfile(ProfileData);
 
         WindowController.Instance.ForceExit<AboutFamilyMainWindow>();
 
@@ -113,8 +196,28 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         child.Relax = Relax;
         child.Art = Art;
         child.Culture = Culture;
-        Children.Add(child);
+        ChildrenDataList.Add(child);
+
+
         ChildrenCollection.Instance.AddNewChildren(child);
+
+        ChildrenData.Name = Name;
+        ChildrenData.Password = 3;
+        ChildrenData.Nickname = Nickname;
+        ChildrenData.Age = Age;
+        ChildrenData.QuestIds = "";
+        ChildrenData.RewardIds = "";
+        ChildrenData.ProfileId = 1;
+        ChildrenData.Traveling = Traveling;
+        ChildrenData.Cooking = Cooking;
+        ChildrenData.Music = Music;
+        ChildrenData.Sport = Sport;
+        ChildrenData.Games = Games;
+        ChildrenData.Relax = Relax;
+        ChildrenData.Art = Art;
+        ChildrenData.Culture = Culture;
+
+        CreateChildrenDatabase.Instance.CreateChildren(ChildrenData);
 
         WindowController.Instance.ForceExit<AddChildrenMainWindow>();
 

@@ -8,19 +8,19 @@ using UnityEngine.UI;
 public class CreateRewardOneWindow : BaseWindow
 {
     [Header("Inputs")]
-    [SerializeField] private SelectableButton _traveling;
-    [SerializeField] private SelectableButton _cooking;
-    [SerializeField] private SelectableButton _music;
-    [SerializeField] private SelectableButton _sport;
-    [SerializeField] private SelectableButton _games;
-    [SerializeField] private SelectableButton _relax;
-    [SerializeField] private SelectableButton _art;
-    [SerializeField] private SelectableButton _culture;
+    //[SerializeField] private SelectableButton _traveling;
+    //[SerializeField] private SelectableButton _cooking;
+    //[SerializeField] private SelectableButton _music;
+    //[SerializeField] private SelectableButton _sport;
+    //[SerializeField] private SelectableButton _games;
+    //[SerializeField] private SelectableButton _relax;
+    //[SerializeField] private SelectableButton _art;
+    //[SerializeField] private SelectableButton _culture;
 
-    [SerializeField] private TextMeshProUGUI _familyText;
-    [SerializeField] private Image _familyImage;
-    [SerializeField] private TextMeshProUGUI _interestsText;
-    [SerializeField] private Image _interestsImage;
+    //[SerializeField] private TextMeshProUGUI _familyText;
+    //[SerializeField] private Image _familyImage;
+    //[SerializeField] private TextMeshProUGUI _interestsText;
+    //[SerializeField] private Image _interestsImage;
 
 
     [Header("Buttons")]
@@ -29,18 +29,18 @@ public class CreateRewardOneWindow : BaseWindow
 
     public void ChangeHeaderColorNext()
     {
-        _familyImage.color = new Color(1.0f, 0.0f, 0.549f);
-        _familyText.color = new Color(1.0f, 0.0f, 0.549f);
-        _interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
-        _interestsText.color = new Color(0.631f, 0.631f, 0.631f);
+        //_familyImage.color = new Color(1.0f, 0.0f, 0.549f);
+        //_familyText.color = new Color(1.0f, 0.0f, 0.549f);
+        //_interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
+        //_interestsText.color = new Color(0.631f, 0.631f, 0.631f);
     }
 
     public void ChangeHeaderColorPrevious()
     {
-        _familyImage.color = new Color(1.0f, 0.0f, 0.549f);
-        _familyText.color = new Color(1.0f, 0.0f, 0.549f);
-        _interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
-        _interestsText.color = new Color(0.631f, 0.631f, 0.631f);
+        //_familyImage.color = new Color(1.0f, 0.0f, 0.549f);
+        //_familyText.color = new Color(1.0f, 0.0f, 0.549f);
+        //_interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
+        //_interestsText.color = new Color(0.631f, 0.631f, 0.631f);
     }
 
     private void OnEnable()
@@ -59,15 +59,15 @@ public class CreateRewardOneWindow : BaseWindow
         Next.onClick.AddListener(ProfileManager.Instance.AddChildren);
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
 
-        Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
-           _traveling.IsSelected,
-            _cooking.IsSelected,
-            _music.IsSelected,
-            _sport.IsSelected,
-            _games.IsSelected,
-            _relax.IsSelected,
-            _art.IsSelected,
-            _culture.IsSelected));
+        //Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
+        //   _traveling.IsSelected,
+        //    _cooking.IsSelected,
+        //    _music.IsSelected,
+        //    _sport.IsSelected,
+        //    _games.IsSelected,
+        //    _relax.IsSelected,
+        //    _art.IsSelected,
+        //    _culture.IsSelected));
     }
     private void OnDisable()
     {
@@ -81,14 +81,14 @@ public class CreateRewardOneWindow : BaseWindow
         Next.onClick.RemoveListener(ProfileManager.Instance.AddChildren);
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
 
-        Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
-           _traveling.IsSelected,
-            _cooking.IsSelected,
-            _music.IsSelected,
-            _sport.IsSelected,
-            _games.IsSelected,
-            _relax.IsSelected,
-            _art.IsSelected,
-            _culture.IsSelected));
+        //Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
+        //   _traveling.IsSelected,
+        //    _cooking.IsSelected,
+        //    _music.IsSelected,
+        //    _sport.IsSelected,
+        //    _games.IsSelected,
+        //    _relax.IsSelected,
+        //    _art.IsSelected,
+        //    _culture.IsSelected));
     }
 }

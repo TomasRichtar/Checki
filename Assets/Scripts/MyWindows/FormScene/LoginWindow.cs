@@ -19,6 +19,12 @@ public class LoginWindow : BaseWindow
 
     private void OnEnable()
     {
+        LogIn.onClick.RemoveAllListeners();
+        PasswordReset.onClick.RemoveAllListeners();
+        Register.onClick.RemoveAllListeners();
+        Gmail.onClick.RemoveAllListeners();
+        KidVersion.onClick.RemoveAllListeners();
+
         LogIn.onClick.AddListener(() => ProfileManager.Instance.LogIn(_name.text, _password.text));
         PasswordReset.onClick.AddListener(() => Debug.Log("Password Reseted"));
         Register.onClick.AddListener(WindowController.Instance.PushWindow<RegistrationWindow>);

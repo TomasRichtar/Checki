@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class SettingsWindow : BaseWindow
 {
+    [Header("Inputs")]
+    public Button Edit;
+    public Button PasswordChange;
+
     [Header("Buttons")]
     public Button MainScene;
 

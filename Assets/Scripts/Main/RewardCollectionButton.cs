@@ -19,9 +19,9 @@ public class RewardCollectionButton : MonoBehaviour
     {
         _reward = reward;
 
-        NameText.text = reward.Name;
+        NameText.text = reward.Title;
         Price.text = reward.Price.ToString();
-        _image.sprite = reward.Sprite;
+        _image.sprite = SpriteManager.Instance.RewardSprites[reward.ImageId];
     }
 
     public void SelectThis()

@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class AboutFamilyPartTwoWindow : BaseWindow
 {
     [Header("Inputs")]
-    [SerializeField] private TMP_Dropdown _dogs;
-    [SerializeField] private TMP_Dropdown _cats;
-    [SerializeField] private TMP_Dropdown _fish;
-    [SerializeField] private TMP_Dropdown _other;
+    [SerializeField] private TMP_InputField _dogs;
+    [SerializeField] private TMP_InputField _cats;
+    [SerializeField] private TMP_InputField _fish;
+    [SerializeField] private TMP_InputField _other;
 
     [SerializeField] private TextMeshProUGUI _familyText;
     [SerializeField] private Image _familyImage;
@@ -59,10 +59,10 @@ public class AboutFamilyPartTwoWindow : BaseWindow
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>);
 
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataPets(
-            _dogs.options[_dogs.value].text,
-            _cats.options[_cats.value].text,
-            _fish.options[_fish.value].text,
-            _other.options[_other.value].text));
+            _dogs.text,
+            _cats.text,
+            _fish.text,
+            _other.text));
     }
     private void OnDisable()
     {
@@ -75,9 +75,9 @@ public class AboutFamilyPartTwoWindow : BaseWindow
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataPets(
-            _dogs.options[_dogs.value].text,
-            _cats.options[_cats.value].text,
-            _fish.options[_fish.value].text,
-            _other.options[_other.value].text));
+            _dogs.text,
+            _cats.text,
+            _fish.text,
+            _other.text));
     }
 }

@@ -13,10 +13,10 @@ public class RewardEditor : Editor
 
         Reward reward = (Reward)target;
 
-        if (reward.Name != reward.name)
+        if (reward.Title != reward.name)
         {
             string assetPath = AssetDatabase.GetAssetPath(reward);
-            AssetDatabase.RenameAsset(assetPath, reward.Name);
+            AssetDatabase.RenameAsset(assetPath, reward.Title);
             AssetDatabase.SaveAssets();
         }
     }

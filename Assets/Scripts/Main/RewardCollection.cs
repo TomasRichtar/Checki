@@ -46,7 +46,7 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
 
         foreach (var reward in AllRewards)
         {
-            if (unlockedSet.Contains(reward.Name))
+            if (unlockedSet.Contains(reward.Title))
             {
                 MyRewards.Add(reward);
             }

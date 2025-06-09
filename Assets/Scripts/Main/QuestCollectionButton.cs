@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,10 +23,16 @@ public class QuestCollectionButton : MonoBehaviour
     {
         _quest = quest;
 
-        _image.sprite = quest.Image;
-        _nameText.text = quest.Name;
+        _image.sprite = SpriteManager.Instance.QuestSprites[quest.ImageId];
+        _nameText.text = quest.Title;
         _dateText.text = quest.ComplitionTime;
-        switch (quest.QuestStatus)
+        QuestStatus questStatus;
+        if (!Enum.TryParse(quest.QuestStatus, true, out questStatus))
+        {
+            questStatus = QuestStatus.None;
+        }
+
+        switch (questStatus)
         {
             case QuestStatus.None:
                 _inProgress.SetActive(true);

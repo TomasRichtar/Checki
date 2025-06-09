@@ -48,7 +48,7 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
 
         foreach (var reward in AllData)
         {
-            if (unlockedSet.Contains(reward.Name))
+            if (unlockedSet.Contains(reward.Title))
             {
                 MyData.Add(reward);
             }
@@ -71,6 +71,12 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
 
         foreach (var item in MyData)
         {
+            QuestCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutCustom);
+            buttonCustom.CreateButton(item);
+            viewportContentHeighCustom += 142;
+            gapHeightCustom += 32;
+            break;
+            /*
             switch (item.QuestType)
             {
                 case QuestType.Custom:
@@ -85,7 +91,7 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
                     viewportContentHeighChecki += 142;
                     gapHeightChecki += 32;
                     break;
-            }
+            }*/
         }
 
         viewportContentHeighChecki += gapHeightChecki;

@@ -44,7 +44,7 @@ public class QuestAdminCollection : SingletonMonoBehaviour<QuestAdminCollection>
 
         foreach (var reward in AllData)
         {
-            if (unlockedSet.Contains(reward.Name))
+            if (unlockedSet.Contains(reward.Title))
             {
                 MyData.Add(reward);
             }

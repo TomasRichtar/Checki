@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Children
 {
+    public int Id;
     public string Name;
+    public int Password;
     public string Nickname;
-    public string Age;
-    public string Profile;
+    public int Age;
+    public string QuestIds;
+    public string RewardIds;
+    public int ProfileId;
 
-    public bool Traveling;
-    public bool Cooking;
-    public bool Music;
-    public bool Sport;
-    public bool Games;
-    public bool Relax;
-    public bool Art;
-    public bool Culture;
+    public int Traveling;
+    public int Cooking;
+    public int Music;
+    public int Sport;
+    public int Games;
+    public int Relax;
+    public int Art;
+    public int Culture;
 }

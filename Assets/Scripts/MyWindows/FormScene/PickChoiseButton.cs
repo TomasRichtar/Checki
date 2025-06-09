@@ -4,13 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectableButton : MonoBehaviour
+public class PickChoiseButton : MonoBehaviour
 {
     private Button _button;
     private Image _image;
     private TextMeshProUGUI _text;
     public int IsSelected = 0;
-
+    
     private void Awake()
     {
         _button = GetComponent<Button>();
