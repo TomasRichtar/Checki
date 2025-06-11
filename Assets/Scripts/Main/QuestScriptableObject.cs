@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Quest", menuName = "ScriptableObjects/Quest", order = 4)]
-public class Quest : ScriptableObject
+public class QuestScriptableObject : ScriptableObject
 {
     public int Id;
     public string Title;

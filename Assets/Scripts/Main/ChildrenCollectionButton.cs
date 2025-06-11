@@ -22,5 +22,6 @@ public class ChildrenCollectionButton : MonoBehaviour
     public void SelectThis()
     {
         WindowController.Instance.PushWindow<ProfileWindow>();
+        ProfileManager.Instance.SelectChild(_children);
     }
 }

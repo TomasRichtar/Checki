@@ -4,50 +4,25 @@ using System.Collections.Generic;
 using TastyCore.Utils;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.AddressableAssets.Settings.AddressableAssetProfileSettings;
-
-[System.Serializable]
-public class ChildrenDatabase
-{
-    public int Id;
-
-    public string Name;
-    public int Password;
-    public string Nickname;
-    public int Age;
-
-    public string QuestIds;
-    public string RewardIds;
-    public int ProfileId;
-
-    public int Traveling;
-    public int Cooking;
-    public int Music;
-    public int Sport;
-    public int Games;
-    public int Relax;
-    public int Art;
-    public int Culture;
-}
 
 [System.Serializable]
 public class ChildrenResponse
 {
     public bool success;
-    public List<ChildrenDatabase> data;
+    public List<Children> data;
 }
-public class CreateChildrenDatabase : SingletonMonoBehaviour<CreateChildrenDatabase>
+public class ChildrenDatabase : SingletonMonoBehaviour<ChildrenDatabase>
 {
-    public List<ChildrenDatabase> databaseItems = new List<ChildrenDatabase>();
+    public List<Children> databaseItems = new List<Children>();
 
-    public void GetChildrenData(Action<List<ChildrenDatabase>> onSuccess)
+    public void GetChildrenData(int id, Action<List<Children>> onSuccess)
     {
-        StartCoroutine(GetChildrenCoroutine(onSuccess));
+        StartCoroutine(GetChildrenCoroutine(id, onSuccess));
     }
 
-    IEnumerator GetChildrenCoroutine(Action<List<ChildrenDatabase>> onSuccess)
+    IEnumerator GetChildrenCoroutine(int id, Action<List<Children>> onSuccess)
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://localhost/get_children.php");
+        UnityWebRequest www = UnityWebRequest.Get("http://localhost/get_children.php?id="+id);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -62,7 +37,7 @@ public class CreateChildrenDatabase : SingletonMonoBehaviour<CreateChildrenDatab
             ChildrenResponse response = JsonUtility.FromJson<ChildrenResponse>(FixJson(www.downloadHandler.text));
             databaseItems = response.data;
 
-            foreach(ChildrenDatabase quest in databaseItems)
+            foreach(Children quest in databaseItems)
             {
                 Debug.Log($"ID: {quest.Id}, Title: {quest.Name}, Profile: {quest.ProfileId}");
             }
@@ -76,11 +51,13 @@ public class CreateChildrenDatabase : SingletonMonoBehaviour<CreateChildrenDatab
             return "{\"data\":" + value + "}";
         return value;
     }
-    public void CreateChildren(ChildrenDatabase Data)
+
+    public void CreateChildren(Children Data, Action<bool> onSuccess)
     {
-        StartCoroutine(SendDataCoroutine(Data));
+        StartCoroutine(SendDataCoroutine(Data, onSuccess));
     }
-    public IEnumerator SendDataCoroutine(ChildrenDatabase Data)
+
+    public IEnumerator SendDataCoroutine(Children Data, Action<bool> onSuccess)
     {
         WWWForm form = new WWWForm();
         form.AddField("Name", Data.Name);
@@ -101,6 +78,11 @@ public class CreateChildrenDatabase : SingletonMonoBehaviour<CreateChildrenDatab
         form.AddField("Art", Data.Art);
         form.AddField("Culture", Data.Culture);
 
+        form.AddField("UnlockedMonsters", Data.UnlockedMonsters);
+        form.AddField("UnlockedEquipment", Data.UnlockedEquipment);
+        form.AddField("SelectedMonster", Data.SelectedMonster);
+        form.AddField("SelectedEquipment", Data.SelectedEquipment);
+
 
         UnityWebRequest www = UnityWebRequest.Post("http://localhost/create_children.php", form);
         yield return www.SendWebRequest();
@@ -108,10 +90,12 @@ public class CreateChildrenDatabase : SingletonMonoBehaviour<CreateChildrenDatab
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Chyba: " + www.error);
+            onSuccess?.Invoke(false);
         }
         else
         {
             Debug.Log("Odpoved: " + www.downloadHandler.text);
+            onSuccess?.Invoke(true);
         }
     }
 }

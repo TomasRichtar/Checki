@@ -7,5 +7,6 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
 {
     public List<Sprite> QuestSprites = new List<Sprite>();
     public List<Sprite> RewardSprites = new List<Sprite>();
+    public List<Sprite> ProfileSprites = new List<Sprite>();
 
 }

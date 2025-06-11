@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Quest))]
+[CustomEditor(typeof(QuestScriptableObject))]
 public class QuestEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        Quest quest = (Quest)target;
+        QuestScriptableObject quest = (QuestScriptableObject)target;
 
         if (quest.Title != quest.name)
         {

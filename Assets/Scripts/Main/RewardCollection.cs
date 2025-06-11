@@ -4,37 +4,32 @@ using System.Collections.Generic;
 using TastyCore.Utils;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
 {
     public List<Reward> AllRewards = new List<Reward>();
-    public List<Reward> MyRewards = new List<Reward>();
 
     [SerializeField] private Transform _layout;
     [SerializeField] private Transform _viewportContent;
     [SerializeField] private RewardCollectionButton _collectionButton;
 
     public event Action OnRewardsLoaded;
-    public event Action OnNewMonsterUnlocked;
+    public event Action OnDataUpdate;
 
     public List<RewardCollectionButton> RewardButtons = new List<RewardCollectionButton>();
 
 
     private void OnEnable()
     {
-        OnNewMonsterUnlocked += LoadColletionLayout;
+        OnDataUpdate += LoadColletionLayout;
     }
     private void OnDisable()
     {
-        OnNewMonsterUnlocked -= LoadColletionLayout;
+        OnDataUpdate -= LoadColletionLayout;
     }
 
-    private void Start()
-    {
-        UpdateMonsterData();
-    }
-
-    public void UpdateMonsterData()
+    public void UpdateData()
     {
         SetAllRewards();
         LoadColletionLayout();
@@ -42,16 +37,6 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
 
     public void SetAllRewards()
     {
-        var unlockedSet = new HashSet<string>(MyGameManager.Instance.RewardsList);
-
-        foreach (var reward in AllRewards)
-        {
-            if (unlockedSet.Contains(reward.Title))
-            {
-                MyRewards.Add(reward);
-            }
-        }
-
         OnRewardsLoaded?.Invoke();
     }
 
@@ -63,16 +48,18 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
         {
             Destroy(item.gameObject);
         }
-
-        foreach (var monster in MyRewards)
+        if (MyGameManager.Instance.RewardList.Count > 0)
         {
-            RewardCollectionButton button = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layout);
-            button.CreateButton(monster);
-            viewportContentHeigh += 142;
-            RewardButtons.Add(button);
+            foreach (var monster in MyGameManager.Instance.RewardList)
+            {
+                RewardCollectionButton button = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layout);
+                button.CreateButton(monster);
+                viewportContentHeigh += 142;
+                RewardButtons.Add(button);
+            }
         }
 
-        float gapHeight = (MyRewards.Count - 1) * 32;
+        float gapHeight = (MyGameManager.Instance.RewardList.Count - 1) * 32;
         viewportContentHeigh += gapHeight;
 
         RectTransform rt = _viewportContent.GetComponent<RectTransform>();
@@ -89,4 +76,5 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
         }
         return false;
     }
+
 }

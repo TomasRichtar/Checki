@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static Unity.VisualScripting.Metadata;
 
 public class ChildrenQuestCollectionButton : MonoBehaviour
 {
@@ -19,6 +20,6 @@ public class ChildrenQuestCollectionButton : MonoBehaviour
 
     public void SelectThis()
     {
-        Debug.Log("Selected this Child");
+        ProfileManager.Instance.SelectChild(_children);
     }
 }

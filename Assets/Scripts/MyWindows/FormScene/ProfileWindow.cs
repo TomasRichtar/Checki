@@ -22,4 +22,9 @@ public class ProfileWindow : BaseWindow
         Quests.onClick.RemoveListener(WindowController.Instance.PushWindow<QuestSettingsWindow>);
         Rewards.onClick.RemoveListener(WindowController.Instance.PushWindow<RewardsSettingsWindow>);
     }
+
+    public void SetProfileData()
+    {
+
+    }
 }

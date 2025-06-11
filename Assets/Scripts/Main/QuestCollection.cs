@@ -31,11 +31,6 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
         OnDataUpdate -= LoadColletionLayout;
     }
 
-    private void Start()
-    {
-        UpdateData();
-    }
-
     public void UpdateData()
     {
         SetAllData();
@@ -44,16 +39,7 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
 
     public void SetAllData()
     {
-        var unlockedSet = new HashSet<string>(MyGameManager.Instance.QuestList);
-
-        foreach (var reward in AllData)
-        {
-            if (unlockedSet.Contains(reward.Title))
-            {
-                MyData.Add(reward);
-            }
-        }
-
+        
         OnDataLoaded?.Invoke();
     }
 
@@ -69,29 +55,15 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
             Destroy(item.gameObject);
         }
 
-        foreach (var item in MyData)
+        if (MyGameManager.Instance.QuestList.Count > 0)
         {
-            QuestCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutCustom);
-            buttonCustom.CreateButton(item);
-            viewportContentHeighCustom += 142;
-            gapHeightCustom += 32;
-            break;
-            /*
-            switch (item.QuestType)
+            foreach (var item in MyGameManager.Instance.QuestList)
             {
-                case QuestType.Custom:
-                    QuestCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutCustom);
-                    buttonCustom.CreateButton(item);
-                    viewportContentHeighCustom += 142;
-                    gapHeightCustom += 32;
-                    break;
-                case QuestType.Checki:
-                    QuestCollectionButton buttonChecki = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutChecki);
-                    buttonChecki.CreateButton(item);
-                    viewportContentHeighChecki += 142;
-                    gapHeightChecki += 32;
-                    break;
-            }*/
+                QuestCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutCustom);
+                buttonCustom.CreateButton(item);
+                viewportContentHeighCustom += 142;
+                gapHeightCustom += 32;
+            }
         }
 
         viewportContentHeighChecki += gapHeightChecki;

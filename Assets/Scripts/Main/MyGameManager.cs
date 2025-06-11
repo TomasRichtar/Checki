@@ -7,7 +7,14 @@ using System;
 
 public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
 {
-    [Header("Data from databaze")]
+    public int ProfileId;
+    public int ChildrenId;
+    [Header("Data from real databaze")]
+    public List<Children> ChildrenList = new List<Children>();
+    public List<Quest> QuestList = new List<Quest>();
+    public List<Reward> RewardList = new List<Reward>();
+
+    [Header("Data from game")]
     //TMP, this will be in the database
     public List<string> UnlockedMonstersList = new List<string>();
     public string SelectedMonster;
@@ -15,23 +22,25 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
     public List<string> UnlockedEquipmentList = new List<string>();
     public string SelectedEquipmnet;
 
-    public List<string> RewardsList = new List<string>();
-
-    public List<string> QuestList = new List<string>();
-
-    public List<string> ChildrenList = new List<string>();
 
     public string UserName;
     public int UserCredit;
 
+
     public event Action OnNewSelectedMonster;
     public event Action OnNewSelectedEquipment;
-    public event Action OnDataLoaded;
 
     private void Start()
     {
         DontDestroyOnLoad();
-        LoadAllData();
+        if (ProfileId == 0)
+        {
+            SceneController.Instance.SwitchScene("FormScene");
+        }
+        else
+        {
+            //LoadAllData();
+        }
     }
 
     public void SelectNewMonster(string name)
@@ -45,8 +54,60 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
         OnNewSelectedEquipment?.Invoke();
     }
 
-    public void LoadAllData()
+    public void LoadAllData(Action onComplete)
     {
-        OnDataLoaded?.Invoke();
+        int databaseLoaded = 0;
+        int databaseCount = 3;
+
+        void CheckCompleted()
+        {
+            databaseLoaded++;
+            if (databaseCount >= databaseLoaded)
+            {
+                onComplete?.Invoke();
+            }
+        }
+
+        ChildrenDatabase.Instance.GetChildrenData(ProfileId, (Children) =>
+        {
+            ChildrenList = Children;
+            CheckCompleted();
+        });
+        CreateQuestDatabase.Instance.GetQuestData(ChildrenId, (Quest) =>
+        {
+            QuestList = Quest;
+            CheckCompleted();
+        });
+        CreateRewardDatabase.Instance.GetRewardData(ChildrenId, (Reward) =>
+        {
+            RewardList = Reward;
+            CheckCompleted();
+        });
+    }
+
+    public void LoadChildData(Action onComplete)
+    {
+        int databaseLoaded = 0;
+        int databaseCount = 2;
+
+        void CheckCompleted()
+        {
+            databaseLoaded++;
+            if (databaseCount >= databaseLoaded)
+            {
+                onComplete?.Invoke();
+            }
+        }
+
+        CreateQuestDatabase.Instance.GetQuestData(ChildrenId, (Quest) =>
+        {
+            QuestList = Quest;
+            CheckCompleted();
+        });
+        CreateRewardDatabase.Instance.GetRewardData(ChildrenId, (Reward) =>
+        {
+            RewardList = Reward;
+            CheckCompleted();
+        });
     }
 }

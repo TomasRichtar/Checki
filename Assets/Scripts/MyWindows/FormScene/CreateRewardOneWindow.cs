@@ -8,20 +8,15 @@ using UnityEngine.UI;
 public class CreateRewardOneWindow : BaseWindow
 {
     [Header("Inputs")]
-    //[SerializeField] private SelectableButton _traveling;
-    //[SerializeField] private SelectableButton _cooking;
-    //[SerializeField] private SelectableButton _music;
-    //[SerializeField] private SelectableButton _sport;
-    //[SerializeField] private SelectableButton _games;
-    //[SerializeField] private SelectableButton _relax;
-    //[SerializeField] private SelectableButton _art;
-    //[SerializeField] private SelectableButton _culture;
+    [SerializeField] private int _childrenId;
+    [SerializeField] private TMP_InputField _title;
+    [SerializeField] private TMP_InputField _price;
+    [SerializeField] private List<SelectableButton> _selectedImageButtons;
 
     //[SerializeField] private TextMeshProUGUI _familyText;
     //[SerializeField] private Image _familyImage;
     //[SerializeField] private TextMeshProUGUI _interestsText;
     //[SerializeField] private Image _interestsImage;
-
 
     [Header("Buttons")]
     public Button Next;
@@ -56,18 +51,10 @@ public class CreateRewardOneWindow : BaseWindow
         Previous.onClick.AddListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.AddListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.AddListener(ProfileManager.Instance.AddChildren);
-        Previous.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
-
-        //Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
-        //   _traveling.IsSelected,
-        //    _cooking.IsSelected,
-        //    _music.IsSelected,
-        //    _sport.IsSelected,
-        //    _games.IsSelected,
-        //    _relax.IsSelected,
-        //    _art.IsSelected,
-        //    _culture.IsSelected));
+        Next.onClick.AddListener(SendData);
+        Next.onClick.AddListener(RewardManager.Instance.AddReward);
+        Previous.onClick.AddListener(WindowController.Instance.PushWindow<RewardsSettingsWindow>);
+        Previous.onClick.AddListener(WindowController.Instance.ForceExit<CreateRewardMainWindow>);
     }
     private void OnDisable()
     {
@@ -78,17 +65,28 @@ public class CreateRewardOneWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.RemoveListener(ProfileManager.Instance.AddChildren);
-        Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
+        Next.onClick.RemoveListener(() => ChangeHeaderColorNext());
+        Previous.onClick.RemoveListener(() => ChangeHeaderColorPrevious());
 
-        //Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
-        //   _traveling.IsSelected,
-        //    _cooking.IsSelected,
-        //    _music.IsSelected,
-        //    _sport.IsSelected,
-        //    _games.IsSelected,
-        //    _relax.IsSelected,
-        //    _art.IsSelected,
-        //    _culture.IsSelected));
+        Next.onClick.RemoveListener(SendData);
+        Next.onClick.RemoveListener(RewardManager.Instance.AddReward);
+        Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<RewardsSettingsWindow>);
+        Previous.onClick.RemoveListener(WindowController.Instance.ForceExit<CreateRewardMainWindow>);
+    }
+    private void SendData()
+    {
+        RewardManager.Instance.ChildrenId = ProfileManager.Instance.ChildrenData.Id;
+        RewardManager.Instance.ProfileId = ProfileManager.Instance.ProfileData.Id;
+        RewardManager.Instance.Price = int.Parse(_price.text);
+        RewardManager.Instance.Title = _title.text;
+
+        foreach (var item in _selectedImageButtons)
+        {
+            if (item.IsSelected == 1)
+            {
+                RewardManager.Instance.ImageId += item.ImageId;
+                return;
+            }
+        }
     }
 }

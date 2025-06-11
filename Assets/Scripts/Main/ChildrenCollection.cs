@@ -35,10 +35,6 @@ public class ChildrenCollection : SingletonMonoBehaviour<ChildrenCollection>
         OnDataUpdate -= LoadColletionLayout;
     }
 
-    private void Start()
-    {
-        UpdateData();
-    }
 
     public void UpdateData()
     {
@@ -48,45 +44,27 @@ public class ChildrenCollection : SingletonMonoBehaviour<ChildrenCollection>
 
     public void SetAllData()
     {
-        foreach (var data in MyGameManager.Instance.ChildrenList)
-        {
-            Children child = ChildrenManager.Instance.CreateChildren(data);
-            MyData.Add(child);
-        }
-
+        Debug.Log("Event that does nothing?");
         OnDataLoaded?.Invoke();
     }
 
     public void LoadColletionLayout()
     {
-        //float viewportContentHeighChecki = 0;
-        //float viewportContentHeighCustom = 0;
-        //float gapHeightChecki = 0;
-        //float gapHeightCustom = 0;
-
         foreach (Transform item in _layoutChecki)
         {
             Destroy(item.gameObject);
         }
 
-        foreach (var item in MyData)
+        if (MyGameManager.Instance.ChildrenList.Count > 0)
         {
-            ChildrenCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutChecki);
-            buttonCustom.CreateButton(item);
-            //viewportContentHeighCustom += 142;
-            //gapHeightCustom += 32;
+            foreach (var item in MyGameManager.Instance.ChildrenList)
+            {
+                ChildrenCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutChecki);
+                buttonCustom.CreateButton(item);
+            }
         }
         ChildrenCollectionAddButon buttonAddCustom = Instantiate(_addButton, Vector3.zero, Quaternion.identity, _layoutChecki);
         buttonAddCustom.CreateButton();
-        //viewportContentHeighCustom += 142;
-        //gapHeightCustom += 32;
-
-        //viewportContentHeighChecki += gapHeightChecki;
-
-        //RectTransform rt = _viewportContentChecki.GetComponent<RectTransform>();
-        //Vector2 size = rt.sizeDelta;
-        //size.y = viewportContentHeighChecki;
-        //rt.sizeDelta = size;
 
 
         float viewportContentHeighChecki = 0;
@@ -98,13 +76,15 @@ public class ChildrenCollection : SingletonMonoBehaviour<ChildrenCollection>
         {
             Destroy(item.gameObject);
         }
-
-        foreach (var item in MyData)
+        if (MyGameManager.Instance.ChildrenList.Count > 0)
         {
-            ChildrenQuestCollectionButton buttonCustom = Instantiate(_collectionQuestButton, Vector3.zero, Quaternion.identity, _layoutQuestSettings);
-            buttonCustom.CreateButton(item);
-            viewportContentHeighCustom += 142;
-            gapHeightCustom += 32;
+            foreach (var item in MyGameManager.Instance.ChildrenList)
+            {
+                ChildrenQuestCollectionButton buttonCustom = Instantiate(_collectionQuestButton, Vector3.zero, Quaternion.identity, _layoutQuestSettings);
+                buttonCustom.CreateButton(item);
+                viewportContentHeighCustom += 142;
+                gapHeightCustom += 32;
+            }
         }
         
         viewportContentHeighChecki += gapHeightChecki;
@@ -114,12 +94,32 @@ public class ChildrenCollection : SingletonMonoBehaviour<ChildrenCollection>
         size.y = viewportContentHeighChecki;
         rt.sizeDelta = size;
 
-    }
-    public void AddNewChildren(Children children)
-    {
-        MyData.Add(children);
+        foreach (Transform item in _layoutRewardsSettings)
+        {
+            Destroy(item.gameObject);
+        }
 
-        MyGameManager.Instance.ChildrenList.Add(children.Name);
-        OnDataUpdate?.Invoke();
+        if (MyGameManager.Instance.ChildrenList.Count > 0)
+        {
+            foreach (var item in MyGameManager.Instance.ChildrenList)
+            {
+                ChildrenQuestCollectionButton buttonCustom = Instantiate(_collectionQuestButton, Vector3.zero, Quaternion.identity, _layoutRewardsSettings);
+                buttonCustom.CreateButton(item);
+            }
+        }
+
+        RectTransform rtRewards = _viewportContentRewardsSettings.GetComponent<RectTransform>();
+        Vector2 sizeRewards = rtRewards.sizeDelta;
+        sizeRewards.y = viewportContentHeighChecki;
+        rtRewards.sizeDelta = sizeRewards;
+
+    }
+    public void AddNewChildren(int profileId)
+    {
+        ChildrenDatabase.Instance.GetChildrenData(profileId, (Children) =>
+        {
+            MyGameManager.Instance.ChildrenList = Children;
+            OnDataUpdate?.Invoke();
+        });
     }
 }

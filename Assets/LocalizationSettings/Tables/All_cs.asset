@@ -191,7 +191,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10105059164160
-    m_Localized: "kredit\u016F"
+    m_Localized: "kredit\u016F: "
     m_Metadata:
       m_Items: []
   - m_Id: 10107907096576
@@ -347,7 +347,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13684369145856
-    m_Localized: "Nahr\xE1t fotku"
+    m_Localized: Vyber fotku
     m_Metadata:
       m_Items: []
   - m_Id: 14051345580032
@@ -444,6 +444,42 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 6303397933629440
     m_Localized: "O mn\u011B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10988580775542784
+    m_Localized: "N\xE1zev"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989213842817024
+    m_Localized: "Odm\u011Bna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989508345872384
+    m_Localized: "Prvn\xED \u010D\xE1st"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989531108360192
+    m_Localized: "Druh\xE1 \u010D\xE1st"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989980075048960
+    m_Localized: "\u010Cas \xFAkolu: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10990210388475904
+    m_Localized: Ano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10990232463097856
+    m_Localized: Ne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10990365460283392
+    m_Localized: 'Dny: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11220793316229120
+    m_Localized: Opakovat?
     m_Metadata:
       m_Items: []
   references:

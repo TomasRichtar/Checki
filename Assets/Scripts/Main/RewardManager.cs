@@ -1,3 +1,4 @@
+using JSG.FortuneSpinWheel;
 using System.Collections;
 using System.Collections.Generic;
 using TastyCore.Utils;
@@ -5,6 +6,15 @@ using UnityEngine;
 
 public class RewardManager : SingletonMonoBehaviour<RewardManager>
 {
+    public string Title;
+    public int ImageId;
+    public int Price;
+    public string ValidUntil;
+    public int ChildrenId;
+    public int ProfileId;
+
+    public Reward RewardData;
+
     public Reward SelectedReward;
 
     public void SelectReward(Reward reward, RewardCollectionButton button)
@@ -67,5 +77,28 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
     public void BuyReward()
     {
         Debug.Log("Reward was collected");
+    }
+
+    public void AddReward()
+    {
+        RewardData.Title = Title;
+        RewardData.Price = Price;
+        RewardData.ValidUntil = ValidUntil;
+        RewardData.ProfileId = ProfileId;
+        RewardData.ChildrenId = ChildrenId;
+        RewardData.ImageId = ImageId;
+
+        CreateRewardDatabase.Instance.CreateReward(RewardData, (response) =>
+        {
+            RewardAdminCollection.Instance.AddNewReward(ProfileManager.Instance.ProfileData.Id);
+        });
+    }
+
+    public void DeleteReward(Reward reward)
+    {
+        CreateRewardDatabase.Instance.Delete(reward.Id, (response) =>
+        {
+            RewardAdminCollection.Instance.DeleteReward(reward);
+        });
     }
 }

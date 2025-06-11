@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
+[InitializeOnLoad]
 public class PlayMode : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    static PlayMode()
     {
-        
+        EditorApplication.playModeStateChanged += ModeChanged;
     }
 
-    // Update is called once per frame
-    void Update()
+    static void ModeChanged(PlayModeStateChange playModeState)
     {
-        
+        if (playModeState == PlayModeStateChange.EnteredPlayMode)
+        {
+            ShortcutManager.instance.activeProfileId = "PlayMode";
+        }
+        else if (playModeState == PlayModeStateChange.EnteredEditMode)
+        {
+            ShortcutManager.instance.activeProfileId = "Default";
+        }
     }
 }

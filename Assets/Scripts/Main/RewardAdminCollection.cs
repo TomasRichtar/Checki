@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using TastyCore.Utils;
 using UnityEngine;
 
-public class QuestAdminCollection : SingletonMonoBehaviour<QuestAdminCollection>
+public class RewardAdminCollection : SingletonMonoBehaviour<RewardAdminCollection>
 {
-    //public List<Quest> AllData = new List<Quest>();
+    //public List<Reward> AllData = new List<Reward>();
     //public List<Quest> MyData = new List<Quest>();
 
-    [SerializeField] private QuestAdminCollectionButton _collectionButton;
+    [SerializeField] private RewardAdminCollectionButton _collectionButton;
 
     [SerializeField] private Transform _layout;
     [SerializeField] private Transform _viewportContent;
@@ -36,7 +36,7 @@ public class QuestAdminCollection : SingletonMonoBehaviour<QuestAdminCollection>
 
     public void SetAllData()
     {
-        
+
         OnDataLoaded?.Invoke();
     }
 
@@ -50,17 +50,17 @@ public class QuestAdminCollection : SingletonMonoBehaviour<QuestAdminCollection>
             Destroy(item.gameObject);
         }
 
-        if (MyGameManager.Instance.QuestList.Count > 0)
+        if (MyGameManager.Instance.RewardList.Count > 0)
         {
-            foreach (var item in MyGameManager.Instance.QuestList)
+            foreach (var item in MyGameManager.Instance.RewardList)
             {
-                QuestAdminCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layout);
+                RewardAdminCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layout);
                 buttonCustom.CreateButton(item);
                 viewportContentHeigh += 142;
                 gapHeight += 32;
             }
         }
-
+        
         viewportContentHeigh += gapHeight;
 
         RectTransform rt = _viewportContent.GetComponent<RectTransform>();
@@ -69,29 +69,29 @@ public class QuestAdminCollection : SingletonMonoBehaviour<QuestAdminCollection>
         rt.sizeDelta = size;
     }
 
-    public bool CheckIfExists(Quest data)
+    public bool CheckIfExists(Reward data)
     {
-        if (MyGameManager.Instance.QuestList.Contains(data))
+        if (MyGameManager.Instance.RewardList.Contains(data))
         {
             return true;
         }
         return false;
     }
 
-    public void AddNewQuest(int profileId)
+    public void AddNewReward(int profileId)
     {
-        CreateQuestDatabase.Instance.GetQuestData(profileId, (Quest) =>
+        CreateRewardDatabase.Instance.GetRewardData(profileId, (Reward) =>
         {
-            MyGameManager.Instance.QuestList = Quest;
-            WindowController.Instance.ForceExit<CreateQuestMainWindow>();
-            WindowController.Instance.PushWindow<QuestSettingsWindow>();
+            MyGameManager.Instance.RewardList = Reward;
+            WindowController.Instance.ForceExit<CreateRewardMainWindow>();
+            WindowController.Instance.PushWindow<RewardsSettingsWindow>();
             OnDataUpdate?.Invoke();
         });
     }
 
-    public void DeleteQuest(Quest quest)
+    public void DeleteReward(Reward reward)
     {
-        MyGameManager.Instance.QuestList.Remove(quest);
+        MyGameManager.Instance.RewardList.Remove(reward);
         OnDataUpdate?.Invoke();
     }
 }

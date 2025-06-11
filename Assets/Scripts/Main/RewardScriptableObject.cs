@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Reward", menuName = "ScriptableObjects/Reward", order = 3)]
-public class Reward : ScriptableObject
+public class RewardScriptableObject : ScriptableObject
 {
     public string Title;
     public int ImageId;

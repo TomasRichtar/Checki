@@ -6,10 +6,17 @@ using UnityEngine.UI;
 
 public class SelectableButton : MonoBehaviour
 {
+    [SerializeField] private List<SelectableButton> buttons = new List<SelectableButton>();
+    [SerializeField] private bool changeSprite;
+    [SerializeField] private Sprite spriteSelected;
+    [SerializeField] private Sprite spriteNotSelected;
+
     private Button _button;
     private Image _image;
     private TextMeshProUGUI _text;
     public int IsSelected = 0;
+    public int ImageId = 0;
+    public string Data = "";
 
     private void Awake()
     {
@@ -29,9 +36,44 @@ public class SelectableButton : MonoBehaviour
 
     private void Selected()
     {
+        foreach (SelectableButton button in buttons)
+        {
+            if (button.IsSelected == 1)
+            {
+                button.ResetTheButton();
+            }
+        }
+
         IsSelected = IsSelected == 0 ? 1 : 0;
 
-        _image.color = IsSelected == 1 ? new Color32(255, 0, 140, 255) : Color.white;
-        _text.color = IsSelected == 1 ? Color.white : new Color32(255, 0, 140, 255);
+        if (changeSprite)
+        {
+           _image.sprite = IsSelected == 1 ? spriteSelected : spriteNotSelected;
+        }
+        else
+        {
+            _image.color = IsSelected == 1 ? new Color32(255, 0, 140, 255) : Color.white;
+        }
+        if (_text)
+        {
+            _text.color = IsSelected == 1 ? Color.white : new Color32(255, 0, 140, 255);
+        }
+    }
+    private void ResetTheButton()
+    {
+        IsSelected = 0;
+
+        if (changeSprite)
+        {
+            _image.sprite = spriteNotSelected;
+        }
+        else
+        {
+            _image.color = Color.white;
+        }
+        if (_text)
+        {
+            _text.color = new Color32(255, 0, 140, 255);
+        }
     }
 }

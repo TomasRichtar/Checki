@@ -8,19 +8,16 @@ using UnityEngine.UI;
 public class CreateQuestTwoWindow : BaseWindow
 {
     [Header("Inputs")]
-    //[SerializeField] private SelectableButton _traveling;
-    //[SerializeField] private SelectableButton _cooking;
-    //[SerializeField] private SelectableButton _music;
-    //[SerializeField] private SelectableButton _sport;
-    //[SerializeField] private SelectableButton _games;
-    //[SerializeField] private SelectableButton _relax;
-    //[SerializeField] private SelectableButton _art;
-    //[SerializeField] private SelectableButton _culture;
+    [SerializeField] private int _childrenId;
+    [SerializeField] private List<SelectableButton> _repeatableChoiseButtons;
+    [SerializeField] private TMP_InputField _credit;
+    [SerializeField] private TMP_InputField _complitionTime;
+    [SerializeField] private List<SelectableButton> _selectedDaysButtons;
 
-    //[SerializeField] private TextMeshProUGUI _familyText;
-    //[SerializeField] private Image _familyImage;
-    //[SerializeField] private TextMeshProUGUI _interestsText;
-    //[SerializeField] private Image _interestsImage;
+    [SerializeField] private TextMeshProUGUI _familyText;
+    [SerializeField] private Image _familyImage;
+    [SerializeField] private TextMeshProUGUI _interestsText;
+    [SerializeField] private Image _interestsImage;
 
 
     [Header("Buttons")]
@@ -29,18 +26,18 @@ public class CreateQuestTwoWindow : BaseWindow
 
     public void ChangeHeaderColorNext()
     {
-        //_familyImage.color = new Color(1.0f, 0.0f, 0.549f);
-        //_familyText.color = new Color(1.0f, 0.0f, 0.549f);
-        //_interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
-        //_interestsText.color = new Color(0.631f, 0.631f, 0.631f);
+        _familyImage.color = new Color(1.0f, 0.0f, 0.549f);
+        _familyText.color = new Color(1.0f, 0.0f, 0.549f);
+        _interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
+        _interestsText.color = new Color(0.631f, 0.631f, 0.631f);
     }
 
     public void ChangeHeaderColorPrevious()
     {
-        //_familyImage.color = new Color(1.0f, 0.0f, 0.549f);
-        //_familyText.color = new Color(1.0f, 0.0f, 0.549f);
-        //_interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
-        //_interestsText.color = new Color(0.631f, 0.631f, 0.631f);
+        _familyImage.color = new Color(1.0f, 0.0f, 0.549f);
+        _familyText.color = new Color(1.0f, 0.0f, 0.549f);
+        _interestsImage.color = new Color(0.631f, 0.631f, 0.631f);
+        _interestsText.color = new Color(0.631f, 0.631f, 0.631f);
     }
 
     private void OnEnable()
@@ -56,8 +53,9 @@ public class CreateQuestTwoWindow : BaseWindow
         Previous.onClick.AddListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.AddListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.AddListener(ProfileManager.Instance.AddChildren);
-        Previous.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
+        Next.onClick.AddListener(SendData);
+        Next.onClick.AddListener(QuestManager.Instance.AddQuest);
+        Previous.onClick.AddListener(WindowController.Instance.PushWindow<CreateQuestOneWindow>);
 
         //Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
         //   _traveling.IsSelected,
@@ -78,8 +76,9 @@ public class CreateQuestTwoWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.RemoveListener(ProfileManager.Instance.AddChildren);
-        Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
+        Next.onClick.RemoveListener(SendData);
+        Next.onClick.RemoveListener(QuestManager.Instance.AddQuest);
+        Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<CreateQuestOneWindow>);
 
         //Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
         //   _traveling.IsSelected,
@@ -90,5 +89,31 @@ public class CreateQuestTwoWindow : BaseWindow
         //    _relax.IsSelected,
         //    _art.IsSelected,
         //    _culture.IsSelected));
+    }
+
+    private void SendData()
+    {
+        QuestManager.Instance.ChildrenId = ProfileManager.Instance.ChildrenData.Id;
+        QuestManager.Instance.ProfileId = ProfileManager.Instance.ProfileData.Id;
+        QuestManager.Instance.Credit = int.Parse(_credit.text);
+        QuestManager.Instance.ComplitionTime = _complitionTime.text;
+        QuestManager.Instance.QuestStatus = QuestStatus.InProgress.ToString();
+
+        QuestManager.Instance.Days = "";
+        foreach (var item in _selectedDaysButtons)
+        {
+            if (item.IsSelected == 1)
+            {
+                QuestManager.Instance.Days += item.Data + ";";
+            }
+        }
+        foreach (var item in _repeatableChoiseButtons)
+        {
+            if (item.IsSelected == 1)
+            {
+                QuestManager.Instance.Repeatable = 1;
+                return;
+            }
+        }
     }
 }

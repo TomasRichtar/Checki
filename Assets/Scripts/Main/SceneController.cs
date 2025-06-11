@@ -8,12 +8,12 @@ public class SceneController : SingletonMonoBehaviour<SceneController>
 {
     private void OnEnable()
     {
-        MyGameManager.Instance.OnDataLoaded += LoadSceneFromInit;
+        //MyGameManager.Instance.OnDataLoaded += LoadSceneFromInit;
     }
 
     private void OnDisable()
     {
-        MyGameManager.Instance.OnDataLoaded -= LoadSceneFromInit;
+        //MyGameManager.Instance.OnDataLoaded -= LoadSceneFromInit;
     }
 
     protected override void Awake()
@@ -23,7 +23,7 @@ public class SceneController : SingletonMonoBehaviour<SceneController>
     }
     public void LoadSceneFromInit()
     {
-        SwitchScene("FormScene");
+        SwitchScene("GamePartScene");
     }
     public void SwitchScene(string sceneName)
     {

@@ -4,14 +4,14 @@ using UnityEditor;
 using UnityEngine;
 
 
-[CustomEditor(typeof(Reward))]
+[CustomEditor(typeof(RewardScriptableObject))]
 public class RewardEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        Reward reward = (Reward)target;
+        RewardScriptableObject reward = (RewardScriptableObject)target;
 
         if (reward.Title != reward.name)
         {

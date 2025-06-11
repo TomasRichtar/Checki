@@ -20,7 +20,6 @@ public class QuestAdminCollectionButton : MonoBehaviour
     private Quest _quest;
     private void OnEnable()
     {
-        Debug.Log("Enable)");
         CloseValidation();
     }
     public void CreateButton(Quest quest)
@@ -69,9 +68,10 @@ public class QuestAdminCollectionButton : MonoBehaviour
     {
         if (QuestAdminCollection.Instance.CheckIfExists(_quest))
         {
-            Debug.Log("DELETE THIS");
+            QuestManager.Instance.DeleteQuest(_quest);
         }
     }
+
     public void OpenValidation()
     {
         if (QuestAdminCollection.Instance.CheckIfExists(_quest))

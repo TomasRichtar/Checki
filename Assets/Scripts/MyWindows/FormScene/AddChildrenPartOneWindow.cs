@@ -10,7 +10,7 @@ public class AddChildrenPartOneWindow : BaseWindow
     [Header("Inputs")]
     [SerializeField] private TMP_InputField _name;
     [SerializeField] private TMP_InputField _nickName;
-    [SerializeField] private TMP_Dropdown _age;
+    [SerializeField] private TMP_InputField _age;
 
     [SerializeField] private TextMeshProUGUI _familyText;
     [SerializeField] private Image _familyImage;
@@ -56,7 +56,7 @@ public class AddChildrenPartOneWindow : BaseWindow
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountChildRegister(
             _name.text,
             _nickName.text,
-            _age.options[_age.value].text));
+            _age.text));
     }
     private void OnDisable()
     {
@@ -71,6 +71,6 @@ public class AddChildrenPartOneWindow : BaseWindow
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountChildRegister(
             _name.text,
             _nickName.text,
-            _age.options[_age.value].text));
+            _age.text));
     }
 }

@@ -49,12 +49,12 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
 {
     public List<ProfileDatabase> databaseQuests = new List<ProfileDatabase>();
 
-    public void GetProfileData(Action<ProfileDatabase> onSuccess)
+    public void GetProfileData(int id, Action<ProfileDatabase> onSuccess)
     {
-        StartCoroutine(GetProfileCoroutine(onSuccess));
+        StartCoroutine(GetProfileCoroutine(id, onSuccess));
     }
 
-    IEnumerator GetProfileCoroutine(Action<ProfileDatabase> onSuccess)
+    IEnumerator GetProfileCoroutine(int id, Action<ProfileDatabase> onSuccess)
     {
         UnityWebRequest www = UnityWebRequest.Get("http://localhost/get_profile.php");
         yield return www.SendWebRequest();
@@ -85,11 +85,11 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
             return "{\"data\":" + value + "}";
         return value;
     }
-    public void CreateProfile(ProfileDatabase profileData)
+    public void CreateProfile(ProfileDatabase profileData, Action<bool> onSuccess)
     {
-        StartCoroutine(SendDataCoroutine(profileData));
+        StartCoroutine(SendDataCoroutine(profileData, onSuccess));
     }
-    public IEnumerator SendDataCoroutine(ProfileDatabase profileData)
+    public IEnumerator SendDataCoroutine(ProfileDatabase profileData, Action<bool> onSuccess)
     {
         WWWForm form = new WWWForm();
         form.AddField("Name", profileData.Name);
@@ -125,10 +125,12 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Chyba: " + www.error);
+            onSuccess?.Invoke(false);
         }
         else
         {
             Debug.Log("Odpoved: " + www.downloadHandler.text);
+            onSuccess?.Invoke(true);
         }
     }
 }

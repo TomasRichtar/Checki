@@ -9,19 +9,19 @@ public class PasswordWindow : BaseWindow
     public GameObject Header;
 
     [Header("Buttons")]
-    public Button Code;
+   // public Button Code;
     public Button Login;
 
     private void OnEnable()
     {
-        Code.onClick.AddListener(WindowController.Instance.PushWindow<MainWindow>);
+        //Code.onClick.AddListener(WindowController.Instance.PushWindow<MainWindow>);
         Login.onClick.AddListener(() => SceneController.Instance.SwitchScene("FormScene"));
     }
     private void OnDisable()
     {
         try
         {
-            Code.onClick.RemoveListener(WindowController.Instance.PushWindow<MainWindow>);
+            //Code.onClick.RemoveListener(WindowController.Instance.PushWindow<MainWindow>);
             Login.onClick.RemoveListener(() => SceneController.Instance.SwitchScene("FormScene"));
         }
         catch (System.Exception)
