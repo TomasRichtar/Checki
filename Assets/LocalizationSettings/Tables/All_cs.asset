@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: cs
   m_SharedData: {fileID: 11400000, guid: b2662fbefb1ac46448479ad406789287, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 2619022665701130242
   m_TableData:
   - m_Id: 13874118656
     m_Localized: "P\u0159ihl\xE1\u0161en\xED rodi\u010De"
@@ -235,25 +236,29 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11905514487808
-    m_Localized: "Nespln\u011Bno"
+    m_Localized: "Nespln\u011Bno: {0}"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 11902955962368
-    m_Localized: "Spln\u011Bno"
+    m_Localized: "Spln\u011Bno: {0}"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 11907125100544
     m_Localized: "Vybran\xE9 odm\u011Bny :"
     m_Metadata:
       m_Items: []
   - m_Id: 11908710547456
-    m_Localized: "Vybr\xE1no"
+    m_Localized: "Vybr\xE1no: {0}"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 12166979010560
-    m_Localized: "Nevybr\xE1no"
+    m_Localized: "Nevybr\xE1no: {0}"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 12169214574592
     m_Localized: "Zobrazit \xFAkoly"
     m_Metadata:
@@ -391,9 +396,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17202735890432
-    m_Localized: "Nasb\xEDr\xE1no 5 / 20 p\u0159\xED\u0161erek"
+    m_Localized: "Nasb\xEDr\xE1no {0} / {1} p\u0159\xED\u0161erek"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 17559453057024
     m_Localized: "Z\xEDskali jste p\u0159\xED\u0161erku"
     m_Metadata:
@@ -482,6 +488,14 @@ MonoBehaviour:
     m_Localized: Opakovat?
     m_Metadata:
       m_Items: []
+  - m_Id: 11971206407667712
+    m_Localized: "Profil aktualizov\xE1n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2619022665701130242
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0040765fd30a00000040f6f7d30a0000004076b6d40a0000004076d8100b00000040f652a50f0000

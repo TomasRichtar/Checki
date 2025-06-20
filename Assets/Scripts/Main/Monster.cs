@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Monster", menuName = "ScriptableObjects/Monster", order = 1)]
 public class Monster : ScriptableObject
 {
+    public int Id;
     public string Name = "Monster";
     public Sprite Sprite;
     public Color GlowColor = Color.red;

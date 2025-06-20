@@ -8,7 +8,7 @@ public class QuestData
 
     public string Name;
     public QuestType QuestType;
-    public QuestStatus QuestStatus;
+    public QuestStatusEnum QuestStatus;
     public string ComplitionTime; // 11:00; 21:00
     public Days Day;
     public string ValidUntil;

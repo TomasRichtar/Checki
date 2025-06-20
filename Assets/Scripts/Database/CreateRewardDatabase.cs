@@ -15,6 +15,7 @@ public class Reward
     public string ValidUntil;
     public int ChildrenId;
     public int ProfileId;
+    public int Collected;
 }
 
 [System.Serializable]
@@ -79,6 +80,7 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
         form.AddField("ValidUntil", data.ValidUntil);
         form.AddField("ChildrenId", data.ChildrenId);
         form.AddField("ProfileId", data.ProfileId);
+        form.AddField("Collected", data.Collected);
 
         UnityWebRequest www = UnityWebRequest.Post("http://localhost/create_rewards.php", form);
         yield return www.SendWebRequest();
@@ -118,6 +120,36 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
                 Debug.Log("request return: " + www.downloadHandler.text);
                 onSuccess?.Invoke(true);
             }
+        }
+    }
+    public void UpdateData(Reward data, Action<bool> onSuccess)
+    {
+        StartCoroutine(UpdateDataCoroutine(data, onSuccess));
+    }
+
+    IEnumerator UpdateDataCoroutine(Reward data, Action<bool> onSuccess)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Title", data.Title);
+        form.AddField("ImageId", data.ImageId);
+        form.AddField("Price", data.Price);
+        form.AddField("ValidUntil", data.ValidUntil);
+        form.AddField("ChildrenId", data.ChildrenId);
+        form.AddField("ProfileId", data.ProfileId);
+        form.AddField("Collected", data.Collected);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost/update_rewards.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error: " + www.error);
+            onSuccess?.Invoke(false);
+        }
+        else
+        {
+            Debug.Log("Response: " + www.downloadHandler.text);
+            onSuccess?.Invoke(www.downloadHandler.text == "SUCCESS");
         }
     }
 }

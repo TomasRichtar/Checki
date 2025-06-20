@@ -1,6 +1,8 @@
 using JSG.FortuneSpinWheel;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using TastyCore.Utils;
 using UnityEngine;
 
@@ -76,7 +78,20 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
 
     public void BuyReward()
     {
-        Debug.Log("Reward was collected");
+        Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+        child.Credit -= SelectedReward.Price;
+
+        ChildrenDatabase.Instance.UpdateData(child, (response) =>
+        {
+            Debug.Log("Reward is collected: Current credit: " + child.Credit + "(" + SelectedReward.Price +")");
+
+            Reward reward = MyGameManager.Instance.RewardList.FirstOrDefault(r => r.Id == SelectedReward.Id);
+            reward.Collected = 1;
+
+            CreateRewardDatabase.Instance.UpdateData(reward, (response) =>
+            {
+            });
+        });
     }
 
     public void AddReward()

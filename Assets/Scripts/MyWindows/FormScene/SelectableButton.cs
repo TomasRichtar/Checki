@@ -34,7 +34,7 @@ public class SelectableButton : MonoBehaviour
         _button.onClick.RemoveListener(Selected);
     }
 
-    private void Selected()
+    public void Selected()
     {
         foreach (SelectableButton button in buttons)
         {

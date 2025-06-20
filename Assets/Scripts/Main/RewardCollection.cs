@@ -28,7 +28,10 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
     {
         OnDataUpdate -= LoadColletionLayout;
     }
-
+    private void Start()
+    {
+        UpdateData();
+    }
     public void UpdateData()
     {
         SetAllRewards();

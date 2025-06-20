@@ -4,6 +4,7 @@ using UnityEngine;
 using Richi;
 using TastyCore.Utils;
 using System;
+using System.Linq;
 
 public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
 {
@@ -13,15 +14,12 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
     public List<Children> ChildrenList = new List<Children>();
     public List<Quest> QuestList = new List<Quest>();
     public List<Reward> RewardList = new List<Reward>();
+    public List<Monster> MonsterList = new List<Monster>();
+    public List<Equipment> EquipmentList = new List<Equipment>();
 
     [Header("Data from game")]
-    //TMP, this will be in the database
-    public List<string> UnlockedMonstersList = new List<string>();
-    public string SelectedMonster;
-
-    public List<string> UnlockedEquipmentList = new List<string>();
-    public string SelectedEquipmnet;
-
+    public List<Monster> AllMonsterList = new List<Monster>();
+    public List<Equipment> AllEquipmentList = new List<Equipment>();
 
     public string UserName;
     public int UserCredit;
@@ -41,17 +39,6 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
         {
             //LoadAllData();
         }
-    }
-
-    public void SelectNewMonster(string name)
-    {
-        SelectedMonster = name;
-        OnNewSelectedMonster?.Invoke();
-    }
-    public void SelectNewEquipment(string name)
-    {
-        SelectedEquipmnet = name;
-        OnNewSelectedEquipment?.Invoke();
     }
 
     public void LoadAllData(Action onComplete)
@@ -109,5 +96,33 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
             RewardList = Reward;
             CheckCompleted();
         });
+    }
+
+    public void LoadMonsterData()
+    {
+        Children selectedChild = ChildrenList.FirstOrDefault(c => c.Id == ChildrenId);
+        if (selectedChild == null)
+        {
+            Debug.LogWarning("Children not found with ID: " + ChildrenId);
+            return;
+        }
+
+        List<int> unlockedMonsterIds = selectedChild.UnlockedMonsters
+            .Split(';', StringSplitOptions.RemoveEmptyEntries)
+            .Select(id => int.Parse(id))
+            .ToList();
+
+        List<int> unlockedEquipmentIds = selectedChild.UnlockedEquipment
+            .Split(';', StringSplitOptions.RemoveEmptyEntries)
+            .Select(id => int.Parse(id))
+            .ToList();
+
+        MonsterList = AllMonsterList
+            .Where(monster => unlockedMonsterIds.Contains(monster.Id))
+            .ToList();
+
+        EquipmentList = AllEquipmentList
+            .Where(equipment => unlockedEquipmentIds.Contains(equipment.Id))
+            .ToList();
     }
 }

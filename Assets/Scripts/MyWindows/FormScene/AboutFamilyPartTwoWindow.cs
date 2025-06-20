@@ -56,6 +56,7 @@ public class AboutFamilyPartTwoWindow : BaseWindow
         Previous.onClick.AddListener(() => ChangeHeaderColorPrevious());
 
         Next.onClick.AddListener(WindowController.Instance.PushWindow<AboutFamilyPartTreeWindow>);
+        Next.onClick.AddListener(WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().FillUpData);
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>);
 
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataPets(
@@ -72,6 +73,7 @@ public class AboutFamilyPartTwoWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
         Next.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartTreeWindow>);
+        Next.onClick.RemoveListener(WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().FillUpData);
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataPets(
@@ -79,5 +81,12 @@ public class AboutFamilyPartTwoWindow : BaseWindow
             _cats.text,
             _fish.text,
             _other.text));
+    }
+    public void FillUpData()
+    {
+        _dogs.text = ProfileManager.Instance.ProfileData.Dogs.ToString();
+        _cats.text = ProfileManager.Instance.ProfileData.Cats.ToString();
+        _fish.text = ProfileManager.Instance.ProfileData.Fish.ToString();
+        _other.text = ProfileManager.Instance.ProfileData.Other.ToString();
     }
 }

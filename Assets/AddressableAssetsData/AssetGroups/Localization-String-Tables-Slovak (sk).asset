@@ -37,7 +37,7 @@ MonoBehaviour:
     - Locale-sk
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 760e0e2bc0fe40b4f890ee62aced6d0a
-    m_Address: Callendar_sk
+    m_Address: sport_sk
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-sk

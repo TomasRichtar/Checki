@@ -657,13 +657,21 @@ MonoBehaviour:
   ChildrenList: []
   QuestList: []
   RewardList: []
-  UnlockedMonstersList:
-  - Darki
+  MonsterList: []
+  EquipmentList: []
+  AllMonsterList:
+  - {fileID: 11400000, guid: 4f7423b29ff642b4187759e66061b5db, type: 2}
+  - {fileID: 11400000, guid: c6c1e2be4bb03ee4abc68fdfd8666727, type: 2}
+  - {fileID: 11400000, guid: df1d028f0a4e2a347b535d7ab696bcd0, type: 2}
+  - {fileID: 11400000, guid: a387ceacd7992b444911de6a27ab55a5, type: 2}
+  - {fileID: 11400000, guid: b503e3cc03cb599479334a6979b9e385, type: 2}
+  AllEquipmentList:
+  - {fileID: 11400000, guid: 3cad2ab44264ebf4db7797ef01f112af, type: 2}
+  - {fileID: 11400000, guid: 3c09dd3b5b2e47e489d696997c700b9c, type: 2}
+  - {fileID: 11400000, guid: 671d999f397cf1c4c991040970df60bc, type: 2}
+  - {fileID: 11400000, guid: c2c44027109a7ea41a6b5f888b8cd542, type: 2}
+  - {fileID: 11400000, guid: b153c49956fb77e4bb17f700830ca933, type: 2}
   SelectedMonster: Darki
-  UnlockedEquipmentList:
-  - None
-  - Glasses
-  - Hat
   SelectedEquipmnet: Hat
   UserName: 
   UserCredit: 350

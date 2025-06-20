@@ -29,4 +29,8 @@ public class Children
     public string UnlockedEquipment;
     public string SelectedMonster;
     public string SelectedEquipment;
+
+    public int Credit;
+    public int Money;
+    public int ImageId;
 }

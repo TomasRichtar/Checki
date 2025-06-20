@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CollectionWindow : BaseWindow
@@ -8,9 +9,12 @@ public class CollectionWindow : BaseWindow
     [Header("Buttons")]
     public Button SpinLuckyWheelButton;
 
+    private UnityAction _onClickOpenLuckyWheel;
+
     private void OnEnable()
     {
-        SpinLuckyWheelButton.onClick.AddListener(WindowController.Instance.PushWindow<LuckyWheelWindow>);
+        _onClickOpenLuckyWheel = () => WindowController.Instance.PushWindow<LuckyWheelWindow>();
+        SpinLuckyWheelButton.onClick.AddListener(_onClickOpenLuckyWheel);
     }
     private void OnDisable()
     {

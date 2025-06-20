@@ -1,8 +1,13 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TastyCore.Utils;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class CallendarCollection : MonoBehaviour
+public class CallendarCollection : SingletonMonoBehaviour<CallendarCollection>
 {
     public List<CallendarDay> MyData = new List<CallendarDay>();
 
@@ -25,30 +30,53 @@ public class CallendarCollection : MonoBehaviour
         OnDataUpdate -= LoadColletionLayout;
     }
 
-    private void Start()
-    {
-        UpdateData();
-    }
-
     public void UpdateData()
     {
         SetAllData();
         LoadColletionLayout();
     }
-
     public void SetAllData()
     {
         MyData.Clear();
+        StartCoroutine(LoadLocalizedDataCoroutine());
+    }
 
-        for (int i = 0; i < 10; i++)
+    private IEnumerator LoadLocalizedDataCoroutine()
+    {
+        var task = LoadLocalizedDataAsync();
+        yield return new WaitUntil(() => task.IsCompleted);
+    }
+
+    private async Task LoadLocalizedDataAsync()
+    {
+        for (int i = 0; i <= 6; i++)
         {
             DateTime day = DateTime.Today.AddDays(i);
             Days myDays = (Days)(int)day.DayOfWeek;
+            Months myMonth = (Months)(day.Month - 1);
+            
+            string dayKey = $"{myDays}";     // e.g., "Monday"
+            string monthKey = $"{myMonth}";  // e.g., "January"
+
+            var dayRequest = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("sport", dayKey);
+            var monthRequest = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("sport", monthKey);
+
+            await Task.WhenAll(dayRequest.Task, monthRequest.Task);
+
+            if (dayRequest.Status != AsyncOperationStatus.Succeeded || monthRequest.Status != AsyncOperationStatus.Succeeded)
+            {
+                Debug.LogError($"Localization failed for: {dayKey} or {monthKey}");
+                continue;
+            }
+
+            string localizedDay = dayRequest.Result;
+            string localizedMonth = monthRequest.Result;
 
             CallendarDay callendarDay = new CallendarDay
             {
-                Day = day.DayOfWeek.ToString(),
-                Month = day.Month.ToString(),
+                Day = localizedDay,
+                DayKey = dayKey,
+                Month = localizedMonth,
                 Year = day.Year.ToString(),
                 DayNumber = day.Day,
                 DayEnum = myDays
@@ -57,7 +85,7 @@ public class CallendarCollection : MonoBehaviour
             MyData.Add(callendarDay);
         }
 
-        OnDataLoaded?.Invoke();
+        OnDataUpdate?.Invoke();
     }
 
     public void LoadColletionLayout()

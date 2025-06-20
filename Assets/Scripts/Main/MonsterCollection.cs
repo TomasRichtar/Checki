@@ -4,29 +4,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using TastyCore.Utils;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
 {
-    public List<Monster> AllMonsters = new List<Monster>();
+    //public List<Monster> AllMonsters = new List<Monster>();
     public List<Monster> MyMonsters = new List<Monster>();
     public List<Monster> LockedMonsters = new List<Monster>();
 
     [SerializeField] private Transform _monsterLayout;
     [SerializeField] private MonsterCollectionButton _monsterCollectionButton;
 
+
+    private float _collected = 0;
+    private float _locked = 0;
+    [SerializeField] private LocalizedString _collectedLocalization;
+    [SerializeField] private TextMeshProUGUI _collectedText;
+
     public event Action OnMonstersLoaded;
     public event Action OnNewMonsterUnlocked;
-
 
     private void OnEnable()
     {
         OnNewMonsterUnlocked += LoadMonsterColletion;
+        _collectedLocalization.Arguments = new object[] { _collected, _locked };
+        _collectedLocalization.StringChanged += UpdateCompleteText;
     }
     private void OnDisable()
     {
         OnNewMonsterUnlocked -= LoadMonsterColletion;
+        _collectedLocalization.StringChanged -= UpdateCompleteText;
+    }
+
+    public void UpdateCompleteText(string value)
+    {
+        _collectedText.text = value;
     }
 
     private void Start()
@@ -45,11 +60,9 @@ public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
         MyMonsters.Clear();
         LockedMonsters.Clear();
 
-        var unlockedSet = new HashSet<string>(MyGameManager.Instance.UnlockedMonstersList);
-
-        foreach (var monster in AllMonsters)
+        foreach (var monster in MyGameManager.Instance.AllMonsterList)
         {
-            if (unlockedSet.Contains(monster.Name))
+            if (MyGameManager.Instance.MonsterList.Contains(monster))
             {
                 MyMonsters.Add(monster);
             }
@@ -61,13 +74,13 @@ public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
 
         foreach (var monster in MyMonsters)
         {
-            if (monster.Name == MyGameManager.Instance.SelectedMonster)
+            if (monster.Name == MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId).SelectedMonster)
             {
                 MyMonster.Instance.SetSelectedMonster(monster);
             }
             else
             {
-                Debug.Log("This Monster is not unlocked: " + MyGameManager.Instance.SelectedMonster);
+                Debug.Log("This Monster is not unlocked: " + MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId).SelectedMonster);
             }
         }
 
@@ -77,6 +90,9 @@ public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
    
     public void LoadMonsterColletion()
     {
+        _collected = 0;
+        _locked = 0;
+
         foreach (Transform item in _monsterLayout)
         {
             Destroy(item.gameObject);
@@ -86,13 +102,19 @@ public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
         {
             MonsterCollectionButton monsterButton = Instantiate(_monsterCollectionButton, Vector3.zero, Quaternion.identity, _monsterLayout);
             monsterButton.CreateButton(monster, false);
+            _collected++;
         }
 
         foreach (var monster in LockedMonsters)
         {
             MonsterCollectionButton monsterButton = Instantiate(_monsterCollectionButton, Vector3.zero, Quaternion.identity, _monsterLayout);
             monsterButton.CreateButton(monster, true);
+            _locked++;
         }
+
+        _collectedLocalization.Arguments[0] = _collected.ToString();
+        _collectedLocalization.Arguments[1] = _locked.ToString();
+        _collectedLocalization.RefreshString();
     }
 
     public bool CheckIfUnLocked(Monster monster)
@@ -108,10 +130,16 @@ public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
     {
         if (CheckIfUnLocked(monster)) return;
 
-        LockedMonsters.Remove(monster);
-        MyMonsters.Add(monster);
+        Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+        child.UnlockedEquipment += monster.Id + ";";
 
-        MyGameManager.Instance.UnlockedMonstersList.Add(monster.Name);
-        OnNewMonsterUnlocked?.Invoke();
+        ChildrenDatabase.Instance.UpdateData(child, (response) =>
+        {
+            LockedMonsters.Remove(monster);
+            MyMonsters.Add(monster);
+
+            MyGameManager.Instance.MonsterList.Add(monster);
+            OnNewMonsterUnlocked?.Invoke();
+        });
     }
 }

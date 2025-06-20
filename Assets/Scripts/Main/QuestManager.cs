@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TastyCore.Utils;
 using UnityEngine;
 
@@ -40,6 +41,34 @@ public class QuestManager : SingletonMonoBehaviour<QuestManager>
         CreateQuestDatabase.Instance.Delete(quest.Id, (response) =>
         {
             QuestAdminCollection.Instance.DeleteQuest(quest);
+        });
+    }
+
+    public void CompleteQuest(Quest quest)
+    {
+        quest.QuestStatus = QuestStatusEnum.InProgress.ToString();
+
+        CreateQuestDatabase.Instance.UpdateData(quest, (response) =>
+        {
+        });
+    }
+
+    public void ValidateQuest(Quest quest, QuestStatusEnum questStatusEnum)
+    {
+        quest.QuestStatus = questStatusEnum.ToString();
+
+        CreateQuestDatabase.Instance.UpdateData(quest, (response) =>
+        {
+            if (questStatusEnum == QuestStatusEnum.Completed)
+            {
+                Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == quest.ChildrenId);
+                child.Credit += quest.Credit;
+
+                ChildrenDatabase.Instance.UpdateData(child, (response) =>
+                {
+
+                });
+            }
         });
     }
 }

@@ -133,4 +133,54 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
             onSuccess?.Invoke(true);
         }
     }
+    public void UpdateData(ProfileDatabase profileData, Action<bool> onSuccess)
+    {
+        StartCoroutine(UpdateDataCoroutine(profileData, onSuccess));
+    }
+
+    IEnumerator UpdateDataCoroutine(ProfileDatabase profileData, Action<bool> onSuccess)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Id", profileData.Id);
+        form.AddField("Name", profileData.Name);
+        form.AddField("Nickname", profileData.Nickname);
+        form.AddField("Email", profileData.Email);
+        form.AddField("TelNumber", profileData.TelNumber);
+
+        form.AddField("Traveling", profileData.Traveling);
+        form.AddField("Cooking", profileData.Cooking);
+        form.AddField("Music", profileData.Music);
+        form.AddField("Sport", profileData.Sport);
+        form.AddField("Games", profileData.Games);
+        form.AddField("Relax", profileData.Relax);
+        form.AddField("Art", profileData.Art);
+        form.AddField("Culture", profileData.Culture);
+
+        form.AddField("Dogs", profileData.Dogs);
+        form.AddField("Cats", profileData.Cats);
+        form.AddField("Fish", profileData.Fish);
+        form.AddField("Other", profileData.Other);
+
+        form.AddField("Quests", profileData.Quests);
+        form.AddField("Rewards", profileData.Rewards);
+        form.AddField("ChildrenIds", profileData.ChildrenIds);
+        form.AddField("GmailId", profileData.GmailId);
+
+        form.AddField("FamilyCount", profileData.FamilyCount);
+        form.AddField("ChildrenCount", profileData.ChildrenCount);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost/update_profile.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error: " + www.error);
+            onSuccess?.Invoke(false);
+        }
+        else
+        {
+            Debug.Log("Response: " + www.downloadHandler.text);
+            onSuccess?.Invoke(www.downloadHandler.text == "SUCCESS");
+        }
+    }
 }

@@ -24,8 +24,13 @@ public class EquipmentCollectionButton : MonoBehaviour
     {
         if (EquipmentCollection.Instance.CheckIfUnLocked(_equipment))
         {
-            MyGameManager.Instance.SelectNewEquipment(_equipment.Name);
-            MyMonster.Instance.SetSelectedEquipment(_equipment);
+            Children child = MyGameManager.Instance.ChildrenList[MyGameManager.Instance.ChildrenId];
+            child.SelectedMonster = _equipment.Name;
+
+            ChildrenDatabase.Instance.UpdateData(child, (response) =>
+            {
+                MyMonster.Instance.SetSelectedEquipment(_equipment);
+            });
         }
     }
 }

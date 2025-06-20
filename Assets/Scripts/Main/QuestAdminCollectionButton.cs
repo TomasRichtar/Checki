@@ -28,27 +28,27 @@ public class QuestAdminCollectionButton : MonoBehaviour
 
         _nameText.text = quest.Title;
         _dateText.text = quest.ComplitionTime;
-        QuestStatus questStatus;
+        QuestStatusEnum questStatus;
         if (!Enum.TryParse(quest.QuestStatus, true, out questStatus))
         {
-            questStatus = QuestStatus.None;
+            questStatus = QuestStatusEnum.None;
         }
 
         switch (questStatus)
         {
-            case QuestStatus.None:
+            case QuestStatusEnum.None:
                 _inProgress.SetActive(true);
                 break;
-            case QuestStatus.InProgress:
+            case QuestStatusEnum.InProgress:
                 _inProgress.SetActive(true);
                 break;
-            case QuestStatus.Completed:
+            case QuestStatusEnum.Completed:
                 _completed.SetActive(true);
                 break;
-            case QuestStatus.Pending:
+            case QuestStatusEnum.Pending:
                 _pending.SetActive(true);
                 break;
-            case QuestStatus.Failed:
+            case QuestStatusEnum.Failed:
                 _failed.SetActive(true);
                 break;
             default:

@@ -11,6 +11,7 @@ public class AddChildrenPartOneWindow : BaseWindow
     [SerializeField] private TMP_InputField _name;
     [SerializeField] private TMP_InputField _nickName;
     [SerializeField] private TMP_InputField _age;
+    [SerializeField] private List<SelectableButton> _selectablebuttons = new List<SelectableButton>();
 
     [SerializeField] private TextMeshProUGUI _familyText;
     [SerializeField] private Image _familyImage;
@@ -51,6 +52,7 @@ public class AddChildrenPartOneWindow : BaseWindow
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<ChildrenSettingsWindow>);
         Previous.onClick.AddListener(WindowController.Instance.ForceExit<AddChildrenMainWindow>);
         Next.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartTwoWindow>);
+        Next.onClick.AddListener(WindowController.Instance.GetWindow<AddChildrenPartTwoWindow>().FillUpData);
 
 
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountChildRegister(
@@ -67,10 +69,27 @@ public class AddChildrenPartOneWindow : BaseWindow
 
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<ChildrenSettingsWindow>);
         Next.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartTwoWindow>);
+        Next.onClick.RemoveListener(WindowController.Instance.GetWindow<AddChildrenPartTwoWindow>().FillUpData);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountChildRegister(
             _name.text,
             _nickName.text,
             _age.text));
+    }
+
+    public void FillUpData()
+    {
+        _name.text = ProfileManager.Instance.ChildrenData.Name;
+        _nickName.text = ProfileManager.Instance.ChildrenData.Nickname;
+        _age.text = ProfileManager.Instance.ChildrenData.Age.ToString();
+
+        foreach (var item in ProfileManager.Instance.PhotoButtons)
+        {
+            if (item.ImageId == ProfileManager.Instance.ChildrenData.ImageId)
+            {
+                item.Selected();
+                return;
+            }
+        }
     }
 }

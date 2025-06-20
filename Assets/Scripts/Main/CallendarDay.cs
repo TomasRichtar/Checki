@@ -6,6 +6,7 @@ public class CallendarDay
 {
     public Days DayEnum;
     public string Day;
+    public string DayKey;
     public string Month;
     public string Year;
     public int DayNumber;

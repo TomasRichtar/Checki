@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using TastyCore.Utils;
 using UnityEngine;
 
 public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 {
-    public List<Equipment> AllEquipments = new List<Equipment>();
+    //public List<Equipment> AllEquipments = new List<Equipment>();
     public List<Equipment> MyEquipments = new List<Equipment>();
     public List<Equipment> LockedEquipments = new List<Equipment>();
 
@@ -41,11 +43,9 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
         MyEquipments.Clear();
         LockedEquipments.Clear();
 
-        var unlockedSet = new HashSet<string>(MyGameManager.Instance.UnlockedEquipmentList);
-
-        foreach (var Equipment in AllEquipments)
+        foreach (var Equipment in MyGameManager.Instance.AllEquipmentList)
         {
-            if (unlockedSet.Contains(Equipment.Name))
+            if (MyGameManager.Instance.EquipmentList.Contains(Equipment))
             {
                 MyEquipments.Add(Equipment);
             }
@@ -57,13 +57,13 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 
         foreach (var equipment in MyEquipments)
         {
-            if (equipment.Name == MyGameManager.Instance.SelectedEquipmnet)
+            if (equipment.Name == MyGameManager.Instance.ChildrenList.FirstOrDefault(x =>x.Id == MyGameManager.Instance.ChildrenId).SelectedEquipment)
             {
                 MyMonster.Instance.SetSelectedEquipment(equipment);
             }
             else
             {
-                Debug.Log("This Monster is not unlocked: " + MyGameManager.Instance.SelectedMonster);
+                Debug.Log("This Monster is not unlocked: " + MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId).SelectedEquipment);
             }
         }
 
@@ -109,14 +109,21 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
         return false;
     }
 
-    public void UnlockNewMonster(Equipment equipment)
+    public void UnlockNewEquipment(Equipment equipment)
     {
         if (CheckIfUnLocked(equipment)) return;
 
-        LockedEquipments.Remove(equipment);
-        MyEquipments.Add(equipment);
+        Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+        child.UnlockedEquipment += equipment.Id + ";";
 
-        MyGameManager.Instance.UnlockedMonstersList.Add(equipment.Name);
-        OnNewEquipmentUnlocked?.Invoke();
+        ChildrenDatabase.Instance.UpdateData(child, (response) =>
+        {
+            LockedEquipments.Remove(equipment);
+            MyEquipments.Add(equipment);
+
+            MyGameManager.Instance.EquipmentList.Add(equipment);
+            OnNewEquipmentUnlocked?.Invoke();
+        });
+
     }
 }

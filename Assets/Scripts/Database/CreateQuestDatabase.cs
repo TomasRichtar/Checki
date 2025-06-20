@@ -129,4 +129,39 @@ public class CreateQuestDatabase : SingletonMonoBehaviour<CreateQuestDatabase>
             }
         }
     }
+    public void UpdateData(Quest data, Action<bool> onSuccess)
+    {
+        StartCoroutine(UpdateDataCoroutine(data, onSuccess));
+    }
+
+    IEnumerator UpdateDataCoroutine(Quest data, Action<bool> onSuccess)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Id", data.Id);
+        form.AddField("Title", data.Title);
+        form.AddField("ComplitionTime", data.ComplitionTime);
+        form.AddField("Days", data.Days);
+        form.AddField("Repeatable", data.Repeatable);
+
+        form.AddField("Credit", data.Credit);
+        form.AddField("QuestStatus", data.QuestStatus);
+        form.AddField("ProfileId", data.ProfileId);
+
+        form.AddField("ChildrenId", data.ChildrenId);
+        form.AddField("ImageId", data.ImageId);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost/update_quest.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error: " + www.error);
+            onSuccess?.Invoke(false);
+        }
+        else
+        {
+            Debug.Log("Response: " + www.downloadHandler.text);
+            onSuccess?.Invoke(www.downloadHandler.text == "SUCCESS");
+        }
+    }
 }

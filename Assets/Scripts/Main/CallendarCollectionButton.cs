@@ -19,9 +19,18 @@ public class CallendarCollectionButton : MonoBehaviour
         _callendarDay = callendarDay;
 
         _day.text = _callendarDay.Day;
-        _month.text = _callendarDay.Month + " " + _callendarDay.Year;
+        _month.text = _callendarDay.Month;
+        _year.text = _callendarDay.Year;
         _dayNumber.text = _callendarDay.DayNumber.ToString();
-        _questsNumber.text = _callendarDay.Quests.Count.ToString();
+        int questCount = 0;
+        foreach (var item in MyGameManager.Instance.QuestList)
+        {
+            if (item.Days.Contains(_callendarDay.DayKey)) 
+            {
+                questCount++;
+            }
+        }
+        _questsNumber.text = questCount.ToString();
     }
 
     public void SelectThis()

@@ -17,6 +17,7 @@ public class ChildrenCollectionButton : MonoBehaviour
         _children = children;
 
         _nameText.text = children.Name;
+        _image.sprite = SpriteManager.Instance.ProfileSprites[children.ImageId];
     }
 
     public void SelectThis()

@@ -30,7 +30,10 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
     {
         OnDataUpdate -= LoadColletionLayout;
     }
-
+    private void Start()
+    {
+        UpdateData();
+    }
     public void UpdateData()
     {
         SetAllData();

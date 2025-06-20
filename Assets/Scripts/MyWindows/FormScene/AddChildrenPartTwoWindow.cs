@@ -2,11 +2,14 @@ using Richi;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class AddChildrenPartTwoWindow : BaseWindow
 {
+    public bool IsCreatingNew = true;
+
     [Header("Inputs")]
     [SerializeField] private SelectableButton _traveling;
     [SerializeField] private SelectableButton _cooking;
@@ -56,7 +59,15 @@ public class AddChildrenPartTwoWindow : BaseWindow
         Previous.onClick.AddListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.AddListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.AddListener(ProfileManager.Instance.AddChildren);
+        if (IsCreatingNew)
+        {
+            Next.onClick.AddListener(ProfileManager.Instance.AddChildren);
+        }
+        else
+        {
+            Next.onClick.AddListener(ProfileManager.Instance.UpdateChildren);
+        }
+
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
 
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
@@ -78,7 +89,15 @@ public class AddChildrenPartTwoWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.RemoveListener(ProfileManager.Instance.AddChildren);
+        if (IsCreatingNew)
+        {
+            Next.onClick.RemoveListener(ProfileManager.Instance.AddChildren);
+        }
+        else
+        {
+            Next.onClick.RemoveListener(ProfileManager.Instance.UpdateChildren);
+        }
+
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
@@ -90,5 +109,40 @@ public class AddChildrenPartTwoWindow : BaseWindow
             _relax.IsSelected,
             _art.IsSelected,
             _culture.IsSelected));
+    }
+    public void FillUpData()
+    {
+        if (ProfileManager.Instance.ChildrenData.Traveling == 1)
+        {
+            _traveling.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Cooking == 1)
+        {
+            _cooking.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Music == 1)
+        {
+            _music.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Sport == 1)
+        {
+            _sport.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Games == 1)
+        {
+            _games.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Relax == 1)
+        {
+            _relax.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Art == 1)
+        {
+            _art.Selected();
+        }
+        if (ProfileManager.Instance.ChildrenData.Culture == 1)
+        {
+            _culture.Selected();
+        }
     }
 }

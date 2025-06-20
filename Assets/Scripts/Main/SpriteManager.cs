@@ -9,4 +9,9 @@ public class SpriteManager : SingletonMonoBehaviour<SpriteManager>
     public List<Sprite> RewardSprites = new List<Sprite>();
     public List<Sprite> ProfileSprites = new List<Sprite>();
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
 }

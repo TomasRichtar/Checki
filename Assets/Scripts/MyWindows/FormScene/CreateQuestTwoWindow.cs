@@ -97,7 +97,7 @@ public class CreateQuestTwoWindow : BaseWindow
         QuestManager.Instance.ProfileId = ProfileManager.Instance.ProfileData.Id;
         QuestManager.Instance.Credit = int.Parse(_credit.text);
         QuestManager.Instance.ComplitionTime = _complitionTime.text;
-        QuestManager.Instance.QuestStatus = QuestStatus.InProgress.ToString();
+        QuestManager.Instance.QuestStatus = QuestStatusEnum.InProgress.ToString();
 
         QuestManager.Instance.Days = "";
         foreach (var item in _selectedDaysButtons)

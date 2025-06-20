@@ -9,103 +9,109 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Callendar_cs
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: sport Shared Data
   m_EditorClassIdentifier: 
-  m_LocaleId:
-    m_Code: cs
-  m_SharedData: {fileID: 11400000, guid: 7c87eb3554e3ff64db02995a7b6b15f0, type: 2}
-  m_Metadata:
-    m_Items: []
-  m_TableData:
+  m_TableCollectionName: sport
+  m_TableCollectionNameGuidString: 7c87eb3554e3ff64db02995a7b6b15f0
+  m_Entries:
   - m_Id: 7846903808
-    m_Localized: "Pond\u011Bl\xED"
+    m_Key: Monday
     m_Metadata:
       m_Items: []
   - m_Id: 10514481152
-    m_Localized: "\xDAter\xFD"
+    m_Key: Tuesday
     m_Metadata:
       m_Items: []
   - m_Id: 12959760384
-    m_Localized: "St\u0159eda"
+    m_Key: Wednesday
     m_Metadata:
       m_Items: []
   - m_Id: 17430888448
-    m_Localized: "\u010Ctvrtek"
+    m_Key: Thursday
     m_Metadata:
       m_Items: []
   - m_Id: 20874412032
-    m_Localized: "P\xE1tek"
+    m_Key: Friday
     m_Metadata:
       m_Items: []
   - m_Id: 24791891968
-    m_Localized: Sobota
+    m_Key: Saturday
     m_Metadata:
       m_Items: []
   - m_Id: 26209566720
-    m_Localized: "Ned\u011Ble"
+    m_Key: Sunday
     m_Metadata:
       m_Items: []
   - m_Id: 27115536384
-    m_Localized: "T\xFDden"
+    m_Key: Week
     m_Metadata:
       m_Items: []
   - m_Id: 27807596544
-    m_Localized: "V\xEDkend"
+    m_Key: Weekend
     m_Metadata:
       m_Items: []
   - m_Id: 28466102272
-    m_Localized: "Ka\u017Ed\xFD den"
+    m_Key: EachDay
     m_Metadata:
       m_Items: []
   - m_Id: 29082664960
-    m_Localized: Leden
+    m_Key: January
     m_Metadata:
       m_Items: []
   - m_Id: 29732782080
-    m_Localized: "\xDAnor"
+    m_Key: February
     m_Metadata:
       m_Items: []
   - m_Id: 30433230848
-    m_Localized: "B\u0159ezen"
+    m_Key: March
     m_Metadata:
       m_Items: []
   - m_Id: 33465712640
-    m_Localized: Duben
+    m_Key: April
     m_Metadata:
       m_Items: []
   - m_Id: 34057109504
-    m_Localized: "Kv\u011Bten"
+    m_Key: May
     m_Metadata:
       m_Items: []
   - m_Id: 34690449408
-    m_Localized: "\u010Cerven"
+    m_Key: June
     m_Metadata:
       m_Items: []
   - m_Id: 35206348800
-    m_Localized: "\u010Cervenec"
+    m_Key: July
     m_Metadata:
       m_Items: []
   - m_Id: 39178354688
-    m_Localized: Srpen
+    m_Key: August
     m_Metadata:
       m_Items: []
   - m_Id: 39719419904
-    m_Localized: "Z\xE1\u0159\xED"
+    m_Key: September
     m_Metadata:
       m_Items: []
   - m_Id: 40273068032
-    m_Localized: "\u0158\xEDjen"
+    m_Key: October
     m_Metadata:
       m_Items: []
   - m_Id: 380884107264
-    m_Localized: Listopad
+    m_Key: November
     m_Metadata:
       m_Items: []
   - m_Id: 382385668096
-    m_Localized: Prosinec
+    m_Key: December
     m_Metadata:
       m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7470511066050199557
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7470511066050199557
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1746958241222

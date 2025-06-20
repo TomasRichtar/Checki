@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class AboutFamilyPartTreeWindow : BaseWindow
 {
+    public bool IsCreatingNew = true;
+
     [Header("Inputs")]
     [SerializeField] private SelectableButton _traveling;
     [SerializeField] private SelectableButton _cooking;
@@ -62,7 +64,15 @@ public class AboutFamilyPartTreeWindow : BaseWindow
         Next.onClick.AddListener(() => ChangeHeaderColorNext());
         Previous.onClick.AddListener(() => ChangeHeaderColorPrevious());
 
-        Next.onClick.AddListener(ProfileManager.Instance.CreateProfile);
+        if (IsCreatingNew)
+        {
+            Next.onClick.AddListener(ProfileManager.Instance.CreateProfile);
+        }
+        else
+        {
+            Next.onClick.AddListener(ProfileManager.Instance.UpdateProfile);
+        }
+
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<AboutFamilyPartTwoWindow>);
 
         Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
@@ -84,7 +94,15 @@ public class AboutFamilyPartTreeWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.RemoveListener(ProfileManager.Instance.CreateProfile);
+        if (IsCreatingNew)
+        {
+            Next.onClick.RemoveListener(ProfileManager.Instance.CreateProfile);
+        }
+        else
+        {
+            Next.onClick.RemoveListener(ProfileManager.Instance.UpdateProfile);
+        }
+
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartTreeWindow>);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
@@ -96,5 +114,40 @@ public class AboutFamilyPartTreeWindow : BaseWindow
             _relax.IsSelected,
             _art.IsSelected,
             _culture.IsSelected));
+    }
+    public void FillUpData()
+    {
+        if (ProfileManager.Instance.ProfileData.Traveling == 1) 
+        {
+            _traveling.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Cooking == 1)
+        {
+            _cooking.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Music == 1)
+        {
+            _music.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Sport == 1)
+        {
+            _sport.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Games == 1)
+        {
+            _games.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Relax == 1)
+        {
+            _relax.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Art == 1)
+        {
+            _art.Selected();
+        }
+        if (ProfileManager.Instance.ProfileData.Culture == 1)
+        {
+            _culture.Selected();
+        }
     }
 }

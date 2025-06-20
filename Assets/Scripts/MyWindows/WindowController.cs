@@ -97,6 +97,20 @@ public class WindowController : SingletonMonoBehaviour<WindowController>
         window.Exit();
     }
 
+    public T GetWindow<T>() where T : BaseWindow
+    {
+        BaseWindow window = _allWindows.Find(w => w is T);
+
+        if (window == null)
+        {
+            Debug.LogError($"Window of type {typeof(T).Name} not found!");
+            return null;
+        }
+
+        return window as T;
+    }
+
+
     public void PushWindow<T>() where T : BaseWindow
     {
         if (_windowStack.Count == 0)

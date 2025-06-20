@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,8 +31,14 @@ public class MonsterCollectionButton : MonoBehaviour
     {
         if (MonsterCollection.Instance.CheckIfUnLocked(_monster))
         {
-            MyGameManager.Instance.SelectNewMonster(_monster.Name);
-            MyMonster.Instance.SetSelectedMonster(_monster);
+            Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+            child.SelectedMonster = _monster.Name;
+
+            ChildrenDatabase.Instance.UpdateData(child, (response) =>
+            {
+                MyMonster.Instance.SetSelectedMonster(_monster);
+            });
+           
         }
     }
 }

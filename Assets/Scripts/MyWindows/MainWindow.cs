@@ -10,7 +10,6 @@ public class MainWindow : BaseWindow
     [SerializeField] private Button CustomizationButton;
     [SerializeField] private Button CollectionButton;
 
-    [SerializeField] private Button QuestsChecki;
     [SerializeField] private Button QuestsCustom;
 
     private void OnEnable()
@@ -18,7 +17,6 @@ public class MainWindow : BaseWindow
         RewardButton.onClick.AddListener(WindowController.Instance.PushWindow<RewardWindow>);
         CustomizationButton.onClick.AddListener(WindowController.Instance.PushWindow<CustomizationWindow>);
         CollectionButton.onClick.AddListener(WindowController.Instance.PushWindow<CollectionWindow>);
-        QuestsChecki.onClick.AddListener(WindowController.Instance.PushWindow<QuestsCheckiWindow>);
         QuestsCustom.onClick.AddListener(WindowController.Instance.PushWindow<QuestsCustomWindow>);
     }
     private void OnDisable()
@@ -28,7 +26,6 @@ public class MainWindow : BaseWindow
             RewardButton.onClick.RemoveListener(WindowController.Instance.PushWindow<RewardWindow>);
             CustomizationButton.onClick.RemoveListener(WindowController.Instance.PushWindow<CustomizationWindow>);
             CollectionButton.onClick.RemoveListener(WindowController.Instance.PushWindow<CollectionWindow>);
-            QuestsChecki.onClick.RemoveListener(WindowController.Instance.PushWindow<QuestsCheckiWindow>);
             QuestsCustom.onClick.RemoveListener(WindowController.Instance.PushWindow<QuestsCustomWindow>);
         }
         catch (System.Exception)

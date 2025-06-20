@@ -41,6 +41,7 @@ public class AboutFamilyPartOneWindow : BaseWindow
         Next.onClick.AddListener(() => _exitMode = PageEntryMode.SLIDE);
 
         Next.onClick.AddListener(WindowController.Instance.PushWindow<AboutFamilyPartTwoWindow>);
+        Next.onClick.AddListener(WindowController.Instance.GetWindow<AboutFamilyPartTwoWindow>().FillUpData);
         Next.onClick.AddListener(() => ChangeHeaderColorNext());
 
 
@@ -58,6 +59,7 @@ public class AboutFamilyPartOneWindow : BaseWindow
         Next.onClick.RemoveListener(() => _exitMode = PageEntryMode.SLIDE);
 
         Next.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartTwoWindow>);
+        Next.onClick.RemoveListener(WindowController.Instance.GetWindow<AboutFamilyPartTwoWindow>().FillUpData);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.Register(
             _name.text,
@@ -65,6 +67,11 @@ public class AboutFamilyPartOneWindow : BaseWindow
             _familyMemberNumber.text,
             _childrenNumber.text));
     }
-
-    
+    public void FillUpData()
+    {
+        _name.text = ProfileManager.Instance.ProfileData.Name;
+        _nickName.text = ProfileManager.Instance.ProfileData.Nickname;
+        _familyMemberNumber.text = ProfileManager.Instance.ProfileData.FamilyCount;
+        _childrenNumber.text = ProfileManager.Instance.ProfileData.ChildrenCount;
+    }
 }

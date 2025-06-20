@@ -4,11 +4,17 @@ using System.Security.Cryptography;
 using TastyCore.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.UI;
 using static Unity.VisualScripting.Metadata;
 using static UnityEditor.AddressableAssets.Build.Layout.BuildLayout;
 
 public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 {
+
+    [SerializeField] private GameObject _basicColoredText;
+    [SerializeField] private Transform _interestsLayout;
 
     public string Name;
     public string Email;
@@ -19,7 +25,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 
     public int Age;
     public int Photo;
-    [SerializeField] private List<SelectableButton> _photoButtons = new List<SelectableButton>();
+    public List<SelectableButton> PhotoButtons = new List<SelectableButton>();
 
     public int Dogs;
     public int Cats;
@@ -53,6 +59,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 
 
     [SerializeField] private List<TextMeshProUGUI> TextChildNames = new List<TextMeshProUGUI>();
+    [SerializeField] private List<Image> TextChildImages = new List<Image>();
     [SerializeField] private List<CustomDropDown> CustomDropDowns = new List<CustomDropDown>();
 
     public void SelectChild(Children child)
@@ -66,6 +73,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         {
             RewardAdminCollection.Instance.UpdateData();
             QuestAdminCollection.Instance.UpdateData();
+            CallendarCollection.Instance.UpdateData();
         });
     }
     public void UpdateChildUI()
@@ -74,10 +82,15 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         {
             text.text = ChildrenData.Name;
         }
+        foreach (var item in TextChildImages)
+        {
+            item.sprite = SpriteManager.Instance.ProfileSprites[ChildrenData.ImageId];
+        }
         foreach (var item in CustomDropDowns)
         {
             item.Close();
         }
+        LoadChildInterests();
     }
 
     public void UpdateProfileUI()
@@ -128,6 +141,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             {
                 RewardAdminCollection.Instance.UpdateData();
                 QuestAdminCollection.Instance.UpdateData();
+                CallendarCollection.Instance.UpdateData();
                 ChildrenCollection.Instance.UpdateData();
                 WindowController.Instance.PushWindow<AdminWindow>();
             });
@@ -141,6 +155,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         Mobile = mobile;
         WindowController.Instance.ForceEnter<AboutFamilyMainWindow>();
         WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>();
+        WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().IsCreatingNew = true;
     }
     public void AccountDataBase(string name, string nickname, string familyCount, string childCount)
     {
@@ -180,7 +195,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         Name = name;
         Nickname = nickname;
         Age = int.Parse(age);
-        foreach (var item in _photoButtons)
+        foreach (var item in PhotoButtons)
         {
             if (item.IsSelected == 1)
             {
@@ -193,7 +208,6 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
     {
         Debug.Log("ProfileCreated");
 
-        ProfileData.Name = Name;
         ProfileData.Nickname = Nickname;
         ProfileData.Email = Email;
         ProfileData.TelNumber = Mobile;
@@ -230,6 +244,47 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         });
     }
 
+    public void UpdateProfile()
+    {
+        Debug.Log("ProfileUpdated");
+
+        ProfileData.Name = Name;
+        ProfileData.Nickname = Nickname;
+        ProfileData.Email = Email;
+        ProfileData.TelNumber = Mobile;
+
+        ProfileData.Traveling = Traveling;
+        ProfileData.Cooking = Cooking;
+        ProfileData.Music = Music;
+        ProfileData.Sport = Sport;
+        ProfileData.Games = Games;
+        ProfileData.Relax = Relax;
+        ProfileData.Art = Art;
+        ProfileData.Culture = Culture;
+
+        ProfileData.Dogs = Dogs;
+        ProfileData.Cats = Cats;
+        ProfileData.Fish = Fish;
+        ProfileData.Other = Other;
+
+        ProfileData.Quests = Quests;
+        ProfileData.Rewards = Rewards;
+        ProfileData.ChildrenIds = ChildrenIds;
+        ProfileData.GmailId = GmailId;
+
+        CreateProfileDatabase.Instance.UpdateData(ProfileData, (response) =>
+        {
+            WindowController.Instance.ForceExit<AboutFamilyMainWindow>();
+
+            WindowController.Instance.PushPopUpWindow("ParentProfileUpdated",
+                WindowController.Instance.PushWindow<AdminWindow>);
+
+            WindowController.Instance.ResetWindow<AboutFamilyPartOneWindow>();
+            WindowController.Instance.ResetWindow<AboutFamilyPartTwoWindow>();
+            WindowController.Instance.ResetWindow<AboutFamilyPartTreeWindow>();
+        });
+    }
+
     public void AddChildren()
     {
         Debug.Log("Children added");
@@ -248,7 +303,13 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         ChildrenData.Games = Games;
         ChildrenData.Relax = Relax;
         ChildrenData.Art = Art;
-        ChildrenData.Culture = Culture;
+        ChildrenData.UnlockedMonsters = "0";
+        ChildrenData.UnlockedEquipment = "0";
+        ChildrenData.SelectedMonster = "0";
+        ChildrenData.SelectedEquipment = "0";
+        ChildrenData.Credit = 0;
+        ChildrenData.Money = 0;
+        ChildrenData.ImageId = Photo;
 
         ChildrenDatabase.Instance.CreateChildren(ChildrenData, (response) =>
         {
@@ -262,5 +323,78 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             WindowController.Instance.ResetWindow<AddChildrenPartOneWindow>();
             WindowController.Instance.ResetWindow<AddChildrenPartTwoWindow>();
         });
+    }
+
+    public void UpdateChildren()
+    {
+        Debug.Log("Children Updated");
+
+        ChildrenData.Name = Name;
+        ChildrenData.Password = 12345; //Default Password
+        ChildrenData.Nickname = Nickname;
+        ChildrenData.Age = Age;
+        ChildrenData.QuestIds = "";
+        ChildrenData.RewardIds = "";
+        ChildrenData.ProfileId = ProfileData.Id;
+        ChildrenData.Traveling = Traveling;
+        ChildrenData.Cooking = Cooking;
+        ChildrenData.Music = Music;
+        ChildrenData.Sport = Sport;
+        ChildrenData.Games = Games;
+        ChildrenData.Relax = Relax;
+        ChildrenData.Art = Art;
+        ChildrenData.Culture = Culture;
+        ChildrenData.UnlockedMonsters = "0";
+        ChildrenData.UnlockedEquipment = "0";
+        ChildrenData.SelectedMonster = "0";
+        ChildrenData.SelectedEquipment = "0";
+        ChildrenData.Credit = 0;
+        ChildrenData.Money = 0;
+        ChildrenData.ImageId = Photo;
+
+        ChildrenDatabase.Instance.UpdateData(ChildrenData, (response) =>
+        {
+            ChildrenCollection.Instance.AddNewChildren(ProfileData.Id);
+
+            WindowController.Instance.ForceExit<AddChildrenMainWindow>();
+
+            WindowController.Instance.PushPopUpWindow("ParentProfileUpdated",
+                WindowController.Instance.PushWindow<ChildrenSettingsWindow>);
+
+            WindowController.Instance.ResetWindow<AddChildrenPartOneWindow>();
+            WindowController.Instance.ResetWindow<AddChildrenPartTwoWindow>();
+        });
+    }
+    public void LoadChildInterests()
+    {
+        foreach (Transform item in _interestsLayout)
+        {
+            Destroy(item.gameObject);
+        }
+
+        Children child = ChildrenData;
+        if (child.Traveling == 1) CreateInterest("Traveling");
+        if (child.Cooking == 1) CreateInterest("Cooking");
+        if (child.Music == 1) CreateInterest("Music");
+        if (child.Sport == 1) CreateInterest("Sport");
+        if (child.Games == 1) CreateInterest("Games");
+        if (child.Relax == 1) CreateInterest("Relax");
+        if (child.Art == 1) CreateInterest("Art");
+        if (child.Culture == 1) CreateInterest("Culture");
+    }
+    private void CreateInterest(string key)
+    {
+        GameObject textObject = Instantiate(_basicColoredText, Vector3.zero, Quaternion.identity, _interestsLayout);
+        var localizeStringEvent = textObject.GetComponent<LocalizeStringEvent>();
+        if (localizeStringEvent != null)
+        {
+            localizeStringEvent.StringReference.TableReference = "All";
+            localizeStringEvent.StringReference.TableEntryReference = key;
+            localizeStringEvent.RefreshString();
+        }
+        else
+        {
+            Debug.LogWarning($"LocalizeStringEvent chybí na {textObject.name}");
+        }
     }
 }
