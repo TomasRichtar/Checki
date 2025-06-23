@@ -364,8 +364,6 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         ChildrenData.Password = int.Parse(ChildPassword);
         ChildrenData.Nickname = Nickname;
         ChildrenData.Age = Age;
-        ChildrenData.QuestIds = "";
-        ChildrenData.RewardIds = "";
         ChildrenData.ProfileId = ProfileData.Id;
         ChildrenData.Traveling = Traveling;
         ChildrenData.Cooking = Cooking;
@@ -374,8 +372,8 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         ChildrenData.Games = Games;
         ChildrenData.Relax = Relax;
         ChildrenData.Art = Art;
-        ChildrenData.UnlockedMonsters = "0";
-        ChildrenData.UnlockedEquipment = "0";
+        ChildrenData.UnlockedMonsters = "0;";
+        ChildrenData.UnlockedEquipment = "0;";
         ChildrenData.SelectedMonster = "0";
         ChildrenData.SelectedEquipment = "0";
         ChildrenData.Credit = 0;
@@ -404,8 +402,6 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         ChildrenData.Password = int.Parse(ChildPassword);
         ChildrenData.Nickname = Nickname;
         ChildrenData.Age = Age;
-        ChildrenData.QuestIds = "";
-        ChildrenData.RewardIds = "";
         ChildrenData.ProfileId = ProfileData.Id;
         ChildrenData.Traveling = Traveling;
         ChildrenData.Cooking = Cooking;
@@ -415,12 +411,6 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         ChildrenData.Relax = Relax;
         ChildrenData.Art = Art;
         ChildrenData.Culture = Culture;
-        ChildrenData.UnlockedMonsters = "0";
-        ChildrenData.UnlockedEquipment = "0";
-        ChildrenData.SelectedMonster = "0";
-        ChildrenData.SelectedEquipment = "0";
-        ChildrenData.Credit = 0;
-        ChildrenData.Money = 0;
         ChildrenData.ImageId = Photo;
 
         ChildrenDatabase.Instance.UpdateData(ChildrenData, (response) =>

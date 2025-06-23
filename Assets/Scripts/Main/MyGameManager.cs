@@ -51,6 +51,7 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
             databaseLoaded++;
             if (databaseCount >= databaseLoaded)
             {
+                LoadMonsterData();
                 onComplete?.Invoke();
             }
         }

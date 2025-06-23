@@ -9,8 +9,8 @@ using UnityEngine;
 public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 {
     //public List<Equipment> AllEquipments = new List<Equipment>();
-    public List<Equipment> MyEquipments = new List<Equipment>();
-    public List<Equipment> LockedEquipments = new List<Equipment>();
+    //public List<Equipment> MyEquipments = new List<Equipment>();
+    //public List<Equipment> LockedEquipments = new List<Equipment>();
 
     [SerializeField] private Transform _equipmentLayout;
     [SerializeField] private EquipmentCollectionButton _EquipmentCollectionButton;
@@ -40,33 +40,6 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 
     public void SetAllEquipments()
     {
-        MyEquipments.Clear();
-        LockedEquipments.Clear();
-
-        foreach (var Equipment in MyGameManager.Instance.AllEquipmentList)
-        {
-            if (MyGameManager.Instance.EquipmentList.Contains(Equipment))
-            {
-                MyEquipments.Add(Equipment);
-            }
-            else
-            {
-                LockedEquipments.Add(Equipment);
-            }
-        }
-
-        foreach (var equipment in MyEquipments)
-        {
-            if (equipment.Name == MyGameManager.Instance.ChildrenList.FirstOrDefault(x =>x.Id == MyGameManager.Instance.ChildrenId).SelectedEquipment)
-            {
-                MyMonster.Instance.SetSelectedEquipment(equipment);
-            }
-            else
-            {
-                Debug.Log("This Monster is not unlocked: " + MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId).SelectedEquipment);
-            }
-        }
-
         OnEquipmentLoaded?.Invoke();
     }
 
@@ -79,20 +52,24 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 
         float collectionWidth = 0;
 
-        foreach (var Equipment in MyEquipments)
+        foreach (var Equipment in MyGameManager.Instance.EquipmentList)
         {
             EquipmentCollectionButton EquipmentButton = Instantiate(_EquipmentCollectionButton, Vector3.zero, Quaternion.identity, _equipmentLayout);
             EquipmentButton.CreateButton(Equipment, false);
             collectionWidth += 200;
         }
 
-        foreach (var Equipment in LockedEquipments)
+        foreach (var Equipment in MyGameManager.Instance.AllEquipmentList)
         {
-            EquipmentCollectionButton EquipmentButton = Instantiate(_EquipmentCollectionButton, Vector3.zero, Quaternion.identity, _equipmentLayout);
-            EquipmentButton.CreateButton(Equipment, true);
-            collectionWidth += 200;
+            if (!MyGameManager.Instance.EquipmentList.Contains(Equipment))
+            {
+                EquipmentCollectionButton EquipmentButton = Instantiate(_EquipmentCollectionButton, Vector3.zero, Quaternion.identity, _equipmentLayout);
+                EquipmentButton.CreateButton(Equipment, true);
+                collectionWidth += 200;
+            }
         }
-        float gapWidth = (MyEquipments.Count + LockedEquipments.Count - 1) * 50;
+
+        float gapWidth = (MyGameManager.Instance.AllEquipmentList.Count - 1) * 50;
         collectionWidth += gapWidth;
 
         RectTransform rt = _equipmentLayout.GetComponent<RectTransform>();
@@ -102,7 +79,7 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
     }
     public bool CheckIfUnLocked(Equipment equipment)
     {
-        if (MyEquipments.Contains(equipment))
+        if (MyGameManager.Instance.EquipmentList.Contains(equipment))
         {
             return true;
         }
@@ -118,8 +95,8 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 
         ChildrenDatabase.Instance.UpdateData(child, (response) =>
         {
-            LockedEquipments.Remove(equipment);
-            MyEquipments.Add(equipment);
+            //LockedEquipments.Remove(equipment);
+            //MyEquipments.Add(equipment);
 
             MyGameManager.Instance.EquipmentList.Add(equipment);
             OnNewEquipmentUnlocked?.Invoke();

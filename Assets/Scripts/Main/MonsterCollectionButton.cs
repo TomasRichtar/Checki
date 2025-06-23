@@ -32,7 +32,7 @@ public class MonsterCollectionButton : MonoBehaviour
         if (MonsterCollection.Instance.CheckIfUnLocked(_monster))
         {
             Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
-            child.SelectedMonster = _monster.Name;
+            child.SelectedMonster = _monster.Id.ToString();
 
             ChildrenDatabase.Instance.UpdateData(child, (response) =>
             {

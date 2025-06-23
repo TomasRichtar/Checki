@@ -25,7 +25,7 @@ public class EquipmentCollectionButton : MonoBehaviour
         if (EquipmentCollection.Instance.CheckIfUnLocked(_equipment))
         {
             Children child = MyGameManager.Instance.ChildrenList[MyGameManager.Instance.ChildrenId];
-            child.SelectedMonster = _equipment.Name;
+            child.SelectedEquipment = _equipment.Id.ToString();
 
             ChildrenDatabase.Instance.UpdateData(child, (response) =>
             {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TastyCore.Utils;
 using TMPro;
 using UnityEngine;
@@ -18,6 +19,13 @@ public class MyMonster : SingletonMonoBehaviour<MyMonster>
     [SerializeField] private List<Image> SelectedMonsterImages = new List<Image>();
     [SerializeField] private List<TextMeshProUGUI> SelectedMonsterTextNames = new List<TextMeshProUGUI>();
 
+    private void Start()
+    {
+        Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+
+        SetSelectedEquipment(MyGameManager.Instance.AllEquipmentList[int.Parse(child.SelectedEquipment)]);
+        SetSelectedMonster(MyGameManager.Instance.AllMonsterList[int.Parse(child.SelectedMonster)]);
+    }
     public void UpdateSelectedMonsterUI()
     {
         foreach (var image in SelectedMonsterImages)

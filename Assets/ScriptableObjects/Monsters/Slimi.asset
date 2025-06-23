@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783eaab3b9dbe7649bfe3ae7c454a9a8, type: 3}
   m_Name: Slimi
   m_EditorClassIdentifier: 
+  Id: 3
   Name: Slimi
   Sprite: {fileID: 21300000, guid: 1b3766fcee345b247973a7cef51f6ff8, type: 3}
   GlowColor: {r: 1, g: 0.2060029, b: 0, a: 1}
