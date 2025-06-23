@@ -24,7 +24,7 @@ public class AdminWindow : BaseWindow
         Calendar.onClick.AddListener(WindowController.Instance.PushWindow<CalendarWindow>);
         Settings.onClick.AddListener(WindowController.Instance.PushWindow<SettingsWindow>);
 
-        KidVersion.onClick.AddListener(() => SceneController.Instance.SwitchScene("GamePartScene"));
+        KidVersion.onClick.AddListener(() => SceneController.Instance.ChildScene());
         LogOgg.onClick.AddListener(WindowController.Instance.PushWindow<LoginWindow>);
     }
     private void OnDisable()
@@ -35,7 +35,7 @@ public class AdminWindow : BaseWindow
         Calendar.onClick.RemoveListener(WindowController.Instance.PushWindow<CalendarWindow>);
         Settings.onClick.RemoveListener(WindowController.Instance.PushWindow<SettingsWindow>);
 
-        KidVersion.onClick.RemoveListener(() => SceneController.Instance.SwitchScene("GamePartScene"));
+        KidVersion.onClick.RemoveListener(() => SceneController.Instance.ChildScene());
         LogOgg.onClick.RemoveListener(WindowController.Instance.PushWindow<LoginWindow>);
     }
 }

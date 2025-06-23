@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProfileId: 0
-  ChildrenId: 100
+  ChildrenId: 0
   ChildrenList: []
   QuestList: []
   RewardList: []
@@ -671,8 +671,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 671d999f397cf1c4c991040970df60bc, type: 2}
   - {fileID: 11400000, guid: c2c44027109a7ea41a6b5f888b8cd542, type: 2}
   - {fileID: 11400000, guid: b153c49956fb77e4bb17f700830ca933, type: 2}
-  SelectedMonster: Darki
-  SelectedEquipmnet: Hat
   UserName: 
   UserCredit: 350
 --- !u!4 &1668126700
@@ -836,7 +834,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19a1f2532aceb94292b64f2686efd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseQuests: []
+  databaseQuests:
+    Id: 0
+    Name: 
+    Nickname: 
+    Email: 
+    Password: 
+    TelNumber: 
+    Traveling: 0
+    Cooking: 0
+    Music: 0
+    Sport: 0
+    Games: 0
+    Relax: 0
+    Art: 0
+    Culture: 0
+    Dogs: 0
+    Cats: 0
+    Fish: 0
+    Other: 0
+    Quests: 
+    Rewards: 
+    ChildrenIds: 
+    GmailId: 
+    FamilyCount: 
+    ChildrenCount: 
 --- !u!114 &1814513086
 MonoBehaviour:
   m_ObjectHideFlags: 0

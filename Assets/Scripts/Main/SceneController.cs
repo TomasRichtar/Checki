@@ -29,4 +29,28 @@ public class SceneController : SingletonMonoBehaviour<SceneController>
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void ChildScene(bool loadAll = false)
+    {
+        if (loadAll || PlayerPrefs.GetInt("ChildId") == 0 || PlayerPrefs.GetInt("ProfileId") == 0)
+        {
+            MyGameManager.Instance.ProfileId = PlayerPrefs.GetInt("ProfileId");
+            MyGameManager.Instance.ChildrenId = PlayerPrefs.GetInt("ChildId");
+            MyGameManager.Instance.LoadAllData(() =>
+            {
+                SceneManager.LoadScene("GamePartScene");
+                return;
+            });
+        }
+
+        if (PlayerPrefs.GetInt("ChildId") == 0 || PlayerPrefs.GetInt("ProfileId") == 0)
+        {
+            WindowController.Instance.PushPopUpWindow(
+               "RegisterAsParrentFirstTitle",
+               "RegisterAsParrentFirst",
+               "Continue",
+               null);
+            return;
+        }
+        SceneManager.LoadScene("GamePartScene");
+    }
 }

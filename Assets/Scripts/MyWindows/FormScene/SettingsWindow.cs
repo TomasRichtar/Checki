@@ -14,11 +14,13 @@ public class SettingsWindow : BaseWindow
     {
         MainScene.onClick.AddListener(WindowController.Instance.PushWindow<AdminWindow>);
         Edit.onClick.AddListener(OpenEdit);
+        PasswordChange.onClick.AddListener(OpenPasswordChangeWindow);
     }
     private void OnDisable()
     {
         MainScene.onClick.RemoveListener(WindowController.Instance.PushWindow<AdminWindow>);
         Edit.onClick.AddListener(OpenEdit);
+        PasswordChange.onClick.AddListener(OpenPasswordChangeWindow);
     }
 
     private void OpenEdit()
@@ -27,5 +29,16 @@ public class SettingsWindow : BaseWindow
         WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>();
         WindowController.Instance.GetWindow<AboutFamilyPartOneWindow>().FillUpData();
         WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().IsCreatingNew = false;
+    }
+    public void OpenPasswordChangeWindow()
+    {
+        WindowController.Instance.PushPopUpWindow(
+               "PasswordChange",
+               "Continue",
+               (oldPass, newPass) => ProfileManager.Instance.ChangePassword(oldPass, newPass),
+               "Exit",
+               null,
+               "OldPassword",
+               "NewPassword");
     }
 }

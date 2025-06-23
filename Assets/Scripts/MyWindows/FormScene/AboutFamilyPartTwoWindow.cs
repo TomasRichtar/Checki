@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class AboutFamilyPartTwoWindow : BaseWindow
 {
+
     [Header("Inputs")]
     [SerializeField] private TMP_InputField _dogs;
     [SerializeField] private TMP_InputField _cats;

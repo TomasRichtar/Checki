@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class AboutFamilyPartTreeWindow : BaseWindow
 {
     public bool IsCreatingNew = true;
+    public bool IsResetingPassword = true;
 
     [Header("Inputs")]
     [SerializeField] private SelectableButton _traveling;
@@ -68,6 +69,18 @@ public class AboutFamilyPartTreeWindow : BaseWindow
         {
             Next.onClick.AddListener(ProfileManager.Instance.CreateProfile);
         }
+        else if(IsResetingPassword)
+        {
+            if (1==1)
+            {
+                Debug.Log("CHangePassword");
+
+            }
+            else
+            {
+                Debug.Log("Invalid data");
+            }
+        }
         else
         {
             Next.onClick.AddListener(ProfileManager.Instance.UpdateProfile);
@@ -103,7 +116,7 @@ public class AboutFamilyPartTreeWindow : BaseWindow
             Next.onClick.RemoveListener(ProfileManager.Instance.UpdateProfile);
         }
 
-        Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartTreeWindow>);
+        Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AboutFamilyPartTwoWindow>);
 
         Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
            _traveling.IsSelected,

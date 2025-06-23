@@ -15,10 +15,8 @@ public class MyMonster : SingletonMonoBehaviour<MyMonster>
     [SerializeField] private List<Image> SelectedEquipmentBeard = new List<Image>();
     [SerializeField] private List<Image> SelectedEquipmentGlasses = new List<Image>();
 
-    [SerializeField] private List<Image> SelectedMonsterImages = new List<Image>(); 
+    [SerializeField] private List<Image> SelectedMonsterImages = new List<Image>();
     [SerializeField] private List<TextMeshProUGUI> SelectedMonsterTextNames = new List<TextMeshProUGUI>();
-
-
 
     public void UpdateSelectedMonsterUI()
     {

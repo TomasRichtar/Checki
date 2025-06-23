@@ -14,6 +14,7 @@ public class ProfileDatabase
     public string Name;
     public string Nickname;
     public string Email;
+    public string Password;
     public string TelNumber;
 
     public int Traveling;
@@ -43,20 +44,20 @@ public class ProfileDatabase
 public class ProfileResponse
 {
     public bool success;
-    public List<ProfileDatabase> data;
+    public ProfileDatabase data;
 }
 public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabase>
 {
-    public List<ProfileDatabase> databaseQuests = new List<ProfileDatabase>();
+    public ProfileDatabase databaseQuests = new ProfileDatabase();
 
-    public void GetProfileData(int id, Action<ProfileDatabase> onSuccess)
+    public void GetProfileData(string email, Action<ProfileDatabase> onSuccess)
     {
-        StartCoroutine(GetProfileCoroutine(id, onSuccess));
+        StartCoroutine(GetProfileCoroutine(email, onSuccess));
     }
 
-    IEnumerator GetProfileCoroutine(int id, Action<ProfileDatabase> onSuccess)
+    IEnumerator GetProfileCoroutine(string email, Action<ProfileDatabase> onSuccess)
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://localhost/get_profile.php");
+        UnityWebRequest www = UnityWebRequest.Get("http://localhost/get_profile.php?email=" + email);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -71,11 +72,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
             ProfileResponse response = JsonUtility.FromJson<ProfileResponse>(FixJson(www.downloadHandler.text));
             databaseQuests = response.data;
 
-            foreach (ProfileDatabase quest in databaseQuests)
-            {
-                Debug.Log($"ID: {quest.Id}, Title: {quest.Name}, Body: {quest.Email}");
-            }
-            onSuccess?.Invoke(databaseQuests[0]);
+            onSuccess?.Invoke(databaseQuests);
         }
     }
 
@@ -95,6 +92,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         form.AddField("Name", profileData.Name);
         form.AddField("Nickname", profileData.Nickname);
         form.AddField("Email", profileData.Email);
+        form.AddField("Password", profileData.Password);
         form.AddField("TelNumber", profileData.TelNumber);
 
         form.AddField("Traveling", profileData.Traveling);
@@ -181,6 +179,72 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         {
             Debug.Log("Response: " + www.downloadHandler.text);
             onSuccess?.Invoke(www.downloadHandler.text == "SUCCESS");
+        }
+    }
+
+    public void UpdatePassword(int userId, string oldPassword, string newPassword, Action<bool> onSuccess)
+    {
+        StartCoroutine(UpdatePasswordCoroutine(userId, oldPassword, newPassword, onSuccess));
+    }
+
+    IEnumerator UpdatePasswordCoroutine(int userId, string oldPassword, string newPassword, Action<bool> onSuccess)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Id", userId);
+        form.AddField("OldPassword", oldPassword);
+        form.AddField("NewPassword", newPassword);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost/change_password.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Error updating password: " + www.error);
+            onSuccess?.Invoke(false);
+        }
+        else
+        {
+            Debug.Log("Password update response: " + www.downloadHandler.text);
+            onSuccess?.Invoke(www.downloadHandler.text == "SUCCESS");
+        }
+    }
+
+    public void LoginUser(string email, string password, Action<ProfileDatabase> onSuccess)
+    {
+        StartCoroutine(LoginUserCoroutine(email, password, onSuccess));
+    }
+
+    IEnumerator LoginUserCoroutine(string email, string password, Action<ProfileDatabase> onSuccess)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Email", email);
+        form.AddField("Password", password);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost/login_profile.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Login error: " + www.error);
+            onSuccess?.Invoke(null);
+        }
+        else
+        {
+            Debug.Log("Login response: " + www.downloadHandler.text);
+
+            string json = www.downloadHandler.text;
+
+            if (json.Contains("\"success\":true"))
+            {
+                ProfileResponse response = JsonUtility.FromJson<ProfileResponse>(FixJson(www.downloadHandler.text));
+                databaseQuests = response.data;
+
+                onSuccess?.Invoke(databaseQuests);
+            }
+            else
+            {
+                onSuccess?.Invoke(null);
+            }
         }
     }
 }

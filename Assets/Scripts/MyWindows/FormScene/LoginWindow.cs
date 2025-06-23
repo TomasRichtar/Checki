@@ -26,24 +26,37 @@ public class LoginWindow : BaseWindow
         KidVersion.onClick.RemoveAllListeners();
 
         LogIn.onClick.AddListener(() => ProfileManager.Instance.LogIn(_name.text, _password.text));
-        PasswordReset.onClick.AddListener(() => Debug.Log("Password Reseted"));
+        PasswordReset.onClick.AddListener(OpenPasswordReset);
         Register.onClick.AddListener(WindowController.Instance.PushWindow<RegistrationWindow>);
-        Gmail.onClick.AddListener(() => Debug.Log("Gmail Login"));
-        KidVersion.onClick.AddListener(() => SceneController.Instance.SwitchScene("GamePartScene"));
+        Gmail.onClick.AddListener(LoginWithGoogle.Instance.Login);
+        KidVersion.onClick.AddListener(() => SceneController.Instance.ChildScene(true));
+
     }
     private void OnDisable()
     {
         try
         {
             LogIn.onClick.RemoveListener(() => ProfileManager.Instance.LogIn(_name.text, _password.text));
-            PasswordReset.onClick.RemoveListener(() => Debug.Log("Password Reseted"));
+            PasswordReset.onClick.RemoveListener(OpenPasswordReset);
             Register.onClick.RemoveListener(WindowController.Instance.PushWindow<RegistrationWindow>);
-            Gmail.onClick.RemoveListener(() => Debug.Log("Gmail Login"));
-            KidVersion.onClick.RemoveListener(() => SceneController.Instance.SwitchScene("GamePartScene"));
+            Gmail.onClick.RemoveListener(LoginWithGoogle.Instance.Login);
+            KidVersion.onClick.RemoveListener(() => SceneController.Instance.ChildScene(true));
         }
         catch (System.Exception)
         {
             return;
         }
+    }
+
+    private void OpenPasswordReset()
+    {
+        WindowController.Instance.PushPopUpWindow(
+               "AccountReset",
+               "ContactUs",
+               "Continue",
+               null);
+        //WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>();
+        //WindowController.Instance.ForceEnter<AboutFamilyMainWindow>();
+        //WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().IsResetingPassword = true;
     }
 }

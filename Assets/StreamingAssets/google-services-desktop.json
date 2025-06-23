@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "226317420778",
+    "project_id": "checki-4da00",
+    "storage_bucket": "checki-4da00.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226317420778:android:70c32499f4bfd5f7ac2f93",
+        "android_client_info": {
+          "package_name": "com.Pyxl.Checki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226317420778-jj25k1vm76jfv9dh5dj1dvudtboe3bht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGTe5UHupKLdsCVu6d5rRY_oYSqr2-3as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226317420778-jj25k1vm76jfv9dh5dj1dvudtboe3bht.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "226317420778-f8p034e5m3kvuv5o6fv6ej0pj9v6kr1d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Pyxl.Checki"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

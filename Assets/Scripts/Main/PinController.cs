@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class PinController : MonoBehaviour
     private void Start()
     {
         pinDisplay.text = "";
+        correctPin = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId).Password.ToString();
     }
     public void MyInput(string x)
     {
@@ -42,6 +44,7 @@ public class PinController : MonoBehaviour
 
     private void Login()
     {
+        ResetPin();
         WindowController.Instance.PushWindow<MainWindow>();
     }
 

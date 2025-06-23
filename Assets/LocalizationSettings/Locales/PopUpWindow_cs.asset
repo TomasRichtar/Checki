@@ -75,6 +75,64 @@ MonoBehaviour:
     m_Localized: "Profil je \xFAsp\u011B\u0161n\u011B zalo\u017Een"
     m_Metadata:
       m_Items: []
+  - m_Id: 20233253884936192
+    m_Localized: "Zm\u011Bnit heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20233400454889472
+    m_Localized: "Star\xE9 heslo: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20233405811015680
+    m_Localized: "Nov\xE9 heslo: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20247253863514112
+    m_Localized: "\u0160patn\xFD email nebo heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20247259269971968
+    m_Localized: "Zadali jste \u0161patn\xFD email, nebo heslo. Pros\xEDm zkuste
+      znova."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20249430665347072
+    m_Localized: "Obnoven\xED \xFA\u010Dtu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20249548512706560
+    m_Localized: "Kontaktujte n\xE1s na tomto emailu: test@email.com."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20249550500806656
+    m_Localized: "Povinn\xE9 pol\xED\u010Dka nejsou vypln\u011Bna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20251722332389376
+    m_Localized: "Pros\xEDm vypl\u0148te povinn\xE9 pol\xED\u010Dka a zkuste znova."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20260913377853440
+    m_Localized: "Nutn\xE9 p\u0159ihl\xE1\u0161en\xED rodi\u010De"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20260914992660480
+    m_Localized: "Aby jsi mohl zapnout d\u011Btskou verzi aplikace, je nejd\u0159\xEDv
+      nutnost\xED se p\u0159ihl\xE1sit jako rodi\u010D a vytvo\u0159it d\xEDt\u011B."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20288003447865344
+    m_Localized: "\u0160patn\xFD form\xE1t hesla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20288004337057792
+    m_Localized: "Heslo mus\xED obsahovat p\u0159esn\u011B 5 \u010D\xEDslic."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20288555099504640
+    m_Localized: "Profil aktualizov\xE1n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

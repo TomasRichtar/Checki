@@ -19,6 +19,7 @@ public class AddChildrenPartTwoWindow : BaseWindow
     [SerializeField] private SelectableButton _relax;
     [SerializeField] private SelectableButton _art;
     [SerializeField] private SelectableButton _culture;
+    [SerializeField] private TMP_InputField _password;
 
     [SerializeField] private TextMeshProUGUI _familyText;
     [SerializeField] private Image _familyImage;
@@ -59,26 +60,10 @@ public class AddChildrenPartTwoWindow : BaseWindow
         Previous.onClick.AddListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.AddListener(() => _exitDirection = Direction.RIGHT);
 
-        if (IsCreatingNew)
-        {
-            Next.onClick.AddListener(ProfileManager.Instance.AddChildren);
-        }
-        else
-        {
-            Next.onClick.AddListener(ProfileManager.Instance.UpdateChildren);
-        }
-
+       
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
+        Next.onClick.AddListener(NextAction);
 
-        Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
-           _traveling.IsSelected,
-            _cooking.IsSelected,
-            _music.IsSelected,
-            _sport.IsSelected,
-            _games.IsSelected,
-            _relax.IsSelected,
-            _art.IsSelected,
-            _culture.IsSelected));
     }
     private void OnDisable()
     {
@@ -89,26 +74,8 @@ public class AddChildrenPartTwoWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
-        if (IsCreatingNew)
-        {
-            Next.onClick.RemoveListener(ProfileManager.Instance.AddChildren);
-        }
-        else
-        {
-            Next.onClick.RemoveListener(ProfileManager.Instance.UpdateChildren);
-        }
-
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartOneWindow>);
-
-        Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
-           _traveling.IsSelected,
-            _cooking.IsSelected,
-            _music.IsSelected,
-            _sport.IsSelected,
-            _games.IsSelected,
-            _relax.IsSelected,
-            _art.IsSelected,
-            _culture.IsSelected));
+        Next.onClick.RemoveListener(NextAction);
     }
     public void FillUpData()
     {
@@ -143,6 +110,48 @@ public class AddChildrenPartTwoWindow : BaseWindow
         if (ProfileManager.Instance.ChildrenData.Culture == 1)
         {
             _culture.Selected();
+        }
+    }
+    public void NextAction()
+    {
+        if (PasswordCheck(_password.text) == false) return;
+
+        ProfileManager.Instance.AccountDataHobies(
+           _traveling.IsSelected,
+            _cooking.IsSelected,
+            _music.IsSelected,
+            _sport.IsSelected,
+            _games.IsSelected,
+            _relax.IsSelected,
+            _art.IsSelected,
+            _culture.IsSelected,
+            _password.text);
+
+        if (IsCreatingNew)
+        {
+            ProfileManager.Instance.AddChildren();
+        }
+        else
+        {
+            ProfileManager.Instance.UpdateChildren();
+        }
+
+        
+    }
+    public bool PasswordCheck(string password)
+    {
+        if (password.Length != 5)
+        {
+            WindowController.Instance.PushPopUpWindow(
+               "WrongPasswordFormatTitle",
+               "WrongPasswordFormat",
+               "Continue",
+               null);
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

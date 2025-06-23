@@ -20,6 +20,7 @@ public class WindowController : SingletonMonoBehaviour<WindowController>
     [SerializeField] private ConfirmationWindow _confirmationWindow;
     [SerializeField] private InformationWindow _informationWindow;
     [SerializeField] private SelfDestructInformationWindow _felfDestructInformationWindow;
+    [SerializeField] private InputWindow _inputWindow;
 
     [Header("Buttons")]
     [SerializeField] private Button _backButton;
@@ -43,7 +44,7 @@ public class WindowController : SingletonMonoBehaviour<WindowController>
     {
         base.Awake();
 
-       
+
     }
 
     private void Start()
@@ -157,7 +158,21 @@ public class WindowController : SingletonMonoBehaviour<WindowController>
         }
     }
     public void PushPopUpWindow(
-       string title,
+        string title,
+        string yesText,
+        Action<string, string> yesAction,
+        string noText,
+        Action noAction,
+        string inputOneText,
+        string inputTwoText = null
+       )
+    {
+        InputWindow inputWindow = Instantiate(_inputWindow, _mainCanvas);
+        inputWindow.InitFunction(yesAction, noAction);
+        inputWindow.SetTexts(title,yesText,noText, inputOneText, inputTwoText);
+    }
+    public void PushPopUpWindow(
+        string title,
         Action action)
     {
         SelfDestructInformationWindow confirmationWindow = Instantiate(_felfDestructInformationWindow, _mainCanvas);

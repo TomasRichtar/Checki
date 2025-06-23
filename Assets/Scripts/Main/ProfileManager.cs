@@ -1,8 +1,10 @@
+using Firebase.Auth;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TastyCore.Utils;
 using TMPro;
+using UnityEditor.AddressableAssets.HostingServices;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
@@ -12,12 +14,16 @@ using static UnityEditor.AddressableAssets.Build.Layout.BuildLayout;
 
 public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 {
+    const string LAST_EMAIL = "";
+    const string LAST_PASSWORD = "";
 
     [SerializeField] private GameObject _basicColoredText;
     [SerializeField] private Transform _interestsLayout;
 
     public string Name;
     public string Email;
+    public string Password;
+    public string ChildPassword;
     public string Mobile;
     public string Nickname;
     public int FamilyCount;
@@ -68,7 +74,8 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         UpdateChildUI();
         ChildrenManager.Instance.UpdateChildUI(child);
         MyGameManager.Instance.ChildrenId = ChildrenData.Id;
-
+        PlayerPrefs.SetInt("ChildId", ChildrenData.Id);
+        PlayerPrefs.SetInt("ProfileId", ProfileData.Id);
         MyGameManager.Instance.LoadChildData(() =>
         {
             RewardAdminCollection.Instance.UpdateData();
@@ -124,12 +131,42 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             text.text = ProfileData.ChildrenCount;
         }
     }
-
-    public void LogIn(string email, string password)
+    public void GmailLogin(string email)
     {
-        Debug.Log("1");
-        CreateProfileDatabase.Instance.GetProfileData(1, (profile) =>
+        CreateProfileDatabase.Instance.GetProfileData(email, (profile) =>
         {
+            ProfileData = profile;
+            UpdateProfileUI();
+            MyGameManager.Instance.ProfileId = ProfileData.Id;
+            if (!string.IsNullOrEmpty(ProfileData.ChildrenIds))
+            {
+                MyGameManager.Instance.ChildrenId = int.Parse(ProfileData.ChildrenIds.Split(';')[0]);
+            }
+            MyGameManager.Instance.LoadAllData(() =>
+            {
+                RewardAdminCollection.Instance.UpdateData();
+                QuestAdminCollection.Instance.UpdateData();
+                CallendarCollection.Instance.UpdateData();
+                ChildrenCollection.Instance.UpdateData();
+                WindowController.Instance.PushWindow<AdminWindow>();
+            });
+        });
+    }
+    public void LogIn(string email, string password = null)
+    {
+        Debug.Log("email: " + email);
+        Debug.Log("password: " + password);
+        CreateProfileDatabase.Instance.LoginUser(email, password, (profile) =>
+        {
+            if (profile == null) 
+            {
+                WindowController.Instance.PushPopUpWindow(
+                  "WrongPasswordOrEmailTitle",
+                  "WrongPasswordOrEmail",
+                  "Continue",
+                  null);
+                return;
+            }
             ProfileData = profile;
             UpdateProfileUI();
             MyGameManager.Instance.ProfileId = ProfileData.Id;
@@ -150,8 +187,19 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 
     public void Register(string name, string email, string mobile, string password)
     {
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            WindowController.Instance.PushPopUpWindow(
+                  "FieldsAreNotFilledTitle",
+                  "FieldsAreNotFilled",
+                  "Continue",
+                  null);
+            return;
+        }
+
         Name = name;
         Email = email;
+        Password = password;
         Mobile = mobile;
         WindowController.Instance.ForceEnter<AboutFamilyMainWindow>();
         WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>();
@@ -179,7 +227,8 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         int games,
         int relax,
         int art,
-        int culture)
+        int culture,
+        string password = null)
     {
         Traveling = traveling;
         Cooking = cooking;
@@ -189,6 +238,10 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         Relax = relax;
         Art = art;
         Culture = culture;
+        if (password != null)
+        {
+            ChildPassword = password;
+        }
     }
     public void AccountChildRegister(string name, string nickname, string age)
     {
@@ -209,7 +262,9 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         Debug.Log("ProfileCreated");
 
         ProfileData.Nickname = Nickname;
+        ProfileData.Name = Name;
         ProfileData.Email = Email;
+        ProfileData.Password = Password;
         ProfileData.TelNumber = Mobile;
 
         ProfileData.Traveling = Traveling;
@@ -284,13 +339,29 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             WindowController.Instance.ResetWindow<AboutFamilyPartTreeWindow>();
         });
     }
+    public void ChangePassword(string oldPassword, string newPassword)
+    {
+        CreateProfileDatabase.Instance.UpdatePassword(ProfileData.Id, oldPassword, newPassword, (response) =>
+        {
+            if (response == true)
+            {
+                WindowController.Instance.PushPopUpWindow("ProfilePasswordChanged",
+                    WindowController.Instance.PushWindow<AdminWindow>);
+            }else
+            {
+                WindowController.Instance.PushPopUpWindow("ProfilePasswordChangedError",
+                   WindowController.Instance.PushWindow<AdminWindow>);
+            }
+            
+        });
+    }
 
     public void AddChildren()
     {
         Debug.Log("Children added");
 
         ChildrenData.Name = Name;
-        ChildrenData.Password = 12345; //Default Password
+        ChildrenData.Password = int.Parse(ChildPassword);
         ChildrenData.Nickname = Nickname;
         ChildrenData.Age = Age;
         ChildrenData.QuestIds = "";
@@ -330,7 +401,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         Debug.Log("Children Updated");
 
         ChildrenData.Name = Name;
-        ChildrenData.Password = 12345; //Default Password
+        ChildrenData.Password = int.Parse(ChildPassword);
         ChildrenData.Nickname = Nickname;
         ChildrenData.Age = Age;
         ChildrenData.QuestIds = "";

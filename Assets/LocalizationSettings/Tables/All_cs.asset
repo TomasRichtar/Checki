@@ -24,11 +24,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19775504384
-    m_Localized: E-mail
+    m_Localized: E-mail*
     m_Metadata:
       m_Items: []
   - m_Id: 23743315968
-    m_Localized: Heslo
+    m_Localized: Heslo*
     m_Metadata:
       m_Items: []
   - m_Id: 378258472960
