@@ -8,7 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
 {
-    public List<Reward> AllRewards = new List<Reward>();
+    //public List<Reward> AllRewards = new List<Reward>();
 
     [SerializeField] private Transform _layout;
     [SerializeField] private Transform _viewportContent;
@@ -46,6 +46,7 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
     public void LoadColletionLayout()
     {
         float viewportContentHeigh = 0;
+        int shownRewardsCount = 0;
 
         foreach (Transform item in _layout)
         {
@@ -55,14 +56,19 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
         {
             foreach (var monster in MyGameManager.Instance.RewardList)
             {
+                if (monster.Collected == 1)
+                {
+                    continue;
+                }
                 RewardCollectionButton button = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layout);
                 button.CreateButton(monster);
                 viewportContentHeigh += 142;
                 RewardButtons.Add(button);
+                shownRewardsCount++;
             }
         }
 
-        float gapHeight = (MyGameManager.Instance.RewardList.Count - 1) * 32;
+        float gapHeight = shownRewardsCount * 32;
         viewportContentHeigh += gapHeight;
 
         RectTransform rt = _viewportContent.GetComponent<RectTransform>();
@@ -73,7 +79,7 @@ public class RewardCollection : SingletonMonoBehaviour<RewardCollection>
 
     public bool CheckIfExists(Reward reward)
     {
-        if (AllRewards.Contains(reward))
+        if (MyGameManager.Instance.RewardList.Contains(reward))
         {
             return true;
         }

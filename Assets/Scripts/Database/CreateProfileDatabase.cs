@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TastyCore.Utils;
 using UnityEngine;
 using UnityEngine.Networking;
-using static UnityEditor.AddressableAssets.Settings.AddressableAssetProfileSettings;
 
 [System.Serializable]
 public class ProfileDatabase

@@ -46,19 +46,12 @@ public class AddChildrenPartOneWindow : BaseWindow
         Next.onClick.AddListener(() => _entryMode = PageEntryMode.SLIDE);
         Next.onClick.AddListener(() => _exitMode = PageEntryMode.SLIDE);
 
-        Next.onClick.AddListener(() => ChangeHeaderColorNext());
         Previous.onClick.AddListener(() => ChangeHeaderColorPrevious());
 
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<ChildrenSettingsWindow>);
         Previous.onClick.AddListener(WindowController.Instance.ForceExit<AddChildrenMainWindow>);
-        Next.onClick.AddListener(WindowController.Instance.PushWindow<AddChildrenPartTwoWindow>);
-        Next.onClick.AddListener(WindowController.Instance.GetWindow<AddChildrenPartTwoWindow>().FillUpData);
 
-
-        Next.onClick.AddListener(() => ProfileManager.Instance.AccountChildRegister(
-            _name.text,
-            _nickName.text,
-            _age.text));
+        Next.onClick.AddListener(CheckAndRegisterData);
     }
     private void OnDisable()
     {
@@ -68,15 +61,38 @@ public class AddChildrenPartOneWindow : BaseWindow
         Next.onClick.RemoveListener(() => _exitMode = PageEntryMode.SLIDE);
 
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<ChildrenSettingsWindow>);
-        Next.onClick.RemoveListener(WindowController.Instance.PushWindow<AddChildrenPartTwoWindow>);
-        Next.onClick.RemoveListener(WindowController.Instance.GetWindow<AddChildrenPartTwoWindow>().FillUpData);
 
-        Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountChildRegister(
-            _name.text,
-            _nickName.text,
-            _age.text));
+        Next.onClick.RemoveListener(CheckAndRegisterData);
     }
 
+    private void CheckAndRegisterData()
+    {
+        if (string.IsNullOrEmpty(_name.text) ||
+            string.IsNullOrEmpty(_nickName.text) ||
+            string.IsNullOrEmpty(_age.text)||
+            _name.text == "..." ||
+            _nickName.text == "..." ||
+            _age.text == "...")
+        {
+            PopUp();
+            return;
+        }
+        ProfileManager.Instance.AccountChildRegister(
+            _name.text,
+            _nickName.text,
+            _age.text);
+        WindowController.Instance.PushWindow<AddChildrenPartTwoWindow>();
+        WindowController.Instance.GetWindow<AddChildrenPartTwoWindow>().FillUpData();
+        ChangeHeaderColorNext();
+    }
+    private void PopUp()
+    {
+        WindowController.Instance.PushPopUpWindow(
+               "WrongDataTitle",
+               "WrongData",
+               "Continue",
+               null);
+    }
     public void FillUpData()
     {
         _name.text = ProfileManager.Instance.ChildrenData.Name;

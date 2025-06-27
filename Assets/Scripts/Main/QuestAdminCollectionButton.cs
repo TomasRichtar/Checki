@@ -34,6 +34,16 @@ public class QuestAdminCollectionButton : MonoBehaviour
             questStatus = QuestStatusEnum.None;
         }
 
+        SwitchState(questStatus);
+    }
+
+    public void SwitchState(QuestStatusEnum questStatus)
+    {
+        _inProgress.SetActive(false);
+        _completed.SetActive(false);
+        _failed.SetActive(false);
+        _pending.SetActive(false);
+
         switch (questStatus)
         {
             case QuestStatusEnum.None:
@@ -56,7 +66,6 @@ public class QuestAdminCollectionButton : MonoBehaviour
                 break;
         }
     }
-
     public void SelectThis()
     {
         if (QuestAdminCollection.Instance.CheckIfExists(_quest))
@@ -86,6 +95,13 @@ public class QuestAdminCollectionButton : MonoBehaviour
         if (QuestAdminCollection.Instance.CheckIfExists(_quest))
         {
             Debug.Log("Accepted");
+            SwitchState(QuestStatusEnum.Completed);
+            QuestManager.Instance.ValidateQuest(_quest, QuestStatusEnum.Completed);
+            if (_quest.Repeatable == 1)
+            {
+                SwitchState(QuestStatusEnum.InProgress);
+                QuestManager.Instance.ValidateQuest(_quest, QuestStatusEnum.InProgress);
+            }
             _validation.SetActive(false);
         }
     }
@@ -94,6 +110,8 @@ public class QuestAdminCollectionButton : MonoBehaviour
         if (QuestAdminCollection.Instance.CheckIfExists(_quest))
         {
             Debug.Log("Declined");
+            SwitchState(QuestStatusEnum.Failed);
+            QuestManager.Instance.ValidateQuest(_quest, QuestStatusEnum.Failed);
             _validation.SetActive(false);
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
 {
-    public List<Quest> AllData = new List<Quest>();
+    //public List<Quest> AllData = new List<Quest>();
     public List<Quest> MyData = new List<Quest>();
 
     [SerializeField] private QuestCollectionButton _collectionButton;
@@ -62,10 +62,13 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
         {
             foreach (var item in MyGameManager.Instance.QuestList)
             {
-                QuestCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutCustom);
-                buttonCustom.CreateButton(item);
-                viewportContentHeighCustom += 142;
-                gapHeightCustom += 32;
+                if (item.QuestStatus == QuestStatusEnum.InProgress.ToString())
+                {
+                    QuestCollectionButton buttonCustom = Instantiate(_collectionButton, Vector3.zero, Quaternion.identity, _layoutCustom);
+                    buttonCustom.CreateButton(item);
+                    viewportContentHeighCustom += 142;
+                    gapHeightCustom += 32;
+                }
             }
         }
 
@@ -85,7 +88,7 @@ public class QuestCollection : SingletonMonoBehaviour<QuestCollection>
 
     public bool CheckIfExists(Quest data)
     {
-        if (AllData.Contains(data))
+        if (MyGameManager.Instance.QuestList.Contains(data))
         {
             return true;
         }

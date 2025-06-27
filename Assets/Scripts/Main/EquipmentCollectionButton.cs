@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ public class EquipmentCollectionButton : MonoBehaviour
     {
         if (EquipmentCollection.Instance.CheckIfUnLocked(_equipment))
         {
-            Children child = MyGameManager.Instance.ChildrenList[MyGameManager.Instance.ChildrenId];
+            Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
             child.SelectedEquipment = _equipment.Id.ToString();
 
             ChildrenDatabase.Instance.UpdateData(child, (response) =>

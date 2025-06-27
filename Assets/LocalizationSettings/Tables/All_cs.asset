@@ -92,11 +92,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3361817903104
-    m_Localized: 'Jmenuji se :'
+    m_Localized: 'Jmenuji se* :'
     m_Metadata:
       m_Items: []
   - m_Id: 3362644180992
-    m_Localized: "\u0158\xEDkaj\xED mi :"
+    m_Localized: "\u0158\xEDkaj\xED mi* :"
     m_Metadata:
       m_Items: []
   - m_Id: 3363738894336
@@ -212,7 +212,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10920830320640
-    m_Localized: Platnost do
+    m_Localized: 'Platnost do* :'
     m_Metadata:
       m_Items: []
   - m_Id: 11382153428992
@@ -228,7 +228,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11555097165824
-    m_Localized: "V\u011Bk :"
+    m_Localized: "V\u011Bk* :"
     m_Metadata:
       m_Items: []
   - m_Id: 11558192562176
@@ -372,9 +372,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 16742964674560
-    m_Localized: "M\u016Fj dostupn\xFD kredit : "
+    m_Localized: "Dostupn\xFDch zla\u0165\xE1k\u016F: {0}"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 16946531024896
     m_Localized: "Hlad p\u0159\xED\u0161erky 50% | pokles kreditu - 50%"
     m_Metadata:
@@ -401,7 +402,7 @@ MonoBehaviour:
       m_Items:
       - rid: 2619022665701130242
   - m_Id: 17559453057024
-    m_Localized: "Z\xEDskali jste p\u0159\xED\u0161erku"
+    m_Localized: "Va\u0161e odm\u011Bna je: "
     m_Metadata:
       m_Items: []
   - m_Id: 17561000755200
@@ -429,9 +430,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18623493455872
-    m_Localized: "Aktivovan\xE9 \xFAro\u010Den\xED 1% ro\u010Dn\u011B"
+    m_Localized: "Aktivovan\xE9 \xFAro\u010Den\xED {0} ro\u010Dn\u011B"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2619022665701130242
   - m_Id: 18625963900928
     m_Localized: "Vym\u011Bnit"
     m_Metadata:
@@ -453,11 +455,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10988580775542784
-    m_Localized: "N\xE1zev"
+    m_Localized: "N\xE1zev* :"
     m_Metadata:
       m_Items: []
   - m_Id: 10989213842817024
-    m_Localized: "Odm\u011Bna"
+    m_Localized: "Odm\u011Bna* :"
     m_Metadata:
       m_Items: []
   - m_Id: 10989508345872384
@@ -492,10 +494,48 @@ MonoBehaviour:
     m_Localized: "Profil aktualizov\xE1n"
     m_Metadata:
       m_Items: []
+  - m_Id: 16381898132963328
+    m_Localized: "Vybr\xE1no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16381957000019968
+    m_Localized: "Nevybr\xE1no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16385250971500544
+    m_Localized: "Celkov\u011B obdr\u017Een\xFDch rub\xEDn\u016F: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 2619022665701130242
+  - m_Id: 16388300930957312
+    m_Localized: "Kurz: 100 zla\u0165\xE1k\u016F za 1 rub\xEDn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16388358657163264
+    m_Localized: "Kurz: 1000 zla\u0165\xE1k\u016F za 12 rub\xEDn\u016F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16451003749908480
+    m_Localized: "\u0160patn\u011B vypln\u011Bn\xE1 data"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16451139917987840
+    m_Localized: "Pros\xEDm zkontrolujte si, \u017Ee jste vyplnili v\u0161echna povinn\xE1
+      pole."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17063078524239872
+    m_Localized: "Nem\xE1\u0161 dostatek kreditu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17063180340969472
+    m_Localized: Nedostatek kreditu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 2619022665701130242
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0040765fd30a00000040f6f7d30a0000004076b6d40a0000004076d8100b00000040f652a50f0000
+        m_Entries: 0040765fd30a00000040f6f7d30a0000004076b6d40a0000004076d8100b00000040f652a50f0000004076463a0f00000040b61ef01000000040b6874c363a00

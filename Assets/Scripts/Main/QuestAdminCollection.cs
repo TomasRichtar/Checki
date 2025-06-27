@@ -133,14 +133,24 @@ public class QuestAdminCollection : SingletonMonoBehaviour<QuestAdminCollection>
         return false;
     }
 
-    public void AddNewQuest(int profileId)
+    public void AddNewQuest(int childrenId)
     {
-        CreateQuestDatabase.Instance.GetQuestData(profileId, (Quest) =>
+        CreateQuestDatabase.Instance.GetQuestData(childrenId, (Quest) =>
         {
+            Debug.Log("FIRST: ");
+            foreach (var item in MyGameManager.Instance.QuestList)
+            {
+                Debug.Log(item.Id + "  " + item.Title);
+            }
             MyGameManager.Instance.QuestList = Quest;
+            Debug.Log("SECOND: " ); 
+            foreach (var item in MyGameManager.Instance.QuestList)
+            {
+                Debug.Log(item.Id + "  " + item.Title);
+            }
             WindowController.Instance.ForceExit<CreateQuestMainWindow>();
             WindowController.Instance.PushWindow<QuestSettingsWindow>();
-            OnDataUpdate?.Invoke();
+            UpdateData();
         });
     }
 

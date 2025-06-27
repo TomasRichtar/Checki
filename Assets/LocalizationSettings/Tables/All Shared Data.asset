@@ -483,6 +483,42 @@ MonoBehaviour:
     m_Key: ParentProfileUpdated
     m_Metadata:
       m_Items: []
+  - m_Id: 16381898132963328
+    m_Key: CollectedTooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16381957000019968
+    m_Key: NotCollectedTooltip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16385250971500544
+    m_Key: MoneyCollected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16388300930957312
+    m_Key: Exchange100
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16388358657163264
+    m_Key: Exchange1000
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16451003749908480
+    m_Key: WrongDataTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16451139917987840
+    m_Key: WrongData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17063078524239872
+    m_Key: MissingCredit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17063180340969472
+    m_Key: MissingCreditTitle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

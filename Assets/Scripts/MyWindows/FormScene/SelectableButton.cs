@@ -52,11 +52,11 @@ public class SelectableButton : MonoBehaviour
         }
         else
         {
-            _image.color = IsSelected == 1 ? new Color32(255, 0, 140, 255) : Color.white;
+            _image.color = IsSelected == 1 ? new Color32(255, 0, 140, 255) : new Color32(229, 229, 229, 255);
         }
         if (_text)
         {
-            _text.color = IsSelected == 1 ? Color.white : new Color32(255, 0, 140, 255);
+            _text.color = IsSelected == 1 ? new Color32(229, 229, 229, 255) : new Color32(255, 0, 140, 255);
         }
     }
     private void ResetTheButton()

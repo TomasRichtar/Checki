@@ -1,16 +1,9 @@
-using Firebase.Auth;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using TastyCore.Utils;
 using TMPro;
-using UnityEditor.AddressableAssets.HostingServices;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
-using static Unity.VisualScripting.Metadata;
-using static UnityEditor.AddressableAssets.Build.Layout.BuildLayout;
 
 public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
 {
@@ -149,6 +142,8 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
                 CallendarCollection.Instance.UpdateData();
                 ChildrenCollection.Instance.UpdateData();
                 WindowController.Instance.PushWindow<AdminWindow>();
+                Children child = MyGameManager.Instance.ChildrenList[0];
+                SelectChild(child);
             });
         });
     }
@@ -173,6 +168,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             if (!string.IsNullOrEmpty(ProfileData.ChildrenIds))
             {
                 MyGameManager.Instance.ChildrenId = int.Parse(ProfileData.ChildrenIds.Split(';')[0]);
+                
             }
             MyGameManager.Instance.LoadAllData(() =>
             {
@@ -181,6 +177,8 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
                 CallendarCollection.Instance.UpdateData();
                 ChildrenCollection.Instance.UpdateData();
                 WindowController.Instance.PushWindow<AdminWindow>();
+                Children child = MyGameManager.Instance.ChildrenList[0];
+                SelectChild(child);
             });
         });
     }

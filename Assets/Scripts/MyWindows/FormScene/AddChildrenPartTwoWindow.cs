@@ -129,6 +129,14 @@ public class AddChildrenPartTwoWindow : BaseWindow
 
         if (IsCreatingNew)
         {
+            if (MyGameManager.Instance.ChildrenList.Count >= 6)
+            {
+                WindowController.Instance.PushPopUpWindow(
+                 "MaximumChildren",
+                 "MaximumChildren",
+                 "Continue",
+                 null);
+            }
             ProfileManager.Instance.AddChildren();
         }
         else

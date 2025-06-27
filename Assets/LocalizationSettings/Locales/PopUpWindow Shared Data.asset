@@ -127,6 +127,14 @@ MonoBehaviour:
     m_Key: ParentProfileUpdated
     m_Metadata:
       m_Items: []
+  - m_Id: 21309887182422016
+    m_Key: MaximumChildren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21309964370198528
+    m_Key: MaximumChildrenTitle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

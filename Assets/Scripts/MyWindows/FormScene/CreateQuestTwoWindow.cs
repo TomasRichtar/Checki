@@ -53,8 +53,7 @@ public class CreateQuestTwoWindow : BaseWindow
         Previous.onClick.AddListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.AddListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.AddListener(SendData);
-        Next.onClick.AddListener(QuestManager.Instance.AddQuest);
+        Next.onClick.AddListener(CheckAndSendData);
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<CreateQuestOneWindow>);
 
         //Next.onClick.AddListener(() => ProfileManager.Instance.AccountDataHobies(
@@ -76,8 +75,7 @@ public class CreateQuestTwoWindow : BaseWindow
         Previous.onClick.RemoveListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.RemoveListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.RemoveListener(SendData);
-        Next.onClick.RemoveListener(QuestManager.Instance.AddQuest);
+        Next.onClick.RemoveListener(CheckAndSendData);
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<CreateQuestOneWindow>);
 
         //Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountDataHobies(
@@ -89,6 +87,28 @@ public class CreateQuestTwoWindow : BaseWindow
         //    _relax.IsSelected,
         //    _art.IsSelected,
         //    _culture.IsSelected));
+    }
+    private void CheckAndSendData()
+    {
+        if (string.IsNullOrEmpty(_credit.text) ||
+            string.IsNullOrEmpty(_complitionTime.text) ||
+            _credit.text == "..." ||
+            _complitionTime.text == "...")
+        {
+            PopUp();
+            return;
+        }
+
+        SendData();
+        QuestManager.Instance.AddQuest();
+    }
+    private void PopUp()
+    {
+        WindowController.Instance.PushPopUpWindow(
+               "WrongDataTitle",
+               "WrongData",
+               "Continue",
+               null);
     }
 
     private void SendData()

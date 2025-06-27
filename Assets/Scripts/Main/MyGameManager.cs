@@ -22,8 +22,6 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
     public List<Equipment> AllEquipmentList = new List<Equipment>();
 
     public string UserName;
-    public int UserCredit;
-
 
     public event Action OnNewSelectedMonster;
     public event Action OnNewSelectedEquipment;

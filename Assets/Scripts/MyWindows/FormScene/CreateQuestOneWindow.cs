@@ -45,13 +45,11 @@ public class CreateQuestOneWindow : BaseWindow
         Next.onClick.AddListener(() => _entryMode = PageEntryMode.SLIDE);
         Next.onClick.AddListener(() => _exitMode = PageEntryMode.SLIDE);
 
-        Next.onClick.AddListener(() => ChangeHeaderColorNext());
         Previous.onClick.AddListener(() => ChangeHeaderColorPrevious());
 
         Previous.onClick.AddListener(WindowController.Instance.ForceExit<CreateQuestMainWindow>);
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<QuestSettingsWindow>);
-        Next.onClick.AddListener(WindowController.Instance.PushWindow<CreateQuestTwoWindow>);
-        Next.onClick.AddListener(SendData);
+        Next.onClick.AddListener(CheckAndSendData);
 
 
         //Next.onClick.AddListener(() => ProfileManager.Instance.AccountChildRegister(
@@ -68,13 +66,34 @@ public class CreateQuestOneWindow : BaseWindow
 
         Previous.onClick.RemoveListener(WindowController.Instance.ForceExit<CreateQuestMainWindow>);
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<QuestSettingsWindow>);
-        Next.onClick.RemoveListener(WindowController.Instance.PushWindow<CreateQuestTwoWindow>);
-        Next.onClick.RemoveListener(SendData);
+        Next.onClick.RemoveListener(CheckAndSendData);
 
         //Next.onClick.RemoveListener(() => ProfileManager.Instance.AccountChildRegister(
         //    _name.text,
         //    _nickName.text,
         //    _age.options[_age.value].text));
+    }
+
+    private void CheckAndSendData()
+    {
+        if (string.IsNullOrEmpty(_title.text) ||
+            _title.text == "...")
+        {
+            PopUp();
+            return;
+        }
+
+        SendData();
+        ChangeHeaderColorNext();
+        WindowController.Instance.PushWindow<CreateQuestTwoWindow>();
+    }
+    private void PopUp()
+    {
+        WindowController.Instance.PushPopUpWindow(
+               "WrongDataTitle",
+               "WrongData",
+               "Continue",
+               null);
     }
 
     private void SendData()

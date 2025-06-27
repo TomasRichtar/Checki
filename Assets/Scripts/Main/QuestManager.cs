@@ -33,7 +33,7 @@ public class QuestManager : SingletonMonoBehaviour<QuestManager>
 
         CreateQuestDatabase.Instance.CreateQuest(QuestData, (response) =>
         {
-            QuestAdminCollection.Instance.AddNewQuest(ProfileManager.Instance.ProfileData.Id);
+            QuestAdminCollection.Instance.AddNewQuest(ChildrenId);
         });
     }
     public void DeleteQuest(Quest quest)
@@ -46,8 +46,7 @@ public class QuestManager : SingletonMonoBehaviour<QuestManager>
 
     public void CompleteQuest(Quest quest)
     {
-        quest.QuestStatus = QuestStatusEnum.InProgress.ToString();
-
+        quest.QuestStatus = QuestStatusEnum.Pending.ToString();
         CreateQuestDatabase.Instance.UpdateData(quest, (response) =>
         {
         });
@@ -66,7 +65,7 @@ public class QuestManager : SingletonMonoBehaviour<QuestManager>
 
                 ChildrenDatabase.Instance.UpdateData(child, (response) =>
                 {
-
+                    
                 });
             }
         });

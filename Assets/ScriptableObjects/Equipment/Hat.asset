@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039938e81ab103a4c904b0be7b3d08c8, type: 3}
   m_Name: Hat
   m_EditorClassIdentifier: 
+  Id: 3
   Name: Hat
   Sprite: {fileID: 21300000, guid: 5724f820d14bcbb458309b36669c49c8, type: 3}
   Size: 1

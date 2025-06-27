@@ -130,6 +130,7 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
     IEnumerator UpdateDataCoroutine(Reward data, Action<bool> onSuccess)
     {
         WWWForm form = new WWWForm();
+        form.AddField("Id", data.Id);
         form.AddField("Title", data.Title);
         form.AddField("ImageId", data.ImageId);
         form.AddField("Price", data.Price);

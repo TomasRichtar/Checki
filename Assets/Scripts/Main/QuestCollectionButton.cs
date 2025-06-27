@@ -31,6 +31,15 @@ public class QuestCollectionButton : MonoBehaviour
         {
             questStatus = QuestStatusEnum.None;
         }
+        SwitchState(questStatus);
+    }
+
+    public void SwitchState(QuestStatusEnum questStatus)
+    {
+        _inProgress.SetActive(false);
+        _completed.SetActive(false);
+        _failed.SetActive(false);
+        _pending.SetActive(false);
 
         switch (questStatus)
         {
@@ -57,9 +66,12 @@ public class QuestCollectionButton : MonoBehaviour
 
     public void SelectThis()
     {
+        Debug.Log("SElect this");
         if (QuestCollection.Instance.CheckIfExists(_quest))
         {
+            Debug.Log("Complete");
             QuestManager.Instance.CompleteQuest(_quest);
+            SwitchState(QuestStatusEnum.Pending);
         }
     }
 }

@@ -72,6 +72,8 @@ public class RewardAdminCollection : SingletonMonoBehaviour<RewardAdminCollectio
     {
         float totalValue = MyGameManager.Instance.RewardList.Count;
 
+        _completed = 0;
+        _inCompleted = 0;
         foreach (var item in MyGameManager.Instance.RewardList)
         {
             if (item.Collected == 1)
@@ -133,13 +135,14 @@ public class RewardAdminCollection : SingletonMonoBehaviour<RewardAdminCollectio
         return false;
     }
 
-    public void AddNewReward(int profileId)
+    public void AddNewReward(int childId)
     {
-        CreateRewardDatabase.Instance.GetRewardData(profileId, (Reward) =>
+        CreateRewardDatabase.Instance.GetRewardData(childId, (Reward) =>
         {
             MyGameManager.Instance.RewardList = Reward;
             WindowController.Instance.ForceExit<CreateRewardMainWindow>();
             WindowController.Instance.PushWindow<RewardsSettingsWindow>();
+            UpdateData();
             OnDataUpdate?.Invoke();
         });
     }

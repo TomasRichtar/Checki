@@ -4,6 +4,7 @@ using UnityEngine;
 using Richi;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class CreateRewardOneWindow : BaseWindow
 {
@@ -45,14 +46,12 @@ public class CreateRewardOneWindow : BaseWindow
         Next.onClick.AddListener(() => _entryMode = PageEntryMode.NONE);
         Next.onClick.AddListener(() => _exitMode = PageEntryMode.NONE);
 
-        Next.onClick.AddListener(() => ChangeHeaderColorNext());
         Previous.onClick.AddListener(() => ChangeHeaderColorPrevious());
 
         Previous.onClick.AddListener(() => _entryDirection = Direction.LEFT);
         Previous.onClick.AddListener(() => _exitDirection = Direction.RIGHT);
 
-        Next.onClick.AddListener(SendData);
-        Next.onClick.AddListener(RewardManager.Instance.AddReward);
+        Next.onClick.AddListener(CheckAndSendData);
         Previous.onClick.AddListener(WindowController.Instance.PushWindow<RewardsSettingsWindow>);
         Previous.onClick.AddListener(WindowController.Instance.ForceExit<CreateRewardMainWindow>);
     }
@@ -68,11 +67,35 @@ public class CreateRewardOneWindow : BaseWindow
         Next.onClick.RemoveListener(() => ChangeHeaderColorNext());
         Previous.onClick.RemoveListener(() => ChangeHeaderColorPrevious());
 
-        Next.onClick.RemoveListener(SendData);
-        Next.onClick.RemoveListener(RewardManager.Instance.AddReward);
+        Next.onClick.RemoveListener(CheckAndSendData);
         Previous.onClick.RemoveListener(WindowController.Instance.PushWindow<RewardsSettingsWindow>);
         Previous.onClick.RemoveListener(WindowController.Instance.ForceExit<CreateRewardMainWindow>);
     }
+
+    private void CheckAndSendData()
+    {
+        if (string.IsNullOrEmpty(_title.text) ||
+            string.IsNullOrEmpty(_price.text) ||
+            _title.text == "..." ||
+            _price.text == "...")
+        {
+            PopUp();
+            return;
+        }
+
+        SendData();
+        ChangeHeaderColorNext();
+        RewardManager.Instance.AddReward();
+    }
+    private void PopUp()
+    {
+        WindowController.Instance.PushPopUpWindow(
+               "WrongDataTitle",
+               "WrongData",
+               "Continue",
+               null);
+    }
+
     private void SendData()
     {
         RewardManager.Instance.ChildrenId = ProfileManager.Instance.ChildrenData.Id;

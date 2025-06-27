@@ -36,7 +36,7 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
     }
     public void CollectReward()
     {
-        if (SelectedReward == null)
+        if (SelectedReward == null || SelectedReward.Id == 0)
         {
             WindowController.Instance.PushPopUpWindow(
                "SelectRewardTitle",
@@ -69,7 +69,8 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
 
     public bool CheckIfValid(Reward reward)
     {
-        if (reward.Price <= MyGameManager.Instance.UserCredit)
+        Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+        if (reward.Price <= child.Credit)
         {
             return true;
         }
@@ -90,6 +91,7 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
 
             CreateRewardDatabase.Instance.UpdateData(reward, (response) =>
             {
+                RewardCollection.Instance.UpdateData();
             });
         });
     }
@@ -105,7 +107,7 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
 
         CreateRewardDatabase.Instance.CreateReward(RewardData, (response) =>
         {
-            RewardAdminCollection.Instance.AddNewReward(ProfileManager.Instance.ProfileData.Id);
+            RewardAdminCollection.Instance.AddNewReward(ChildrenId);
         });
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,7 +10,9 @@ namespace JSG.FortuneSpinWheel
 
     public class FortuneSpinWheel : MonoBehaviour
     {
-        public Monster[] _monsterReward;
+        public List<Monster> _monsterReward;
+        public List<Equipment> _equipmentReward;
+        public List<object> _rewards;
         public Image m_CircleBase;
         public Image[] m_RewardPictures;
         public Text[] m_RewardCounts;
@@ -36,9 +39,18 @@ namespace JSG.FortuneSpinWheel
             m_IsSpinning = false;
             m_RewardNumber = -1;
 
-            for (int i = 0; i < _monsterReward.Length; i++)
+            _rewards = GetRandomCombinedList(_monsterReward, _equipmentReward, 8);
+
+            for (int i = 0; i < _rewards.Count; i++)
             {
-                m_RewardPictures[i].sprite = _monsterReward[i].Sprite;
+                if (_rewards[i] is Equipment equipment)
+                {
+                    m_RewardPictures[i].sprite = equipment.Sprite;
+                }
+                else if (_rewards[i] is Monster monster)
+                {
+                    m_RewardPictures[i].sprite = monster.Sprite;
+                }
 
                 m_RewardCounts[i].gameObject.SetActive(false);
 
@@ -79,7 +91,7 @@ namespace JSG.FortuneSpinWheel
                     m_SpinSpeed = 0;
                     m_IsSpinning = false;
 
-                    float segmentAngle = 360f / _monsterReward.Length;
+                    float segmentAngle = 360f / _rewards.Count;
 
                     float normalizedRotation = (360f - (m_Rotation % 360f)) % 360f;
                     float offsetDegrees = 64;
@@ -107,19 +119,38 @@ namespace JSG.FortuneSpinWheel
 
         public void HandleReward()
         {
-            Monster reward = _monsterReward[m_RewardNumber];
-            Debug.Log("Your reward is: " + reward.Name);
-            MonsterCollection.Instance.UnlockNewMonster(reward);
+            object reward = _rewards[m_RewardNumber];
+
+            if (reward is Equipment equipment)
+            {
+                EquipmentCollection.Instance.UnlockNewEquipment(equipment);
+            }
+            else if (reward is Monster monster)
+            {
+                MonsterCollection.Instance.UnlockNewMonster(monster);
+            }
+
         }
 
         IEnumerator ShowRewardMenu(int seconds)
         {
-            Monster reward = _monsterReward[m_RewardNumber];
+            object reward = _rewards[m_RewardNumber];
+
             yield return new WaitForSeconds(seconds);
 
             m_RewardPanel.gameObject.SetActive(true);
-            m_RewardFinalText.text = reward.Name.ToString();
-            m_RewardFinalImage.sprite = reward.Sprite;
+
+            if (reward is Equipment equipment)
+            {
+                m_RewardFinalText.text = equipment.Name.ToString();
+                m_RewardFinalImage.sprite = equipment.Sprite;
+            }
+            else if (reward is Monster monster)
+            {
+                m_RewardFinalText.text = monster.Name.ToString();
+                m_RewardFinalImage.sprite = monster.Sprite;
+            }
+
             yield return new WaitForSeconds(2);
 
             Reset();
@@ -127,13 +158,29 @@ namespace JSG.FortuneSpinWheel
 
         public void StartSpin()
         {
-            if (!m_IsSpinning)
+            Children child = MyGameManager.Instance.ChildrenList.FirstOrDefault(x => x.Id == MyGameManager.Instance.ChildrenId);
+            if (child.Credit < 100)
             {
-                m_SpinSpeed = Random.Range(4f, 14f);
-                m_IsSpinning = true;
-                m_RewardNumber = -1;
-                m_SpinButton.gameObject.SetActive(false);
+                WindowController.Instance.PushPopUpWindow(
+                   "CollectMoreCreditTitle",
+                   "CollectMoreCredit",
+                   "Continue",
+                   null);
+                return;
             }
+
+            child.Credit -= 100;
+
+            ChildrenDatabase.Instance.UpdateData(child, (response) =>
+            {
+                if (!m_IsSpinning)
+                {
+                    m_SpinSpeed = Random.Range(4f, 14f);
+                    m_IsSpinning = true;
+                    m_RewardNumber = -1;
+                    m_SpinButton.gameObject.SetActive(false);
+                }
+            });        
         }
 
         public void Reset()
@@ -149,6 +196,15 @@ namespace JSG.FortuneSpinWheel
             m_RewardNumber = -1;
             m_SpinButton.gameObject.SetActive(true);
             m_RewardPanel.gameObject.SetActive(false);
+        }
+
+        public List<object> GetRandomCombinedList(List<Monster> list1, List<Equipment> list2, int count)
+        {
+            List<object> combined = new List<object>();
+            combined.AddRange(list1);
+            combined.AddRange(list2);
+
+            return combined.OrderBy(x => UnityEngine.Random.value).Take(count).ToList();
         }
     }
 }
