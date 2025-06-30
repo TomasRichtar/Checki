@@ -43,7 +43,7 @@ public class CreateQuestDatabase : SingletonMonoBehaviour<CreateQuestDatabase>
 
     IEnumerator GetQuestsCoroutine(int id, Action<List<Quest>> onSuccess)
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://localhost/get_quests.php?id=" + id);
+        UnityWebRequest www = UnityWebRequest.Get("http://checkiapp.com/get_quests.php?id=" + id);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -88,7 +88,7 @@ public class CreateQuestDatabase : SingletonMonoBehaviour<CreateQuestDatabase>
         form.AddField("ChildrenId", Data.ChildrenId);
         form.AddField("ImageId", Data.ImageId);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost/create_quest.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/create_quest.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -112,7 +112,7 @@ public class CreateQuestDatabase : SingletonMonoBehaviour<CreateQuestDatabase>
         WWWForm form = new WWWForm();
         form.AddField("Id", id);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/delete_quest.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/delete_quest.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -149,7 +149,7 @@ public class CreateQuestDatabase : SingletonMonoBehaviour<CreateQuestDatabase>
         form.AddField("ChildrenId", data.ChildrenId);
         form.AddField("ImageId", data.ImageId);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost/update_quest.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/update_quest.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
