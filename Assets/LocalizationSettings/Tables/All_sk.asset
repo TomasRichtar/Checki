@@ -16,41 +16,505 @@ MonoBehaviour:
     m_Code: sk
   m_SharedData: {fileID: 11400000, guid: b2662fbefb1ac46448479ad406789287, type: 2}
   m_Metadata:
-    m_Items:
-    - rid: 2619022665701130243
+    m_Items: []
   m_TableData:
-  - m_Id: 1143194664960
-    m_Localized: Beta
+  - m_Id: 5067138023424
+    m_Localized: "\xDAlohy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5069822377984
+    m_Localized: Odmeny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5185815855104
+    m_Localized: "Kalend\xE1r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5187283861504
+    m_Localized: Nastavenie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5188584095744
+    m_Localized: "Odhlas\xEDt sa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5192560295936
+    m_Localized: "Prida\u0165 odmenu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12433006936064
+    m_Localized: "Prida\u0165 \xFAlohu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12431631204352
+    m_Localized: "Nov\xE1 \xFAloha"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12171332698112
+    m_Localized: "Na schv\xE1lenie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169906634752
+    m_Localized: "Zobrazi\u0165 odmeny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169214574592
+    m_Localized: "Zobrazi\u0165 \xFAlohy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12166979010560
+    m_Localized: "Nevybran\xE9: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11908710547456
+    m_Localized: "Vybran\xE9: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11907125100544
+    m_Localized: "Vybran\xE9 odmeny :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11905514487808
+    m_Localized: "Nesplnen\xE9: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11902955962368
+    m_Localized: "Splnen\xE9: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11558192562176
+    m_Localized: "Stav \xFAloh :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11555097165824
+    m_Localized: 'Vek* :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11552286982144
+    m_Localized: "Prez\xFDvka :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11547027324928
+    m_Localized: "Pozva\u0165 die\u0165a / partnera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11382153428992
+    m_Localized: "Prida\u0165 die\u0165a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10920830320640
+    m_Localized: "Platnos\u0165 do* :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10915943956480
+    m_Localized: "Vlastn\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10914735996928
+    m_Localized: "Ulo\u017Ei\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10913414791168
+    m_Localized: "Spr\xE1va det\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10107907096576
+    m_Localized: "Schv\xE1li\u0165 v\xFDmenu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10105059164160
+    m_Localized: 'kreditov: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10103930896384
+    m_Localized: "Stav \xFA\u010Dtu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5066391437312
+    m_Localized: Deti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5063455424512
+    m_Localized: "Admin - rodi\u010D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3957136441344
+    m_Localized: "Kult\xFAra"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3955450331136
+    m_Localized: "Kreat\xEDvne \u010Dinnosti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3953894244352
+    m_Localized: Relax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3952312991744
+    m_Localized: "Spolo\u010Densk\xE9 hry"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3950576549888
+    m_Localized: "\u0160port"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3948588449792
+    m_Localized: Hudba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3947321769984
+    m_Localized: "Varenie a pe\u010Denie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3943806943232
+    m_Localized: Cestovanie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3802085605376
+    m_Localized: "Ostatn\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3797467676672
+    m_Localized: "Rybi\u010Dky"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3796708507648
+    m_Localized: "Ma\u010Dka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3795999670272
+    m_Localized: Pes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3704257658880
+    m_Localized: "Po\u010Det det\xED v rodine: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3363738894336
+    m_Localized: "Po\u010Det \u010Dlenov rodiny :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3362644180992
+    m_Localized: 'Hovoria mi* :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3361817903104
+    m_Localized: "Vol\xE1m sa* :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360190513152
+    m_Localized: "Z\xE1ujmy a kon\xED\u010Dky :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2815505612800
+    m_Localized: "Dom\xE1ci mil\xE1\u010Dikovia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2814075355136
+    m_Localized: "O na\u0161ej rodine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2800783605760
+    m_Localized: "Po\u010Det \u010Dlenov"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1630337908736
+    m_Localized: "U\u017E m\xE1te \xFA\u010Det?<b> M\xF4\u017Eete sa prihl\xE1si\u0165.</b>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1581033865216
+    m_Localized: "Registrova\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1524624670720
+    m_Localized: "Tel. \u010D\xEDslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443573940224
+    m_Localized: Meno
     m_Metadata:
       m_Items: []
   - m_Id: 1175432085504
     m_Localized: Checki App v.
     m_Metadata:
       m_Items: []
-  - m_Id: 11902955962368
-    m_Localized: 
+  - m_Id: 1143194664960
+    m_Localized: Beta
     m_Metadata:
-      m_Items:
-      - rid: 2619022665701130243
-  - m_Id: 11905514487808
-    m_Localized: 
+      m_Items: []
+  - m_Id: 844023349248
+    m_Localized: "Prihl\xE1si\u0165 cez Gmail"
     m_Metadata:
-      m_Items:
-      - rid: 2619022665701130243
-  - m_Id: 11908710547456
-    m_Localized: 
+      m_Items: []
+  - m_Id: 839212482560
+    m_Localized: "Nem\xE1te \xFA\u010Det? <b>M\xF4\u017Eete sa registrova\u0165.</b>"
     m_Metadata:
-      m_Items:
-      - rid: 2619022665701130243
-  - m_Id: 12166979010560
-    m_Localized: 
+      m_Items: []
+  - m_Id: 643648864256
+    m_Localized: "Zabudli ste heslo? <b>Obnovi\u0165 heslo.</b>"
     m_Metadata:
-      m_Items:
-      - rid: 2619022665701130243
+      m_Items: []
+  - m_Id: 558005370880
+    m_Localized: "Detsk\xFD re\u017Eim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378258472960
+    m_Localized: "Prihl\xE1si\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23743315968
+    m_Localized: Heslo*
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19775504384
+    m_Localized: E-mail*
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13874118656
+    m_Localized: "Prihl\xE1senie rodi\u010Da"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12434047123456
+    m_Localized: "kr\xE1t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13481306112000
+    m_Localized: "Zmeni\u0165 meno"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13482853810176
+    m_Localized: "Zmeni\u0165 po\u010Det \u010Dlenov "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13484040798208
+    m_Localized: "Zmeni\u0165 po\u010Det det\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13485580107776
+    m_Localized: "Upravi\u0165 z\xE1ujmy rodiny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13674768384000
+    m_Localized: "Zmeni\u0165 heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13676215418880
+    m_Localized: "Finan\u010Dn\xFD m\xF3d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13677347880960
+    m_Localized: "Re\u017Eim sporenia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13684369145856
+    m_Localized: Vyber fotku
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14051345580032
+    m_Localized: "Domovsk\xE1 obrazovka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15620489232384
+    m_Localized: "Zadaj k\xF3d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15621185486848
+    m_Localized: "Prihl\xE1si\u0165 ako rodi\u010D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15622015959040
+    m_Localized: "\xDAlohy od rodi\u010Dov"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15623358136320
+    m_Localized: "\xDAlohy od Checkiho"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15625090383872
+    m_Localized: Odmeny a kredit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16004591009792
+    m_Localized: "Oble\u010D pr\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16005601837056
+    m_Localized: "Zbierka pr\xED\u0161eriek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16006927237120
+    m_Localized: "Vybra\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16740888494080
+    m_Localized: "Vymeni\u0165 kredit za peniaze"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16741840601088
+    m_Localized: "Pe\u0148a\u017Eenka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16742964674560
+    m_Localized: "Dostupn\xFDch zlatiek: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16744214577152
+    m_Localized: "Dostupn\xE9 odmeny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16945495031808
+    m_Localized: "Sp\xE4\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946015125504
+    m_Localized: "Zmeni\u0165 pozadie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946531024896
+    m_Localized: "Hlad pr\xED\u0161erky 50% | pokles kreditu - 50%"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946921095168
+    m_Localized: "Kolo \u0161\u0165astia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17198742913024
+    m_Localized: "Vyto\u010Di\u0165 nov\xFA pr\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17199455944704
+    m_Localized: "Vyber pr\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17200168976384
+    m_Localized: "Moje pr\xED\u0161erky"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17202735890432
+    m_Localized: "Nazbieran\xE9 {0} / {1} pr\xED\u0161erok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17559453057024
+    m_Localized: "Z\xEDskali ste pr\xED\u0161erku"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17561000755200
+    m_Localized: Od Checkiho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17561625706496
+    m_Localized: "Od rodi\u010Dov"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17562959495168
+    m_Localized: "Splni\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17817847349248
+    m_Localized: "V\xFDmena kreditu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18497827913728
+    m_Localized: 'Kurz: 100 kreditov'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18620280619008
+    m_Localized: "Vymeni\u0165 za "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18623493455872
+    m_Localized: "Aktivovan\xE9 \xFAro\u010Denie {0} ro\u010Dne"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18625963900928
+    m_Localized: "Vymeni\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18628463706112
+    m_Localized: "M\xF4j stav \xFA\u010Dtu :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42346174889984
+    m_Localized: "Vyto\u010Di\u0165 pr\xED\u0161erku za 100 kreditov"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 515237907677184
+    m_Localized: "Registr\xE1cia rodi\u010Da"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6303397933629440
+    m_Localized: O mne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10988580775542784
+    m_Localized: "N\xE1zov* :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989213842817024
+    m_Localized: 'Odmena* :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989508345872384
+    m_Localized: "Prv\xE1 \u010Das\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989531108360192
+    m_Localized: "Druh\xE1 \u010Das\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10989980075048960
+    m_Localized: "\u010Cas \xFAlohy: "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10990210388475904
+    m_Localized: "\xC1no"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10990232463097856
+    m_Localized: Nie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10990365460283392
+    m_Localized: 'Dni: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11220793316229120
+    m_Localized: "Opakova\u0165?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11971206407667712
+    m_Localized: "Profil aktualizovan\xFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16381898132963328
+    m_Localized: "Vybran\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16381957000019968
+    m_Localized: "Nevybran\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16385250971500544
+    m_Localized: "Celkovo obdr\u017Ean\xFDch rub\xEDnov: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16388300930957312
+    m_Localized: "Kurz: 100 zlatiek za 1 rub\xEDn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16388358657163264
+    m_Localized: "Kurz: 1000 zlatiek za 12 rub\xEDnov"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16451003749908480
+    m_Localized: "Zle vyplnen\xE9 d\xE1ta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16451139917987840
+    m_Localized: "Pros\xEDm skontrolujte si, \u017Ee ste vyplnili v\u0161etky povinn\xE9
+      polia."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 2619022665701130243
-      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Entries: 0040765fd30a00000040f6f7d30a0000004076b6d40a0000004076d8100b0000
+    RefIds: []

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039938e81ab103a4c904b0be7b3d08c8, type: 3}
   m_Name: None
   m_EditorClassIdentifier: 
+  Id: 0
   Name: None
-  Sprite: {fileID: 21300000, guid: 3935c647f8f8a064184bbb7b7de6c6e6, type: 3}
+  Sprite: {fileID: 21300000, guid: 2faac82fee84d6e41a9c96ab24f4b797, type: 3}
+  OffSprite: {fileID: 0}
   Size: 1
-  EquipmentSLot: 0
+  EquipmentSlot: 0
   Description: 

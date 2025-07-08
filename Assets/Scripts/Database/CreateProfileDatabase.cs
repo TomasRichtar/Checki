@@ -56,7 +56,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
 
     IEnumerator GetProfileCoroutine(string email, Action<ProfileDatabase> onSuccess)
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://checkiapp.com/get_profile.php?email=" + email);
+        UnityWebRequest www = UnityWebRequest.Get("https://checkiapp.com/get_profile.php?email=" + email);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -116,7 +116,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         form.AddField("FamilyCount", profileData.FamilyCount);
         form.AddField("ChildrenCount", profileData.ChildrenCount);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/create_profile.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/create_profile.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -166,7 +166,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         form.AddField("FamilyCount", profileData.FamilyCount);
         form.AddField("ChildrenCount", profileData.ChildrenCount);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/update_profile.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/update_profile.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -193,7 +193,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         form.AddField("OldPassword", oldPassword);
         form.AddField("NewPassword", newPassword);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/change_password.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/change_password.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -219,7 +219,7 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         form.AddField("Email", email);
         form.AddField("Password", password);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/login_profile.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/login_profile.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)

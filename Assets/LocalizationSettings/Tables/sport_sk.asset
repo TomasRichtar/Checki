@@ -19,7 +19,91 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 7846903808
-    m_Localized: "Tady se p\xED\u0161e p\u0159eklad"
+    m_Localized: Pondelok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10514481152
+    m_Localized: Utorok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12959760384
+    m_Localized: Streda
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17430888448
+    m_Localized: "\u0160tvrtok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20874412032
+    m_Localized: Piatok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24791891968
+    m_Localized: Sobota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26209566720
+    m_Localized: "Nede\u013Ea"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27115536384
+    m_Localized: "T\xFD\u017Ede\u0148"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27807596544
+    m_Localized: "V\xEDkend"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28466102272
+    m_Localized: "Ka\u017Ed\xFD de\u0148"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29082664960
+    m_Localized: "Janu\xE1r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29732782080
+    m_Localized: "Febru\xE1r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30433230848
+    m_Localized: Marec
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33465712640
+    m_Localized: "Apr\xEDl"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34057109504
+    m_Localized: "M\xE1j"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34690449408
+    m_Localized: "J\xFAn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35206348800
+    m_Localized: "J\xFAl"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39178354688
+    m_Localized: August
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39719419904
+    m_Localized: September
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40273068032
+    m_Localized: "\u0158\xEDjen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380884107264
+    m_Localized: November
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382385668096
+    m_Localized: December
     m_Metadata:
       m_Items: []
   references:

@@ -511,14 +511,6 @@ MonoBehaviour:
     m_Key: WrongData
     m_Metadata:
       m_Items: []
-  - m_Id: 17063078524239872
-    m_Key: MissingCredit
-    m_Metadata:
-      m_Items: []
-  - m_Id: 17063180340969472
-    m_Key: MissingCreditTitle
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

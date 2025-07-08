@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783eaab3b9dbe7649bfe3ae7c454a9a8, type: 3}
+  m_Name: Jolly
+  m_EditorClassIdentifier: 
+  Id: 13
+  Name: Jolly
+  Sprite: {fileID: 21300000, guid: 8c15df21fef977146bfd9f00cc783ae9, type: 3}
+  GlowColor: {r: 1, g: 0.24212018, b: 0, a: 1}
+  Size: 1
+  HatOffset: {x: 0, y: 492, z: 0}
+  HatSize: {x: 352.1, y: 454.22, z: 0}
+  HatRotation: {x: 0, y: 0, z: 0}
+  HeadOffset: {x: 0, y: 382, z: 0}
+  HeadSize: {x: 336.3, y: 465.8, z: 0}
+  HeadRotation: {x: 0, y: 0, z: 0}
+  ShouldersOffset: {x: 14, y: -94, z: 0}
+  ShouldersSize: {x: 400.9, y: 741.6, z: 0}
+  ShouldersRotation: {x: 0, y: 0, z: 0}
+  NeckOffset: {x: 12, y: -239, z: 0}
+  NeckSize: {x: 121.1, y: 529.57, z: 0}
+  NeckRotation: {x: 0, y: 0, z: 0}
+  GlassesOffset: {x: 0, y: 227, z: 0}
+  GlassesSize: {x: 355.8, y: 249.2, z: 0}
+  GlassesRotation: {x: 0, y: 0, z: 0}
+  BeardOffset: {x: 0, y: 174, z: 0}
+  BeardSize: {x: 333.1, y: 138.6, z: 0}
+  BeardRotation: {x: 0, y: 0, z: 0}
+  GlovesRightOffset: {x: 358, y: -274, z: 0}
+  GlovesRightSize: {x: 599.56, y: 277.72, z: 0}
+  GlovesRightRotation: {x: 180, y: 0, z: -144.7}
+  GlovesLeftOffset: {x: -400, y: -274, z: 0}
+  GlovesLeftSize: {x: 599.56, y: 277.72, z: 0}
+  GlovesLeftRotation: {x: 0, y: 180, z: 0}
+  ShoesRightOffset: {x: 215, y: -411, z: 0}
+  ShoesRightSize: {x: 422, y: 138.6, z: 0}
+  ShoesRightRotation: {x: 0, y: 0, z: 0}
+  ShoesLeftOffset: {x: -205, y: -411, z: 0}
+  ShoesLeftSize: {x: 422, y: 138.6, z: 0}
+  ShoesLeftRotation: {x: 0, y: 0, z: 0}
+  HandOffset: {x: 366, y: -265, z: 0}
+  HandSize: {x: 544.29, y: 385.9, z: 0}
+  HandRotation: {x: 0, y: 0, z: 199.49}
+  WaistOffset: {x: 11, y: -284, z: 0}
+  WaistSize: {x: 503.39, y: 584.4, z: 0}
+  WaistRotation: {x: 0, y: 0, z: 0}
+  Description: 

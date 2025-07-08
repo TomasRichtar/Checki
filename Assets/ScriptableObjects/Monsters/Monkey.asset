@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783eaab3b9dbe7649bfe3ae7c454a9a8, type: 3}
+  m_Name: Monkey
+  m_EditorClassIdentifier: 
+  Id: 14
+  Name: Monkey
+  Sprite: {fileID: 21300000, guid: ca82fc1ecbe77e34eb846180a90675ef, type: 3}
+  GlowColor: {r: 1, g: 0.7248161, b: 0, a: 1}
+  Size: 1
+  HatOffset: {x: 16, y: 493, z: 0}
+  HatSize: {x: 413.8, y: 267.2, z: 0}
+  HatRotation: {x: 0, y: 0, z: 0}
+  HeadOffset: {x: 0, y: 417, z: 0}
+  HeadSize: {x: 336.3, y: 465.8, z: 0}
+  HeadRotation: {x: 0, y: 0, z: 0}
+  ShouldersOffset: {x: -5, y: -100, z: 0}
+  ShouldersSize: {x: 273.5, y: 446, z: 0}
+  ShouldersRotation: {x: 0, y: 0, z: -3.01}
+  NeckOffset: {x: 12, y: -149, z: 0}
+  NeckSize: {x: 131.4, y: 308.3, z: 0}
+  NeckRotation: {x: 0, y: 0, z: 0}
+  GlassesOffset: {x: 9.2, y: 271, z: 0}
+  GlassesSize: {x: 512.5, y: 286.62, z: 0}
+  GlassesRotation: {x: 0, y: 0, z: 0}
+  BeardOffset: {x: 0, y: 225, z: 0}
+  BeardSize: {x: 333.1, y: 138.6, z: 0}
+  BeardRotation: {x: 0, y: 0, z: 0}
+  GlovesRightOffset: {x: 156, y: -193, z: 0}
+  GlovesRightSize: {x: 599.56, y: 277.72, z: 0}
+  GlovesRightRotation: {x: 180, y: 0, z: -98.2}
+  GlovesLeftOffset: {x: -296, y: 153, z: 0}
+  GlovesLeftSize: {x: 599.56, y: 277.72, z: 0}
+  GlovesLeftRotation: {x: 0, y: 0, z: 139.72}
+  ShoesRightOffset: {x: 185, y: -346, z: 0}
+  ShoesRightSize: {x: 422, y: 165.39, z: 0}
+  ShoesRightRotation: {x: 0, y: 0, z: -6.3}
+  ShoesLeftOffset: {x: -153, y: -316, z: 0}
+  ShoesLeftSize: {x: 422, y: 165.39, z: 0}
+  ShoesLeftRotation: {x: 0, y: 0, z: 43.2}
+  HandOffset: {x: -302, y: 185, z: 0}
+  HandSize: {x: 544.29, y: 385.9, z: 0}
+  HandRotation: {x: 0, y: 0, z: 11.5}
+  WaistOffset: {x: -25, y: -133, z: 0}
+  WaistSize: {x: 298.1, y: 584.4, z: 0}
+  WaistRotation: {x: 0, y: 0, z: 0}
+  Description: 

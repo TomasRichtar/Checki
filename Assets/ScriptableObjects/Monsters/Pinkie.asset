@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783eaab3b9dbe7649bfe3ae7c454a9a8, type: 3}
+  m_Name: Pinkie
+  m_EditorClassIdentifier: 
+  Id: 15
+  Name: Pinkie
+  Sprite: {fileID: 21300000, guid: bc78a99f45c80d74aae2d7c403b7d420, type: 3}
+  GlowColor: {r: 1, g: 0, b: 0.33984375, a: 1}
+  Size: 1
+  HatOffset: {x: 0, y: 464, z: 0}
+  HatSize: {x: 413.8, y: 267.2, z: 0}
+  HatRotation: {x: 0, y: 0, z: 0}
+  HeadOffset: {x: 0, y: 392, z: 0}
+  HeadSize: {x: 336.3, y: 465.8, z: 0}
+  HeadRotation: {x: 0, y: 0, z: 0}
+  ShouldersOffset: {x: -6, y: -115, z: 0}
+  ShouldersSize: {x: 659.2, y: 457.6, z: 0}
+  ShouldersRotation: {x: 0, y: 0, z: 0}
+  NeckOffset: {x: 12, y: -149, z: 0}
+  NeckSize: {x: 131.4, y: 308.3, z: 0}
+  NeckRotation: {x: 0, y: 0, z: 0}
+  GlassesOffset: {x: 0, y: 211, z: 0}
+  GlassesSize: {x: 512.5, y: 286.62, z: 0}
+  GlassesRotation: {x: 0, y: 0, z: 0}
+  BeardOffset: {x: 0, y: 110, z: 0}
+  BeardSize: {x: 333.1, y: 138.6, z: 0}
+  BeardRotation: {x: 0, y: 0, z: 0}
+  GlovesRightOffset: {x: 392, y: -152, z: 0}
+  GlovesRightSize: {x: 599.56, y: 317.5, z: 0}
+  GlovesRightRotation: {x: 180, y: 0, z: -166.3}
+  GlovesLeftOffset: {x: -389, y: -139, z: 0}
+  GlovesLeftSize: {x: 599.56, y: 317.5, z: 0}
+  GlovesLeftRotation: {x: 0, y: 180, z: -5.7}
+  ShoesRightOffset: {x: 244, y: -390, z: 0}
+  ShoesRightSize: {x: 422, y: 165.39, z: 0}
+  ShoesRightRotation: {x: 0, y: 0, z: 0}
+  ShoesLeftOffset: {x: -206, y: -390, z: 0}
+  ShoesLeftSize: {x: 422, y: 165.39, z: 0}
+  ShoesLeftRotation: {x: 0, y: 0, z: 0}
+  HandOffset: {x: -367, y: -204, z: 0}
+  HandSize: {x: 544.29, y: 385.9, z: 0}
+  HandRotation: {x: 0, y: 0, z: 193.6}
+  WaistOffset: {x: 16, y: -195, z: 0}
+  WaistSize: {x: 537.9, y: 584.4, z: 0}
+  WaistRotation: {x: 0, y: 0, z: 0}
+  Description: 

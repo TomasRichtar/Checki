@@ -22,7 +22,7 @@ public class ChildrenDatabase : SingletonMonoBehaviour<ChildrenDatabase>
 
     IEnumerator GetChildrenCoroutine(int id, Action<List<Children>> onSuccess)
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://checkiapp.com/get_children.php?id=" + id);
+        UnityWebRequest www = UnityWebRequest.Get("https://checkiapp.com/get_children.php?id=" + id);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -88,7 +88,7 @@ public class ChildrenDatabase : SingletonMonoBehaviour<ChildrenDatabase>
         form.AddField("ImageId", Data.ImageId);
 
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/create_children.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/create_children.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -139,7 +139,7 @@ public class ChildrenDatabase : SingletonMonoBehaviour<ChildrenDatabase>
         form.AddField("Money", Data.Money);
         form.AddField("ImageId", Data.ImageId);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/update_children.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/update_children.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)

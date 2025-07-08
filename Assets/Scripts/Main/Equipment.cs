@@ -9,8 +9,9 @@ public class Equipment : ScriptableObject
     public int Id;
     public string Name = "Equipment";
     public Sprite Sprite;
+    public Sprite OffSprite;
     public float Size = 1;
-    public EquipmentSlot EquipmentSLot;
+    public EquipmentSlot EquipmentSlot;
 
     [Header("Ideas")]
     public string Description; // An idea

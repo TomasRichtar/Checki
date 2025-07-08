@@ -4,8 +4,16 @@ using UnityEngine;
 
 public enum EquipmentSlot 
 {
+    Hat,
     Head,
-    Necklaces,
+    Shoulders,
+    Neck,
     Glasses,
-    Beard
+    Beard,
+    GlovesRight,
+    GlovesLeft,
+    ShoesRight,
+    ShoesLeft,
+    Hand,
+    Waist
 }

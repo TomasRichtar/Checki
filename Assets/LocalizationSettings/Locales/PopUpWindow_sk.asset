@@ -19,7 +19,126 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 31385337856
-    m_Localized: 
+    m_Localized: "Odmena nie je zvolen\xE1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 137144713216
+    m_Localized: "Aby si mohol vybra\u0165 odmenu, mus\xED\u0161 ju najsk\xF4r zvoli\u0165."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 149127839744
+    m_Localized: "Pokra\u010Dova\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 239317958656
+    m_Localized: Odmena
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255046598656
+    m_Localized: "Naozaj si chce\u0161 t\xFAto odmenu vybra\u0165?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 267558207488
+    m_Localized: "Nem\xE1\u0161 dostatok kreditu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 290035482624
+    m_Localized: "Nem\xE1\u0161 dostato\u010Dn\xFD po\u010Det kreditov, aby si si
+      mohol vybra\u0165 t\xFAto odmenu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346100744192
+    m_Localized: "Zru\u0161i\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1556199391232
+    m_Localized: "Profil rodi\u010Da zalo\u017Een\xFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955549019291648
+    m_Localized: "Odmeny pridan\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955595903221760
+    m_Localized: "\xDAlohy pridelen\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4955670054322176
+    m_Localized: "Die\u0165a pridan\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4970074036649984
+    m_Localized: "Na schv\xE1lenie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5428919150198784
+    m_Localized: "Profil je \xFAspe\u0161ne zalo\u017Een\xFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20233253884936192
+    m_Localized: "Zmeni\u0165 heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20233400454889472
+    m_Localized: "Star\xE9 heslo:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20233405811015680
+    m_Localized: "Nov\xE9 heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20247253863514112
+    m_Localized: "Zl\xFD email alebo heslo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20247259269971968
+    m_Localized: "Zadali ste zl\xFD email, alebo heslo. Pros\xEDm sk\xFAste znova."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20249430665347072
+    m_Localized: "Obnovenie \xFA\u010Dtu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20249548512706560
+    m_Localized: "Kontaktujte n\xE1s na tomto emaile: test@email.com."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20249550500806656
+    m_Localized: "Povinn\xE9 pol\xED\u010Dka nie s\xFA vyplnen\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20251722332389376
+    m_Localized: "Pros\xEDm vypl\u0148te povinn\xE9 pol\xED\u010Dka a sk\xFAste znova."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20260913377853440
+    m_Localized: "Nutn\xE9 prihl\xE1senie rodi\u010Da"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20260914992660480
+    m_Localized: "Aby si mohol zapn\xFA\u0165 detsk\xFA verziu aplik\xE1cie, je najsk\xF4r
+      nutnos\u0165ou prihl\xE1si\u0165 sa ako rodi\u010D a vytvori\u0165 die\u0165a."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20288003447865344
+    m_Localized: "Zl\xFD form\xE1t hesla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20288004337057792
+    m_Localized: "Heslo mus\xED obsahova\u0165 presne 5 \u010D\xEDslic."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20288555099504640
+    m_Localized: "Profil aktualizovan\xFD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21309887182422016
+    m_Localized: "Maxim\xE1lny po\u010Det det\xED je 6. V\xE4\u010D\u0161ie mno\u017Estvo
+      bude umo\u017Enen\xE9 nesk\xF4r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21309964370198528
+    m_Localized: "Maxim\xE1lny po\u010Det det\xED"
     m_Metadata:
       m_Items: []
   references:

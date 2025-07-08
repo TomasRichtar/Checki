@@ -42,7 +42,7 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
 
     IEnumerator GetRewardCoroutine(int id, Action<List<Reward>> onSuccess)
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://checkiapp.com/get_rewards.php?id=" + id);
+        UnityWebRequest www = UnityWebRequest.Get("https://checkiapp.com/get_rewards.php?id=" + id);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -82,7 +82,7 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
         form.AddField("ProfileId", data.ProfileId);
         form.AddField("Collected", data.Collected);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/create_rewards.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/create_rewards.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
@@ -106,7 +106,7 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
         WWWForm form = new WWWForm();
         form.AddField("Id", rewardId);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/delete_rewards.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/delete_rewards.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -139,7 +139,7 @@ public class CreateRewardDatabase : SingletonMonoBehaviour<CreateRewardDatabase>
         form.AddField("ProfileId", data.ProfileId);
         form.AddField("Collected", data.Collected);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://checkiapp.com/update_rewards.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("https://checkiapp.com/update_rewards.php", form);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
