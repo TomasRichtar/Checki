@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10105059164160
-    m_Localized: 'kreditov: '
+    m_Localized: 'Kreditov* : '
     m_Metadata:
       m_Items: []
   - m_Id: 10103930896384
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17559453057024
-    m_Localized: "Z\xEDskali ste pr\xED\u0161erku"
+    m_Localized: Tvoja odmena
     m_Metadata:
       m_Items: []
   - m_Id: 17561000755200

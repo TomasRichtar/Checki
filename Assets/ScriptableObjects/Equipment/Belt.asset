@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 039938e81ab103a4c904b0be7b3d08c8, type: 3}
-  m_Name: Gloves_Right_02
+  m_Name: Belt
   m_EditorClassIdentifier: 
-  Id: 6
-  Name: Gloves_Right_02
-  Sprite: {fileID: 21300000, guid: 242ede406d88fe84897869963b57710f, type: 3}
+  Id: 23
+  Name: Belt
+  Sprite: {fileID: 21300000, guid: 2faac82fee84d6e41a9c96ab24f4b797, type: 3}
   OffSprite: {fileID: 0}
   Size: 1
-  EquipmentSlot: 0
+  EquipmentSlot: 9
   Description: 

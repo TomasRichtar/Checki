@@ -92,8 +92,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20247259269971968
-    m_Localized: "Zadali jste \u0161patn\xFD email, nebo heslo. Pros\xEDm zkuste
-      znova."
+    m_Localized: "E-mail nebo heslo nen\xED spr\xE1vn\xE9. Zkuste to pros\xEDm znovu."
     m_Metadata:
       m_Items: []
   - m_Id: 20249430665347072
@@ -140,6 +139,32 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 21309964370198528
     m_Localized: "Maxim\xE1ln\xED po\u010Det d\u011Bt\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26129936472752128
+    m_Localized: "Pros\xEDm zkontrolujte si, \u017Ee jste vyplnili v\u0161echna povinn\xE1
+      pole."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26129920387596288
+    m_Localized: "\u0160patn\u011B vypln\u011Bn\xE1 data"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26131737074876416
+    m_Localized: "Va\u0161e heslo bylo \xFAsp\u011B\u0161n\u011B zm\u011Bn\u011Bno."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26131746470117376
+    m_Localized: "Chyba p\u0159i zm\u011Bn\u011B hesla. Ujist\u011Bte se, \u017Ee
+      aktu\xE1ln\xED heslo je spr\xE1vn\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26354525924638720
+    m_Localized: "Nejprve pros\xEDm p\u0159idejte d\xEDt\u011B, abyste mohli pokra\u010Dovat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26354519410884608
+    m_Localized: "Nelze pokra\u010Dovat"
     m_Metadata:
       m_Items: []
   references:

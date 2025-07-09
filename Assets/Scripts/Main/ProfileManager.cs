@@ -177,8 +177,11 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
                 CallendarCollection.Instance.UpdateData();
                 ChildrenCollection.Instance.UpdateData();
                 WindowController.Instance.PushWindow<AdminWindow>();
-                Children child = MyGameManager.Instance.ChildrenList[0];
-                SelectChild(child);
+                if (MyGameManager.Instance.ChildrenList.Count > 0)
+                {
+                    Children child = MyGameManager.Instance.ChildrenList[0];
+                    SelectChild(child);
+                }
             });
         });
     }

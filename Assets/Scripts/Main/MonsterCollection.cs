@@ -113,7 +113,8 @@ public class MonsterCollection : SingletonMonoBehaviour<MonsterCollection>
             //LockedMonsters.Remove(monster);
             //MyMonsters.Add(monster);
             MyGameManager.Instance.MonsterList.Add(monster);
-            OnNewMonsterUnlocked?.Invoke();
+            LoadMonsterColletion();
+            //OnNewMonsterUnlocked?.Invoke();
         });
     }
 }

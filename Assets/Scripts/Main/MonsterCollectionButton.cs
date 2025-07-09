@@ -37,6 +37,7 @@ public class MonsterCollectionButton : MonoBehaviour
             ChildrenDatabase.Instance.UpdateData(child, (response) =>
             {
                 MyMonster.Instance.SetSelectedMonster(_monster);
+                WindowController.Instance.PopWindow();
             });
            
         }

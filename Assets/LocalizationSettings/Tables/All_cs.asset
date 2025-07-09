@@ -136,7 +136,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17559453057024
-    m_Localized: "Z\xEDskali jste p\u0159\xED\u0161erku"
+    m_Localized: "Tvoje odm\u011Bna"
     m_Metadata:
       m_Items: []
   - m_Id: 17202735890432
@@ -508,7 +508,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10105059164160
-    m_Localized: "kredit\u016F: "
+    m_Localized: "Kredit\u016F* : "
     m_Metadata:
       m_Items: []
   - m_Id: 10103930896384

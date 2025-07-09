@@ -683,14 +683,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b209611cfc97b844aafbd6d9124245a, type: 2}
   AllEquipmentList:
   - {fileID: 11400000, guid: 063b464e9f6d9a54a823ad5eaa1319ef, type: 2}
+  - {fileID: 11400000, guid: f298d733041a7174c95cb894127f4d94, type: 2}
   - {fileID: 11400000, guid: 308d8260561b2c440ba855138f48358c, type: 2}
   - {fileID: 11400000, guid: 6559d6ec19fc8544ebbb533bbff9c080, type: 2}
   - {fileID: 11400000, guid: 4a5c42d3fdcbb134db11cf6dc6f34be4, type: 2}
   - {fileID: 11400000, guid: fa4270458c63efc45ab8498a48a806d9, type: 2}
   - {fileID: 11400000, guid: fa94004cf883037419293d802ad26a45, type: 2}
   - {fileID: 11400000, guid: 83585da6769b3ee4a972a00f5874b644, type: 2}
-  - {fileID: 11400000, guid: 0b1b49c9438c0ef4d95d03e8dd0e81c7, type: 2}
-  - {fileID: 11400000, guid: 6c91a2b4707456947bffce04de746235, type: 2}
   - {fileID: 11400000, guid: 350cefa2478119448b7966022ae2e1f4, type: 2}
   - {fileID: 11400000, guid: 03baf19b2525f3c40b7121aa570d3db9, type: 2}
   - {fileID: 11400000, guid: 38e0b26339a7ee542af44e05f3249241, type: 2}
@@ -704,8 +703,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5283f3e25d6fd8440b08b6d464449b40, type: 2}
   - {fileID: 11400000, guid: b45da7ddfae267245af573e0760c29f4, type: 2}
   - {fileID: 11400000, guid: e9180114211e0cf4c91b643cd24b8a65, type: 2}
-  - {fileID: 11400000, guid: a3a54288eb3c78a4e9dfcc4125f90d19, type: 2}
-  - {fileID: 11400000, guid: 5b723f015d0a5c949a190e71468776b7, type: 2}
   - {fileID: 11400000, guid: efcf36667c2578e4d98d816d2443cb4b, type: 2}
   UserName: 
 --- !u!4 &1668126700

@@ -17,5 +17,5 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: daef095fc02c7364f8423025b1569e05, type: 3}
   OffSprite: {fileID: 0}
   Size: 1
-  EquipmentSlot: 0
+  EquipmentSlot: 3
   Description: 

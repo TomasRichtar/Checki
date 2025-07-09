@@ -10,10 +10,8 @@ public enum EquipmentSlot
     Neck,
     Glasses,
     Beard,
-    GlovesRight,
-    GlovesLeft,
-    ShoesRight,
-    ShoesLeft,
+    Gloves,
+    Shoes,
     Hand,
     Waist
 }

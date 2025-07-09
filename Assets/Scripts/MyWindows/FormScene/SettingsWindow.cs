@@ -19,8 +19,8 @@ public class SettingsWindow : BaseWindow
     private void OnDisable()
     {
         MainScene.onClick.RemoveListener(WindowController.Instance.PushWindow<AdminWindow>);
-        Edit.onClick.AddListener(OpenEdit);
-        PasswordChange.onClick.AddListener(OpenPasswordChangeWindow);
+        Edit.onClick.RemoveListener(OpenEdit);
+        PasswordChange.onClick.RemoveListener(OpenPasswordChangeWindow);
     }
 
     private void OpenEdit()

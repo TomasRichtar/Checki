@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   Name: None
-  Sprite: {fileID: 21300000, guid: 2faac82fee84d6e41a9c96ab24f4b797, type: 3}
+  Sprite: {fileID: 21300000, guid: 3935c647f8f8a064184bbb7b7de6c6e6, type: 3}
   OffSprite: {fileID: 0}
   Size: 1
   EquipmentSlot: 0

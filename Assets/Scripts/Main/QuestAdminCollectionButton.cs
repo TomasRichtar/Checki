@@ -75,8 +75,10 @@ public class QuestAdminCollectionButton : MonoBehaviour
     }
     public void DeleteThis()
     {
+        Debug.Log("Validate THIS");
         if (QuestAdminCollection.Instance.CheckIfExists(_quest))
         {
+            Debug.Log("Call Delete");
             QuestManager.Instance.DeleteQuest(_quest);
         }
     }

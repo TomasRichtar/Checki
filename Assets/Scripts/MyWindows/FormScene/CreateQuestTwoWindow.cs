@@ -92,8 +92,7 @@ public class CreateQuestTwoWindow : BaseWindow
     {
         if (string.IsNullOrEmpty(_credit.text) ||
             string.IsNullOrEmpty(_complitionTime.text) ||
-            _credit.text == "..." ||
-            _complitionTime.text == "...")
+            _credit.text == "...")
         {
             PopUp();
             return;

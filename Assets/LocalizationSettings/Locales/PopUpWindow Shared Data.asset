@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 255046598656
-    m_Key: CollectRewardBody
+    m_Key: CollectReward
     m_Metadata:
       m_Items: []
   - m_Id: 267558207488
@@ -40,7 +40,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 290035482624
-    m_Key: CollectMoreCreditBody
+    m_Key: CollectMoreCredit
     m_Metadata:
       m_Items: []
   - m_Id: 346100744192
@@ -133,6 +133,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 21309964370198528
     m_Key: MaximumChildrenTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26129920387596288
+    m_Key: WrongDataTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26129936472752128
+    m_Key: WrongData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26131737074876416
+    m_Key: ProfilePasswordChanged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26131746470117376
+    m_Key: ProfilePasswordChangedError
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26354519410884608
+    m_Key: FirstCreateChildTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26354525924638720
+    m_Key: FirstCreateChild
     m_Metadata:
       m_Items: []
   m_Metadata:

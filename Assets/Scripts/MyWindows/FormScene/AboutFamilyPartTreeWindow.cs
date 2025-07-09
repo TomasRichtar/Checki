@@ -69,18 +69,6 @@ public class AboutFamilyPartTreeWindow : BaseWindow
         {
             Next.onClick.AddListener(ProfileManager.Instance.CreateProfile);
         }
-        else if(IsResetingPassword)
-        {
-            if (1==1)
-            {
-                Debug.Log("CHangePassword");
-
-            }
-            else
-            {
-                Debug.Log("Invalid data");
-            }
-        }
         else
         {
             Next.onClick.AddListener(ProfileManager.Instance.UpdateProfile);

@@ -204,7 +204,14 @@ public class CreateProfileDatabase : SingletonMonoBehaviour<CreateProfileDatabas
         else
         {
             Debug.Log("Password update response: " + www.downloadHandler.text);
-            onSuccess?.Invoke(www.downloadHandler.text == "SUCCESS");
+            if (www.downloadHandler.text.Contains("\"success\":true"))
+            {
+                onSuccess?.Invoke(true);
+            }
+            else
+            {
+                onSuccess?.Invoke(false);
+            }
         }
     }
 

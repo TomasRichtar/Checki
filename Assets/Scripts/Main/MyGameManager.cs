@@ -59,6 +59,8 @@ public class MyGameManager : SingletonMonoBehaviour<MyGameManager>
             ChildrenList = Children;
             CheckCompleted();
         });
+        if (ChildrenId == 0) return;
+
         CreateQuestDatabase.Instance.GetQuestData(ChildrenId, (Quest) =>
         {
             QuestList = Quest;

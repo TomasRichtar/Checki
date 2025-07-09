@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 039938e81ab103a4c904b0be7b3d08c8, type: 3}
-  m_Name: Shoe_Right_04
+  m_Name: Gloves_01
   m_EditorClassIdentifier: 
-  Id: 21
-  Name: Shoe_Right_04
-  Sprite: {fileID: 21300000, guid: 8432074b6a028b94ba271e23e005a270, type: 3}
-  OffSprite: {fileID: 0}
+  Id: 5
+  Name: Gloves_01
+  Sprite: {fileID: 21300000, guid: 3ab9bfb988601e5439ae2e17dd7aeccf, type: 3}
+  OffSprite: {fileID: 21300000, guid: 460f7520c63ef7a41b4452a8c0cff908, type: 3}
   Size: 1
-  EquipmentSlot: 0
+  EquipmentSlot: 6
   Description: 

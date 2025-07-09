@@ -16,20 +16,41 @@ public class QuestSettingsWindow : BaseWindow
     private void OnEnable()
     {
         MainScene.onClick.AddListener(CloseDropDown);
-        MainScene.onClick.AddListener(WindowController.Instance.PushWindow<AdminWindow>);
-        CreateQuest.onClick.AddListener(WindowController.Instance.ForceEnter<CreateQuestMainWindow>);
-        CreateQuest.onClick.AddListener(WindowController.Instance.PushWindow<CreateQuestOneWindow>);
+        CreateQuest.onClick.AddListener(Create);
     }
     private void OnDisable()
     {
         MainScene.onClick.RemoveListener(CloseDropDown);
-        MainScene.onClick.RemoveListener(WindowController.Instance.PushWindow<AdminWindow>);
-        CreateQuest.onClick.RemoveListener(WindowController.Instance.ForceEnter<CreateQuestMainWindow>);
-        CreateQuest.onClick.RemoveListener(WindowController.Instance.PushWindow<CreateQuestOneWindow>);
+        CreateQuest.onClick.RemoveListener(Create);
     }
+    public void Create()
+    {
+        if (MyGameManager.Instance.ChildrenId == 0)
+        {
+            WindowController.Instance.PushPopUpWindow(
+                  "FirstCreateChildTitle",
+                  "FirstCreateChild",
+                  "Continue",
+                  null);
+            return;
+        }
+        else
+        {
+            WindowController.Instance.ForceEnter<CreateQuestMainWindow>();
+            WindowController.Instance.PushWindow<CreateQuestOneWindow>();
+        }
+    }
+
     public void CloseDropDown()
     {
         CustomDropDown.Close();
+        StartCoroutine(OpenAdminWindowAfterDelay());
+    }
+
+    private IEnumerator OpenAdminWindowAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        WindowController.Instance.PushWindow<AdminWindow>();
     }
 
 }

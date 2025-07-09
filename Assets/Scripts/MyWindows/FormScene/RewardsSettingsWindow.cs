@@ -15,19 +15,39 @@ public class RewardsSettingsWindow : BaseWindow
     private void OnEnable()
     {
         MainScene.onClick.AddListener(CloseDropDown);
-        MainScene.onClick.AddListener(WindowController.Instance.PushWindow<AdminWindow>);
-        CreateReward.onClick.AddListener(WindowController.Instance.ForceEnter<CreateRewardMainWindow>);
-        CreateReward.onClick.AddListener(WindowController.Instance.PushWindow<CreateRewardOneWindow>);
+        CreateReward.onClick.AddListener(Create);
     }
     private void OnDisable()
     {
         MainScene.onClick.RemoveListener(CloseDropDown);
-        MainScene.onClick.RemoveListener(WindowController.Instance.PushWindow<AdminWindow>);
-        CreateReward.onClick.RemoveListener(WindowController.Instance.ForceEnter<CreateRewardMainWindow>);
-        CreateReward.onClick.AddListener(WindowController.Instance.PushWindow<CreateRewardOneWindow>);
+        CreateReward.onClick.RemoveListener(Create);
+    }
+    public void Create()
+    {
+        if (MyGameManager.Instance.ChildrenId == 0)
+        {
+            WindowController.Instance.PushPopUpWindow(
+                  "FirstCreateChildTitle",
+                  "FirstCreateChild",
+                  "Continue",
+                  null);
+            return;
+        }
+        else
+        {
+            WindowController.Instance.ForceEnter<CreateRewardMainWindow>();
+            WindowController.Instance.PushWindow<CreateRewardOneWindow>();
+        }
     }
     public void CloseDropDown()
     {
         CustomDropDown.Close();
+        StartCoroutine(OpenAdminWindowAfterDelay());
+    }
+
+    private IEnumerator OpenAdminWindowAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        WindowController.Instance.PushWindow<AdminWindow>();
     }
 }

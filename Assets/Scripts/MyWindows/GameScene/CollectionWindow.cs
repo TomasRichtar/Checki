@@ -13,11 +13,15 @@ public class CollectionWindow : BaseWindow
 
     private void OnEnable()
     {
-        _onClickOpenLuckyWheel = () => WindowController.Instance.PushWindow<LuckyWheelWindow>();
-        SpinLuckyWheelButton.onClick.AddListener(_onClickOpenLuckyWheel);
+        SpinLuckyWheelButton.onClick.AddListener(OpenLuckyWheel);
     }
     private void OnDisable()
     {
-        SpinLuckyWheelButton.onClick.RemoveListener(WindowController.Instance.PushWindow<LuckyWheelWindow>);
+        SpinLuckyWheelButton.onClick.RemoveListener(OpenLuckyWheel);
+    }
+
+    private void OpenLuckyWheel()
+    {
+        WindowController.Instance.PushWindow<LuckyWheelWindow>();
     }
 }

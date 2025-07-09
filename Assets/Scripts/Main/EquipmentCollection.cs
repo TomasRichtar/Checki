@@ -99,7 +99,8 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
             //MyEquipments.Add(equipment);
 
             MyGameManager.Instance.EquipmentList.Add(equipment);
-            OnNewEquipmentUnlocked?.Invoke();
+            LoadEquipmentColletion();
+            //OnNewEquipmentUnlocked?.Invoke();
         });
 
     }

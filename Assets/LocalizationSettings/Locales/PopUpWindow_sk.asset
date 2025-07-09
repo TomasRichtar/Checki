@@ -92,7 +92,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20247259269971968
-    m_Localized: "Zadali ste zl\xFD email, alebo heslo. Pros\xEDm sk\xFAste znova."
+    m_Localized: "E-mail alebo heslo nie je spr\xE1vne. Sk\xFAste to pros\xEDm znova."
     m_Metadata:
       m_Items: []
   - m_Id: 20249430665347072
@@ -139,6 +139,32 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 21309964370198528
     m_Localized: "Maxim\xE1lny po\u010Det det\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26129936472752128
+    m_Localized: "Pros\xEDm skontrolujte si, \u017Ee ste vyplnili v\u0161etky povinn\xE9
+      polia."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26129920387596288
+    m_Localized: "Zle vyplnen\xE9 d\xE1ta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26131746470117376
+    m_Localized: "Chyba pri zmene hesla. Uistite sa, \u017Ee aktu\xE1lne heslo je
+      spr\xE1vne."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26131737074876416
+    m_Localized: "Va\u0161e heslo bolo \xFAspe\u0161ne zmenen\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26354519410884608
+    m_Localized: "Nie je mo\u017En\xE9 pokra\u010Dova\u0165"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26354525924638720
+    m_Localized: "Najprv pros\xEDm pridajte die\u0165a, aby ste mohli pokra\u010Dova\u0165."
     m_Metadata:
       m_Items: []
   references:
