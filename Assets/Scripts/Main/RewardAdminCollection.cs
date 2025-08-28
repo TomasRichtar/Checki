@@ -9,9 +9,6 @@ using UnityEngine.UI;
 
 public class RewardAdminCollection : SingletonMonoBehaviour<RewardAdminCollection>
 {
-    //public List<Reward> AllData = new List<Reward>();
-    //public List<Quest> MyData = new List<Quest>();
-
     [SerializeField] private RewardAdminCollectionButton _collectionButton;
 
     [SerializeField] private Transform _layout;
@@ -29,7 +26,6 @@ public class RewardAdminCollection : SingletonMonoBehaviour<RewardAdminCollectio
 
     public event Action OnDataLoaded;
     public event Action OnDataUpdate;
-
 
     private void OnEnable()
     {

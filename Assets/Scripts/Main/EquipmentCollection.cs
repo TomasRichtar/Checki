@@ -8,10 +8,6 @@ using UnityEngine;
 
 public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 {
-    //public List<Equipment> AllEquipments = new List<Equipment>();
-    //public List<Equipment> MyEquipments = new List<Equipment>();
-    //public List<Equipment> LockedEquipments = new List<Equipment>();
-
     [SerializeField] private Transform _equipmentLayout;
     [SerializeField] private EquipmentCollectionButton _EquipmentCollectionButton;
 
@@ -95,12 +91,8 @@ public class EquipmentCollection : SingletonMonoBehaviour<EquipmentCollection>
 
         ChildrenDatabase.Instance.UpdateData(child, (response) =>
         {
-            //LockedEquipments.Remove(equipment);
-            //MyEquipments.Add(equipment);
-
             MyGameManager.Instance.EquipmentList.Add(equipment);
             LoadEquipmentColletion();
-            //OnNewEquipmentUnlocked?.Invoke();
         });
 
     }

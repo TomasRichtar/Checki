@@ -36,6 +36,7 @@ public class QuestManager : SingletonMonoBehaviour<QuestManager>
             QuestAdminCollection.Instance.AddNewQuest(ChildrenId);
         });
     }
+
     public void DeleteQuest(Quest quest)
     {
         CreateQuestDatabase.Instance.Delete(quest.Id, (response) =>

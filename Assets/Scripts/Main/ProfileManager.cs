@@ -206,6 +206,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>();
         WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().IsCreatingNew = true;
     }
+
     public void AccountDataBase(string name, string nickname, string familyCount, string childCount)
     {
         Name = name;
@@ -213,6 +214,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         FamilyCount = string.IsNullOrEmpty(familyCount) ? 0 : int.Parse(familyCount);
         ChildCount = string.IsNullOrEmpty(childCount) ? 0 : int.Parse(childCount);
     }
+
     public void AccountDataPets(string dogs, string cats, string fish, string other)
     {
         Dogs = string.IsNullOrEmpty(dogs) ? 0 : int.Parse(dogs);
@@ -220,6 +222,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
         Fish = string.IsNullOrEmpty(fish) ? 0 : int.Parse(fish);
         Other = string.IsNullOrEmpty(other) ? 0 : int.Parse(other);
     }
+
     public void AccountDataHobies(
         int traveling,
         int cooking,
@@ -244,6 +247,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             ChildPassword = password;
         }
     }
+
     public void AccountChildRegister(string name, string nickname, string age)
     {
         Name = name;
@@ -427,6 +431,7 @@ public class ProfileManager : SingletonMonoBehaviour<ProfileManager>
             WindowController.Instance.ResetWindow<AddChildrenPartTwoWindow>();
         });
     }
+
     public void LoadChildInterests()
     {
         foreach (Transform item in _interestsLayout)

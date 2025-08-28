@@ -16,7 +16,6 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
     public int ProfileId;
 
     public Reward RewardData;
-
     public Reward SelectedReward;
 
     public void SelectReward(Reward reward, RewardCollectionButton button)
@@ -34,6 +33,7 @@ public class RewardManager : SingletonMonoBehaviour<RewardManager>
         button.ImagePrice.color = new Color(0.541f, 0.239f, 0.592f, 0.8f);
         button.NameText.color = new Color(0.541f, 0.239f, 0.592f, 0.8f);
     }
+
     public void CollectReward()
     {
         if (SelectedReward == null || SelectedReward.Id == 0)

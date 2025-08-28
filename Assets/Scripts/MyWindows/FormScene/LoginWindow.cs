@@ -55,8 +55,5 @@ public class LoginWindow : BaseWindow
                "ContactUs",
                "Continue",
                null);
-        //WindowController.Instance.PushWindow<AboutFamilyPartOneWindow>();
-        //WindowController.Instance.ForceEnter<AboutFamilyMainWindow>();
-        //WindowController.Instance.GetWindow<AboutFamilyPartTreeWindow>().IsResetingPassword = true;
     }
 }

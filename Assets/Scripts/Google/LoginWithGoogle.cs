@@ -13,7 +13,6 @@ using TastyCore.Utils;
 public class LoginWithGoogle : SingletonMonoBehaviour<LoginWithGoogle>
 {
     public string GoogleAPI = "226317420778-jj25k1vm76jfv9dh5dj1dvudtboe3bht.apps.googleusercontent.com";
-    private GoogleSignInConfiguration configuration;
 
     Firebase.Auth.FirebaseAuth auth;
     Firebase.Auth.FirebaseUser user;
@@ -97,33 +96,5 @@ public class LoginWithGoogle : SingletonMonoBehaviour<LoginWithGoogle>
                 });
             }
         });
-    }
-    private string CheckImageUrl(string url)
-    {
-        if (!string.IsNullOrEmpty(url))
-        {
-            return url;
-        }
-        return imageUrl;
-    }
-
-    IEnumerator LoadImage(string imageUri)
-    {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUri);
-        yield return www.SendWebRequest();
-
-        if (www.result == UnityWebRequest.Result.Success)
-        {
-            Texture2D texture = DownloadHandlerTexture.GetContent(www);
-            // Use the loaded texture here
-            Debug.Log("Image loaded successfully");
-            UserProfilePic.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0));
-        }
-        else
-        {
-            Debug.Log("Error loading image: " + www.error);
-        }
-
-
     }
 }

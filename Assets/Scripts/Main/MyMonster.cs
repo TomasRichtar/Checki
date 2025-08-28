@@ -47,10 +47,8 @@ public class MyMonster : SingletonMonoBehaviour<MyMonster>
 
         SetSelectedEquipment(MyGameManager.Instance.AllEquipmentList.FirstOrDefault(x => x.Id == int.Parse(child.SelectedEquipment)));
         SetSelectedMonster(MyGameManager.Instance.AllMonsterList.FirstOrDefault(x => x.Id == int.Parse(child.SelectedMonster)));
-
-        //SetSelectedEquipment(MyGameManager.Instance.AllEquipmentList[int.Parse(child.SelectedEquipment)]);
-        //SetSelectedMonster(MyGameManager.Instance.AllMonsterList[int.Parse(child.SelectedMonster)]);
     }
+
     public void UpdateSelectedMonsterUI()
     {
         foreach (var image in SelectedMonsterImages)
@@ -88,10 +86,8 @@ public class MyMonster : SingletonMonoBehaviour<MyMonster>
                 var image = images[i];
                 image.gameObject.SetActive(true);
 
-                // Nastav správný sprite podle indexu
                 image.sprite = (i % 2 == 0) ? SelectedEquipment.Sprite : SelectedEquipment.OffSprite;
 
-                // Nastav pozici, velikost a rotaci podle pravé/levé
                 var rt = image.rectTransform;
                 if (slot == EquipmentSlot.Gloves)
                 {
@@ -197,7 +193,6 @@ public class MyMonster : SingletonMonoBehaviour<MyMonster>
                 break;
         }
     }
-
 
     public void SetSelectedMonster(Monster monster)
     {

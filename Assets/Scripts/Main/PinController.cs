@@ -7,7 +7,6 @@ using UnityEngine;
 public class PinController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI pinDisplay;
-    //[SerializeField] private Animator PinAnim;
     private string correctPin = "12345";
     private string currentPin = "";
 
@@ -50,7 +49,6 @@ public class PinController : MonoBehaviour
 
     private void ResetPin()
     {
-        //PinAnim.SetTrigger("Incorrect");
         currentPin = "";
         pinDisplay.text = currentPin;
     }
